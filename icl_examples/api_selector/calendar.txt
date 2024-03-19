@@ -1,0 +1,22 @@
+Example 1:
+Background: No background
+User query: "List all of my calendars with their ids"
+API calling 1: GET /calendar/v3/users/me/calendarList to get the ids of all calendars in calendar list.
+API response: Your calendars are following:
+[list of all calendars with their ids]
+
+Example 2:
+Background: No background
+User query: "Create an event on the first calendar in my calendar list"
+API calling 1: GET /calendar/v3/users/me/calendarList to get the ids of all calendars in calendar list. The list of calendar ids are: webmaster@agileloopai.com, addressbook#contacts@group.v.calendar.google.com. The id of first calendar is webmaster@agileloopai.com
+API response: Successfully fetched the calendars list.
+API calling 2: POST /calendar/v3/calendars/{{calendarId}}/events to create the event
+API response: New event created in the calendar with id "webmaster@agileloopai.com". The id of created event is: "ul40hpnq2mkckilb2g406hjsfs"
+
+Example 3:
+Background: No background.
+User query: "Delete the second calendar from my calendars"
+API calling 1: GET /calendar/v3/users/me/calendarList to get the ids of all calendars in calendar list.
+API response: The id of second calendar is "addressbook#contacts@group.v.calendar.google.com".
+API calling 2: DELETE /calendar/v3/users/me/calendarList/{{calendarId}} to delete the calendar with id "addressbook#contacts@group.v.calendar.google.com"
+API response: Event with the id "addressbook#contacts@group.v.calendar.google.com" deleted successfully.

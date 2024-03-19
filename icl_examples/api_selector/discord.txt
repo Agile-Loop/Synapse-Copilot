@@ -1,0 +1,19 @@
+Example 1:
+Background: No background
+User query: Retrieve the last message from the general channel.
+API calling 1: GET /channels/{general_channel_id}/messages?limit=1 to get the last message from the general channel.
+API response: The last message from the general channel is "Hey everyone, join the voice chat!" from user "JaneDoe123".
+
+Example 2:
+Background: User knows the role name but not its ID.
+User query: Get the ID of the role named "Moderators".
+API calling 1: GET /guilds/{guild_id}/roles to retrieve the ID of the role named "Moderators".
+API response: The ID for the role "Moderators" is "role56789mod".
+
+Example 3:
+Background: User wants to mute a disruptive member during a meeting.
+User query: Mute member "JohnDoe" in the voice channel "Meeting Room".
+API calling 1: GET /guilds/{guild_id}/members/search?query=JohnDoe to get the user ID of "JohnDoe".
+API response 1: The user ID of "JohnDoe" is "johndoe123vc".
+API calling 2: PATCH /channels/{meeting_room_channel_id}/members/johndoe123vc to server mute "JohnDoe".
+API response 2: Member "JohnDoe" has been server muted in "Meeting Room" voice channel.

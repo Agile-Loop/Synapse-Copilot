@@ -1,0 +1,208 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "My Trello Collection",
+    "version": "1.0.0",
+    "contact": {}
+  },
+  "servers": [
+    {
+      "url": "https://api.trello.com"
+    }
+  ],
+  "paths": {
+    "/1/boards/": {
+      "post": {
+        "summary": "Demo create board",
+        "description": "Demo create board",
+        "operationId": "demoCreateBoard",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "Hassan"
+            }
+          },
+          {
+            "name": "key",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "2bf442214f0bdbd62d2ced92c71ece63"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "ATTA2e69756b5571073576f27b84cac0049dec3e315904b8c926253cea14457dc83a845787BE"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/1/boards/{id}/labels": {
+      "post": {
+        "summary": "Demo Create Label",
+        "description": "Demo Create Label",
+        "operationId": "demoCreateLabel",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "label1"
+            }
+          },
+          {
+            "name": "color",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "blue"
+            }
+          },
+          {
+            "name": "key",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "2bf442214f0bdbd62d2ced92c71ece63"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "ATTA2e69756b5571073576f27b84cac0049dec3e315904b8c926253cea14457dc83a845787BE"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/1/boards/{id}": {
+      "get": {
+        "summary": "Demo Get a Board",
+        "description": "Demo Get a Board",
+        "operationId": "demoGetABoard",
+        "parameters": [
+          {
+            "name": "key",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "2bf442214f0bdbd62d2ced92c71ece63"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "ATTA2e69756b5571073576f27b84cac0049dec3e315904b8c926253cea14457dc83a845787BE"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "put": {
+        "summary": "Demo Update Board",
+        "description": "Demo Update Board",
+        "operationId": "demoUpdateBoard",
+        "parameters": [
+          {
+            "name": "key",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "2bf442214f0bdbd62d2ced92c71ece63"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "ATTA2e69756b5571073576f27b84cac0049dec3e315904b8c926253cea14457dc83a845787BE"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "{name}"
+                  }
+                }
+              },
+              "examples": {
+                "Demo Update Board": {
+                  "value": {
+                    "name": "Mahmood1"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a Board",
+        "description": "Delete a Board",
+        "operationId": "deleteABoard",
+        "parameters": [
+          {
+            "name": "key",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "2bf442214f0bdbd62d2ced92c71ece63"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "ATTA2e69756b5571073576f27b84cac0049dec3e315904b8c926253cea14457dc83a845787BE"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

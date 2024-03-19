@@ -1,0 +1,580 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Options title",
+    "description": "Description from options",
+    "version": "6.0.7-beta",
+    "termsOfService": "http://tos.myweb.com"
+  },
+  "servers": [
+    {
+      "url": "https://sheets.googleapis.com"
+    },
+    {
+      "url": "https://accounts.google.com"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      },
+      "oauth2Auth": {
+        "type": "http",
+        "scheme": "oauth2"
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Spread Sheet"
+    }
+  ],
+  "paths": {
+    "/v4/spreadsheets": {
+      "post": {
+        "tags": ["Spread Sheet"],
+        "summary": "Create Parent SpreadSheet",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "properties": {
+                    "title": "{{sheetTitle}}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json; charset=UTF-8"
+                }
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string",
+                  "example": "Referer"
+                }
+              },
+              "Content-Encoding": {
+                "schema": {
+                  "type": "string",
+                  "example": "gzip"
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Sat, 28 Oct 2023 07:47:52 GMT"
+                }
+              },
+              "Server": {
+                "schema": {
+                  "type": "string",
+                  "example": "ESF"
+                }
+              },
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "example": "private"
+                }
+              },
+              "X-XSS-Protection": {
+                "schema": {
+                  "type": "integer",
+                  "example": "0"
+                }
+              },
+              "X-Frame-Options": {
+                "schema": {
+                  "type": "string",
+                  "example": "SAMEORIGIN"
+                }
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "example": "nosniff"
+                }
+              },
+              "Alt-Svc": {
+                "schema": {
+                  "type": "string",
+                  "example": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+                }
+              },
+              "Transfer-Encoding": {
+                "schema": {
+                  "type": "string",
+                  "example": "chunked"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "spreadsheetId": "1kazV3iLurBVxcZ5JvGsnjSmOSNSK7AQDhIRJvV2l6AA",
+                  "properties": {
+                    "title": "Test Spread Sheet",
+                    "locale": "en_US",
+                    "autoRecalc": "ON_CHANGE",
+                    "timeZone": "Etc/GMT",
+                    "defaultFormat": {
+                      "backgroundColor": {
+                        "red": 1,
+                        "green": 1,
+                        "blue": 1
+                      },
+                      "padding": {
+                        "top": 2,
+                        "right": 3,
+                        "bottom": 2,
+                        "left": 3
+                      },
+                      "verticalAlignment": "BOTTOM",
+                      "wrapStrategy": "OVERFLOW_CELL",
+                      "textFormat": {
+                        "foregroundColor": {},
+                        "fontFamily": "arial,sans,sans-serif",
+                        "fontSize": 10,
+                        "bold": false,
+                        "italic": false,
+                        "strikethrough": false,
+                        "underline": false,
+                        "foregroundColorStyle": {
+                          "rgbColor": {}
+                        }
+                      },
+                      "backgroundColorStyle": {
+                        "rgbColor": {
+                          "red": 1,
+                          "green": 1,
+                          "blue": 1
+                        }
+                      }
+                    },
+                    "spreadsheetTheme": {
+                      "primaryFontFamily": "Arial",
+                      "themeColors": [
+                        {
+                          "colorType": "TEXT",
+                          "color": {
+                            "rgbColor": {}
+                          }
+                        },
+                        {
+                          "colorType": "BACKGROUND",
+                          "color": {
+                            "rgbColor": {
+                              "red": 1,
+                              "green": 1,
+                              "blue": 1
+                            }
+                          }
+                        },
+                        {
+                          "colorType": "ACCENT1",
+                          "color": {
+                            "rgbColor": {
+                              "red": 0.25882354,
+                              "green": 0.52156866,
+                              "blue": 0.95686275
+                            }
+                          }
+                        },
+                        {
+                          "colorType": "ACCENT2",
+                          "color": {
+                            "rgbColor": {
+                              "red": 0.91764706,
+                              "green": 0.2627451,
+                              "blue": 0.20784314
+                            }
+                          }
+                        },
+                        {
+                          "colorType": "ACCENT3",
+                          "color": {
+                            "rgbColor": {
+                              "red": 0.9843137,
+                              "green": 0.7372549,
+                              "blue": 0.015686275
+                            }
+                          }
+                        },
+                        {
+                          "colorType": "ACCENT4",
+                          "color": {
+                            "rgbColor": {
+                              "red": 0.20392157,
+                              "green": 0.65882355,
+                              "blue": 0.3254902
+                            }
+                          }
+                        },
+                        {
+                          "colorType": "ACCENT5",
+                          "color": {
+                            "rgbColor": {
+                              "red": 1,
+                              "green": 0.42745098,
+                              "blue": 0.003921569
+                            }
+                          }
+                        },
+                        {
+                          "colorType": "ACCENT6",
+                          "color": {
+                            "rgbColor": {
+                              "red": 0.27450982,
+                              "green": 0.7411765,
+                              "blue": 0.7764706
+                            }
+                          }
+                        },
+                        {
+                          "colorType": "LINK",
+                          "color": {
+                            "rgbColor": {
+                              "red": 0.06666667,
+                              "green": 0.33333334,
+                              "blue": 0.8
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "sheets": [
+                    {
+                      "properties": {
+                        "sheetId": 0,
+                        "title": "Sheet1",
+                        "index": 0,
+                        "sheetType": "GRID",
+                        "gridProperties": {
+                          "rowCount": 1000,
+                          "columnCount": 26
+                        }
+                      }
+                    }
+                  ],
+                  "spreadsheetUrl": "https://docs.google.com/spreadsheets/d/1kazV3iLurBVxcZ5JvGsnjSmOSNSK7AQDhIRJvV2l6AA/edit?ouid=114894969139110219380"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v4/spreadsheets/{{spreadsheetId}}:batchUpdate": {
+      "post": {
+        "tags": ["Spread Sheet"],
+        "summary": "Create Child Spread Sheet",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "spreadsheetId": "{{spreadsheetId}}",
+                  "requests": [
+                    {
+                      "addSheet": {
+                        "properties": {
+                          "title": "child"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "spreadsheetId",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json; charset=UTF-8"
+                }
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string",
+                  "example": "Referer"
+                }
+              },
+              "Content-Encoding": {
+                "schema": {
+                  "type": "string",
+                  "example": "gzip"
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Sat, 28 Oct 2023 07:51:13 GMT"
+                }
+              },
+              "Server": {
+                "schema": {
+                  "type": "string",
+                  "example": "ESF"
+                }
+              },
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "example": "private"
+                }
+              },
+              "X-XSS-Protection": {
+                "schema": {
+                  "type": "integer",
+                  "example": "0"
+                }
+              },
+              "X-Frame-Options": {
+                "schema": {
+                  "type": "string",
+                  "example": "SAMEORIGIN"
+                }
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "example": "nosniff"
+                }
+              },
+              "Alt-Svc": {
+                "schema": {
+                  "type": "string",
+                  "example": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+                }
+              },
+              "x-l2-request-path": {
+                "schema": {
+                  "type": "string",
+                  "example": "l2-managed-6"
+                }
+              },
+              "Transfer-Encoding": {
+                "schema": {
+                  "type": "string",
+                  "example": "chunked"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "spreadsheetId": "1kazV3iLurBVxcZ5JvGsnjSmOSNSK7AQDhIRJvV2l6AA",
+                  "replies": [
+                    {
+                      "addSheet": {
+                        "properties": {
+                          "sheetId": 1117492400,
+                          "title": "child",
+                          "index": 1,
+                          "sheetType": "GRID",
+                          "gridProperties": {
+                            "rowCount": 1000,
+                            "columnCount": 26
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v4/spreadsheets/{{spreadsheetId}}/values/{{sheetTitle}}:append": {
+      "post": {
+        "tags": ["Spread Sheet"],
+        "summary": "Add data in Child Sheet",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "range": "Sheet1",
+                  "majorDimension": "ROWS",
+                  "values": [
+                    ["John", "Doe", "30", "Male", "New York", "USA"],
+                    ["Jane", "Smith", "25", "Female", "London", "UK"],
+                    ["{{dataValue1}}", "{{dataValue2}}", "{{dataValue3}}", "{{dataValue4}}"]
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "valueInputOption",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "USER_ENTERED"
+          },
+          {
+            "name": "spreadsheetId",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json; charset=UTF-8"
+                }
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string",
+                  "example": "Referer"
+                }
+              },
+              "Content-Encoding": {
+                "schema": {
+                  "type": "string",
+                  "example": "gzip"
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Sat, 28 Oct 2023 08:05:11 GMT"
+                }
+              },
+              "Server": {
+                "schema": {
+                  "type": "string",
+                  "example": "ESF"
+                }
+              },
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "example": "private"
+                }
+              },
+              "X-XSS-Protection": {
+                "schema": {
+                  "type": "integer",
+                  "example": "0"
+                }
+              },
+              "X-Frame-Options": {
+                "schema": {
+                  "type": "string",
+                  "example": "SAMEORIGIN"
+                }
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "example": "nosniff"
+                }
+              },
+              "Alt-Svc": {
+                "schema": {
+                  "type": "string",
+                  "example": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+                }
+              },
+              "x-l2-request-path": {
+                "schema": {
+                  "type": "string",
+                  "example": "l2-managed-6"
+                }
+              },
+              "Transfer-Encoding": {
+                "schema": {
+                  "type": "string",
+                  "example": "chunked"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "spreadsheetId": "1kazV3iLurBVxcZ5JvGsnjSmOSNSK7AQDhIRJvV2l6AA",
+                  "updates": {
+                    "spreadsheetId": "1kazV3iLurBVxcZ5JvGsnjSmOSNSK7AQDhIRJvV2l6AA",
+                    "updatedRange": "Sheet1!A1:F2",
+                    "updatedRows": 2,
+                    "updatedColumns": 6,
+                    "updatedCells": 12
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

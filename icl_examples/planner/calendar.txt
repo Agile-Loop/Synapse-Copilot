@@ -1,0 +1,25 @@
+Example 1:
+User query: "List all of my calendars with their ids"
+Plan step 1: List all calendar ids of the user
+API response: Successfully called GET /calendar/v3/users/me/calendarList to get the ids of all calendars in calendar list. Ids of the calendars are: webmaster@agileloopai.com, en.pk#holiday@group.v.calendar.google.com, addressbook#contacts@group.v.calendar.google.com
+Thought: I have successfully executed the plan and retrieved the events for next week.
+Final Answer: Here are all your events for next week: [List of all calendar ids].
+
+Example 2:
+User query: "Create an event on the first calendar in my calendar list"
+Plan step 1: Get all calendars from the calendars list
+API response: Successfully called GET /calendar/v3/users/me/calendarList to get the ids of all calendars in calendar list. The id of first calendar is "webmaster@agileloopai.com"
+Plan step 2: Use the id of first calendar to create an event in that calendar
+Plan Instruction: Try to fetch the event date, name and other possible information from the string and use them in parameter of api. If not provided any, use any values of parameters as an example.
+API response: Successfully called POST /calendar/v3/calendars/{{calendarId}}/events to create an event in webmaster@agileloopai.com calendar.
+Thought: I have successfully executed the plan and created the event as requested.
+Final Answer: I have created an event in calendar with id "webmaster@agileloopai.com"
+
+Example 3:
+User query: "Delete the second calendar from my calendars"
+Plan step 1: Get the details and id of calendar to delete
+API response: Successfully called GET /calendar/v3/users/me/calendarList to get the ids of all calendars in calendar list. The id of second calendar is "addressbook#contacts@group.v.calendar.google.com".
+Plan step 2: Delete the calendar with id "addressbook#contacts@group.v.calendar.google.com"
+API response: Successfully called DELETE /calendar/v3/users/me/calendarList/{{calendarId}} to delete the calendar with id "addressbook#contacts@group.v.calendar.google.com"
+Thought: I have successfully executed the plan and deleted the calendar from the calendar list.
+Final Answer: I have deleted the calendar from the list. The id of deleted calendar is "addressbook#contacts@group.v.calendar.google.com"

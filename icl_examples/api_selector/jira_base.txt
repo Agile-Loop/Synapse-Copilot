@@ -1,0 +1,17 @@
+Example 1:
+Background: No background
+User query: Create a new project named "TestProject" of type "software" on Jira with parameters username={key} and apiToken={token}.
+API calling 1: POST /rest/api/3/project/ to create a project
+API response: Project "TestProject" created successfully with project_id XYZ
+
+Example 2:
+Background: No background
+User query: Fetch details of project with id XYZ on Jira with parameters username={key} and apiToken={token}.
+API calling 1: GET /rest/api/3/project/XYZ to get project details
+API response: Details of project "TestProject" retrieved successfully
+
+Example 3:
+Background: No background
+User query: Update the project named "TestProject" with new description on Jira with parameters username={key} and apiToken={token}.
+API calling 1: PUT /rest/api/3/project/XYZ to update project information
+API response: Project "TestProject" updated successfully

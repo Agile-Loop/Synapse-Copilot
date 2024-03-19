@@ -1,0 +1,44 @@
+Example 1:
+Background: No background
+User query: List all dashboards available.
+API calling 1: GET /services/data/v59.0/analytics/dashboards
+API response: {
+                "folders": [
+                    {
+                        "id": "01Z5g000000uZavEAE",
+                        "label": "API-test",
+                        "name": "API-test",
+                        "type": "dashboard",
+                        "url": "/services/data/v59.0/analytics/dashboards/01Z5g000000uZavEAE"
+                    }
+                ]
+            }
+
+Example 2:
+Background: No background
+User query: Create a new folder named "New API Folder" for type Dashboard.
+API calling 1: POST /services/data/v43.0/folders/ with body 
+               {
+                "label": "New API Folder",
+                "name": "New_API_Folder",
+                "type": "Dashboard"
+               }
+API response: {
+                    "ancestors": [],
+                    "childrenUrl": "/services/data/v43.0/folders/00l5g000000waHJAAY/children",
+                    "depth": 0,
+                    "id": "00l5g000000waHJAAY",
+                    "label": "New API Folder",
+                    "name": "New_API_Folder",
+                    "shareRecipientsUrl": "/services/data/v43.0/folders/00l5g000000waHJAAY/share-recipients?shareType=User&limit=100",
+                    "sharesUrl": "/services/data/v43.0/folders/00l5g000000waHJAAY/shares",
+                    "supportedShareTypes": ["user", "role", "roleandsubordinates", "group"],
+                    "type": "dashboard",
+                    "url": "/services/data/v43.0/folders/00l5g000000waHJAAY"
+                }
+
+Example 3:
+Background: The folder named "Old API Folder" has the id "00l5g000000waHJAAY"
+User query: Delete the folder with the name "Old API Folder".
+API calling 1: DELETE /services/data/v43.0/folders/00l5g000000waHJAAY
+API response: No content (204 status code) indicating successful deletion.

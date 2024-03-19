@@ -1,0 +1,8 @@
+1. Open the terminal in project directory
+2. Create and activate the virtual environment
+	a. Create virtual environment using: python -m venv env
+	b. Activate virtual environment using: env\Scripts\activate
+3. Install package requirements of the project
+	a. Install requirements using: pip install -r requirements.txt
+4. Execute the run.py file to see the code in action
+	a. Execute the file using: python run.py

@@ -1,0 +1,20 @@
+Example 1:
+Background: No background
+User query: Create an image of red car standing infront of office
+API calling 1: POST /api/v3/text2img to request the creation of an image with the specified text
+API payload: { "prompt": "Create an image of red car standing infront of office.", "negative_prompt": "incorporating colors, gradients, shadows, 3D effects, over-complicated, multiple objects, watermark", "width": "512", "height": "512"}
+API response: The image has been successfully created with your specified text. (response includes URL or data of the generated image)
+
+Example 2:
+Background: No background
+User query: Generate an image with a starry night background.
+API calling 1: POST /api/v3/text2img to request an image with the specified background and text
+API payload: { "prompt": "Generate an image with a starry night background.", "negative_prompt": "incorporating colors, gradients, shadows, 3D effects, over-complicated, multiple objects, watermark", "width": "512", "height": "512"}
+API response: Your image has been created with a starry night background. (response includes URL or data of the generated image)
+
+Example 3:
+Background: The user wants a specific style and color for the text and background.
+User query: Create an image with the quote "Innovation distinguishes between a leader and a follower." with modern font style, white text, and black background.
+API calling 1: POST /api/v3/text2img to create an image with specific styles and colors
+API payload: { "prompt": "Create an image with the quote "Innovation distinguishes between a leader and a follower." with modern font style, white text, and black background.", "negative_prompt": "incorporating colors, gradients, shadows, 3D effects, over-complicated, multiple objects, watermark", "width": "512", "height": "512"}
+API response: Your image has been successfully created with the specified styles and colors. (response includes URL or data of the generated image)

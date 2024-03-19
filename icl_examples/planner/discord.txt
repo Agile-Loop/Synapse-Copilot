@@ -1,0 +1,28 @@
+EXAMPLE 1:
+
+User query: Send a message to the general channel saying "Hello everyone!"
+Plan step 1: Identify the general channel ID.
+API response: Successfully called GET /guilds/{guild_id}/channels to get list of channels. The ID for the general channel is "1234567890abcdef".
+Plan step 2: Send the message "Hello everyone!" to the general channel.
+API response: Successfully called POST /channels/1234567890abcdef/messages with content "Hello everyone!".
+Thought: I have finished executing the plan and sent the desired message.
+Final Answer: I have sent the message "Hello everyone!" to the general channel.
+
+EXAMPLE 2:
+User query: Create a new voice channel called "Meeting Room".
+Plan step 1: Create a new voice channel with the name "Meeting Room".
+API response: Successfully called POST /guilds/{guild_id}/channels with type voice and name "Meeting Room". The ID for the new channel is "abcdef1234567890".
+Thought: I have finished creating the new voice channel.
+Final Answer: I have created a new voice channel named "Meeting Room".
+
+EXAMPLE 3:
+
+User query: Add user "JohnDoe" to the "SpecialGuests" role.
+Plan step 1: Search for the user ID of "JohnDoe".
+API response: Successfully called GET /guilds/{guild_id}/members/search?query=JohnDoe. The ID for JohnDoe is "johndoe123".
+Plan step 2: Identify the role ID for "SpecialGuests".
+API response: Successfully called GET /guilds/{guild_id}/roles. The ID for "SpecialGuests" role is "role56789".
+Plan step 3: Assign "SpecialGuests" role to user "JohnDoe".
+API response: Successfully called PUT /guilds/{guild_id}/members/johndoe123/roles/role56789.
+Thought: I have assigned the "SpecialGuests" role to the user "JohnDoe".
+Final Answer: I have added user "JohnDoe" to the "SpecialGuests" role.

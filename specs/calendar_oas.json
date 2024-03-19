@@ -1,0 +1,215 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Options title",
+    "description": "Description from options",
+    "version": "6.0.7-beta",
+    "termsOfService": "http://tos.myweb.com"
+  },
+  "servers": [
+    {
+      "url": "https://www.googleapis.com"
+    },
+    {
+      "url": "https://accounts.google.com"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      },
+      "oauth2Auth": {
+        "type": "http",
+        "scheme": "oauth2"
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Calender"
+    }
+  ],
+  "paths": {
+    "/calendar/v3/users/me/calendarList": {
+      "get": {
+        "tags": ["Calender"],
+        "summary": "List all Calenders",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/calendar/v3/calendars/{{calendarId}}/events": {
+      "post": {
+        "tags": ["Calender"],
+        "summary": "Add Event to Specific Calendar",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "summary": "{{event_name}}",
+                  "description": "{{event_description}}",
+                  "start": {
+                    "dateTime": "{{event_start_date}}",
+                    "timeZone": "America/Los_Angeles"
+                  },
+                  "end": {
+                    "dateTime": "{{event_end_date}}",
+                    "timeZone": "America/Los_Angeles"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "calendarId",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": ["Calender"],
+        "summary": "Get Events of a Calendar",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer {{ACCESS_TOKEN}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/calendar/v3/users/me/calendarList/{{calendarId}}": {
+      "delete": {
+        "tags": ["Calender"],
+        "summary": "Delete Calendar from Calendars",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer {{ACCESS_TOKEN}}"
+          },
+          {
+            "name": "calendarId",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/o/oauth2/token": {
+      "post": {
+        "tags": ["default"],
+        "summary": "Refresh Token",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "grant_type": {
+                    "type": "string",
+                    "example": "{{refresh_token}}"
+                  },
+                  "refresh_token": {
+                    "type": "string",
+                    "example": "{{refresh_token}}"
+                  },
+                  "client_id": {
+                    "type": "string",
+                    "example": "{{clientId}}"
+                  },
+                  "client_secret": {
+                    "type": "string",
+                    "example": "{{clientSecret}}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2Auth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/x-www-form-urlencoded"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    }
+  }
+}

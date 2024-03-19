@@ -1,0 +1,24 @@
+Example 1:
+User query: List all reports available.
+Plan step 1: Get details of all reports available
+API calling 1: GET /services/data/{version}/analytics/reports to get the list of reports.
+API response: Successfully retrieved the list of reports.
+Thought: I have finished executing the plan and completed the user's instructions and collected the data.
+Final Answer: Successfully retrieved the list of available reports.
+
+Example 2:
+User query: Create a clone of a dashboard with ID "01Z5g000000uZavEAE" in the folder with ID "00l5g000000waGfAAI".
+Plan step 1: Clone the specified dashboard
+API calling 1: POST /services/data/{version}/analytics/dashboards with cloneId="01Z5g000000uZavEAE" and folderId="00l5g000000waGfAAI" in the request body.
+API response: Successfully created a cloned dashboard with the ID "01Z5g000000uZboEAE".
+Thought: I have finished executing the plan and completed the user's instructions and collected the data.
+Final Answer: Successfully cloned the dashboard with a new ID "01Z5g000000uZboEAE".
+
+Example 3:
+User query: Delete a folder with ID "00l5g000000waHJAAY".
+Plan step 1: Delete the specified folder
+API calling 1: DELETE /services/data/v43.0/folders/{folder_id} with folder_id="00l5g000000waHJAAY".
+API response: Successfully deleted the folder with ID "00l5g000000waHJAAY".
+Thought: I have finished executing the plan and completed the user's instructions.
+Final Answer: Successfully deleted the folder with ID "00l5g000000waHJAAY".
+-----------------------------------

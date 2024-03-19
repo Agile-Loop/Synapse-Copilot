@@ -1,0 +1,23 @@
+Example 1:
+User query: Create a new board named "AI Hub".
+Plan step 1: Create a board named "AI Hub".
+API calling 1: POST /1/boards/ with parameters {name: "AI Hub", key: "{key}", token: "{token}"}.
+API response: A new board with the name "AI Hub" has been created successfully. The ID of the board is "658d2272d02bb8b7918d140f".
+Thought: I have finished the execution plan and created a board named "AI Hub".
+Final Answer: I have created a board named "AI Hub".
+
+Example 2:
+User query: Create a label "Completed" in blue color for the board with id "658d2272d02bb8b7918d140f".
+Plan step 1: Create a label "Completed" in blue color for the board with id "658d2272d02bb8b7918d140f".
+API calling 1: POST /1/boards/658d2272d02bb8b7918d140f/labels with parameters {name: "Completed", color: "blue", key: "{key}", token: "{token}"}.
+API response: The label "Completed" with color "blue" has been added to the board "658d2272d02bb8b7918d140f" successfully. 
+Thought: I have finished the execution plan and added a label to the board.
+Final Answer: I have added a label "Completed" to the board with id "658d2272d02bb8b7918d140f".
+
+Example 3:
+User query: Delete the board with id "658d2272d02bb8b7918d140f".
+Plan step 1: Delete the board with id "658d2272d02bb8b7918d140f".
+API calling 1: DELETE /1/boards/658d2272d02bb8b7918d140f with parameters {key: "{key}", token: "{token}"}.
+API response: The board with id "658d2272d02bb8b7918d140f" has been deleted successfully. 
+Thought: I have finished the execution plan and deleted the board.
+Final Answer: I have deleted the board with id "658d2272d02bb8b7918d140f".

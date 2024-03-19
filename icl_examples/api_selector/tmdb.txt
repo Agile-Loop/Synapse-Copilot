@@ -1,0 +1,33 @@
+Example 1:
+
+Background: The id of Wong Kar-Wai is 12453
+User query: give me the latest movie directed by Wong Kar-Wai.
+API calling 1: GET /person/12453/movie_credits to get the latest movie directed by Wong Kar-Wai (id 12453)
+API response: The latest movie directed by Wong Kar-Wai is The Grandmaster (id 44865), ...
+
+Example 2:
+
+Background: No background
+User query: search for movies produced by DreamWorks Animation
+API calling 1: GET /search/company to get the id of DreamWorks Animation
+API response: DreamWorks Animation's company_id is 521
+Instruction: Continue. Search for the movies produced by DreamWorks Animation
+API calling 2: GET /discover/movie to get the movies produced by DreamWorks Animation
+API response: Puss in Boots: The Last Wish (id 315162), Shrek (id 808), The Bad Guys (id 629542), ...
+
+Example 3:
+
+Background: The id of the movie Happy Together is 18329
+User query: search for the director of Happy Together
+API calling 1: GET /movie/18329/credits to get the director for the movie Happy Together
+API response: The director of Happy Together is Wong Kar-Wai (12453)
+
+Example 4:
+
+Background: No background
+User query: search for the highest rated movie directed by Wong Kar-Wai
+API calling 1: GET /search/person to search for Wong Kar-Wai
+API response: The id of Wong Kar-Wai is 12453
+Instruction: Continue. Search for the highest rated movie directed by Wong Kar-Wai (id 12453)
+API calling 2: GET /person/12453/movie_credits to get the highest rated movie directed by Wong Kar-Wai (id 12453)
+API response: The highest rated movie directed by Wong Kar-Wai is In the Mood for Love (id 843), ...

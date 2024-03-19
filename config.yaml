@@ -1,0 +1,28 @@
+# openai_api_key: "YOUR OPENAI KEY"
+openai_api_key: "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"
+
+openai_key: "YOUR OPENAI API KEY"
+tmdb_access_token: "YOUR TMDB ACCESS TOKEN"
+spotipy_client_id: "YOUR SPOTIFY APPLICATION CLIENT ID"
+spotipy_client_secret: "YOUR SPOTIFY APPLCIATION CLIENT SECRET"
+spotipy_redirect_uri: "URL TO YOUR APPLICATION"
+YOUR_SCENARIO_KEY: "YOUR SCENARIO KEY HERE"
+YOUR_SCENARIO_SECRET_IF_ANY: "YOUR SCENARIO SECRET HERE"
+
+#spotipy_client_id: "884afca3fc194cd7a00a01210f85d826"
+#spotipy_client_secret: "f0dcc4a6d3d449c5a22cd8b9e66e4d2b"
+#spotipy_redirect_uri: "http://localhost/"
+
+NOTION_KEY: "secret_8l3oBK4n08ZYUR73moFvTUTCQpmltOjbTEHxQ3T3uql"
+NOTION_PAGE_ID: "ed0eab8fa04541f58a4024ecb35fde8a"
+NOTION_VERSION: "2022-02-22"
+
+UPCLICK_KEY: "pk_67500871_V516FEH5W7THCD8P7K6847IRSPFZGUJN"
+
+discord_client_id: "1163748696425500745"
+discord_client_secret: "CLp5fGdJD4avek2JpKw5j78sRP0__gNn"
+discord_redirect_uri: "http://localhost/"
+
+google_token: "ya29.a0AfB_byBW6OBtk4bTLtRV1-cK2hAP2Xg6QJeQrzstD9smG7pvbC82HxjgK403idOWAQ0DClgjho0VMTqZcEMClkkBWrj06DFw61sFLKeWYYx0KNMphlvIbsGetD7y-2RObghnGtkm4S14fp1UN44oinBgKUnxXb51vgtZFQaCgYKAbQSARISFQHGX2MiOyhHqgCd2GXPcUV1d72b2w0173"
+# trello_key: "e0163c45ef216569c30b4ad902f9c524"
+# trello_token: "ATTA8f1f6571f1c10ab6049a8cebfade473c15a23c058b58b212487f2922adb3fb0a339CC427"

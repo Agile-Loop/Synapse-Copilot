@@ -1,0 +1,26 @@
+# Virtual environment
+env/
+dir/env/
+
+# Byte-compiled / optimized / DLL files
+**/__pycache__/
+__pycache__/
+
+# Pycharm directory
+.idea/
+**/.idea/
+
+# databases in project like SQLite, ignore them too
+*.sqlite3
+
+# If Jupyter notebooks involved
+.ipynb_checkpoints/
+
+# Other unnecessary files
+*.log
+*.bak
+*.swp
+*.swo
+*.cache
+*.vscode
+.DS_Store

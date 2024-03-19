@@ -1,0 +1,1523 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Options title",
+    "description": "Description from options",
+    "version": "6.0.7-beta",
+    "termsOfService": "http://tos.myweb.com"
+  },
+  "servers": [
+    {
+      "url": "https://api.trello.com"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "https",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Boards"
+    },
+    {
+      "name": "Cards"
+    },
+    {
+      "name": "Lists"
+    }
+  ],
+  "paths": {
+    "/1/boards/": {
+      "post": {
+        "summary": "Create a Board",
+        "description": "Create a new board.",
+        "operationId": "createBoard",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "board1"
+            }
+          },
+          {
+            "name": "key",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{key}"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{token}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/1/boards/{id}": {
+      "get": {
+        "tags": ["Boards"],
+        "summary": "Get a Board",
+        "description": "Request a single board.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "key",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{key}"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{token}"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "example": {
+                  "id": "65b0fe1c42ef9d22c6d02a43",
+                  "name": "tst",
+                  "desc": "",
+                  "descData": null,
+                  "closed": false,
+                  "idOrganization": "658d20b015e0fc93a455e9ae",
+                  "idEnterprise": null,
+                  "pinned": false,
+                  "url": "https://trello.com/b/BzvPNSMD/tst",
+                  "shortUrl": "https://trello.com/b/BzvPNSMD",
+                  "prefs": {
+                    "permissionLevel": "private",
+                    "hideVotes": false,
+                    "voting": "disabled",
+                    "comments": "members",
+                    "invitations": "members",
+                    "selfJoin": true,
+                    "cardCovers": true,
+                    "cardCounts": false,
+                    "isTemplate": false,
+                    "cardAging": "regular",
+                    "calendarFeedEnabled": false,
+                    "hiddenPluginBoardButtons": [],
+                    "switcherViews": [
+                      { "viewType": "Board", "enabled": true },
+                      { "viewType": "Table", "enabled": true },
+                      { "viewType": "Calendar", "enabled": false },
+                      { "viewType": "Dashboard", "enabled": false },
+                      { "viewType": "Timeline", "enabled": false },
+                      { "viewType": "Map", "enabled": false }
+                    ],
+                    "background": "blue",
+                    "backgroundColor": "#0079BF",
+                    "backgroundImage": null,
+                    "backgroundTile": false,
+                    "backgroundBrightness": "dark",
+                    "backgroundImageScaled": null,
+                    "backgroundBottomColor": "#0079BF",
+                    "backgroundTopColor": "#0079BF",
+                    "canBePublic": true,
+                    "canBeEnterprise": true,
+                    "canBeOrg": true,
+                    "canBePrivate": true,
+                    "canInvite": true
+                  },
+                  "labelNames": {
+                    "green": "",
+                    "yellow": "",
+                    "orange": "",
+                    "red": "",
+                    "purple": "",
+                    "blue": "",
+                    "sky": "",
+                    "lime": "",
+                    "pink": "",
+                    "black": "",
+                    "green_dark": "",
+                    "yellow_dark": "",
+                    "orange_dark": "",
+                    "red_dark": "",
+                    "purple_dark": "",
+                    "blue_dark": "",
+                    "sky_dark": "",
+                    "lime_dark": "",
+                    "pink_dark": "",
+                    "black_dark": "",
+                    "green_light": "",
+                    "yellow_light": "",
+                    "orange_light": "",
+                    "red_light": "",
+                    "purple_light": "",
+                    "blue_light": "",
+                    "sky_light": "",
+                    "lime_light": "",
+                    "pink_light": "",
+                    "black_light": ""
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["Boards"],
+        "summary": "Update a Board",
+        "description": "Update an existing board by id",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "key",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{key}"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{token}"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Boards"],
+        "summary": "Delete a Board",
+        "description": "Delete a board.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "key",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{key}"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{token}"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The id of the board to delete",
+            "example": "{{id}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "example": {
+                  "_value": null
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "example": "The requested resource was not found."
+              }
+            }
+          }
+        }
+      }
+    },
+    "/1/boards/{id}/lists": {
+      "post": {
+        "tags": ["Boards"],
+        "summary": "Create a List on a Board",
+        "description": "Create a new List on a Board.",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "The name of the list to be created. 1 to 16384 characters long.",
+            "example": "{{name}}"
+          },
+          {
+            "name": "key",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{key}"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{token}"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": ["Boards"],
+        "summary": "Get Lists on a Board",
+        "description": "Get the Lists on a Board",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "key",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{key}"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{token}"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/1/boards/{id}/labels": {
+      "get": {
+        "tags": ["Boards"],
+        "summary": "Get Labels on a Board",
+        "description": "Get all of the Labels on a Board.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "key",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{key}"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{token}"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the Board.",
+            "example": "{{id}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Boards"],
+        "summary": "Create a Label on a Board",
+        "description": "Create a new Label on a Board.",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "The name of the label to be created. 1 to 16384 characters long.",
+            "example": "{{name}}"
+          },
+          {
+            "name": "color",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Sets the color of the new label. Valid values are a label color or `null`.",
+            "example": "{{color}}"
+          },
+
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The id of the board to update",
+            "example": "{{id}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/1/boards/{id}/cards": {
+      "get": {
+        "tags": ["Boards"],
+        "summary": "Get Cards on a Board",
+        "description": "Get all of the open Cards on a Board.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "key",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{key}"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{token}"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "example": "{{id}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/1/cards": {
+      "post": {
+        "tags": ["Cards"],
+        "summary": "Create a new Card",
+        "description": "Create a new card. Query parameters may also be replaced with a JSON request body instead.",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "idList",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "The ID of the list the card should be created in",
+            "example": "{{idList}}"
+          },
+          {
+            "name": "key",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{key}"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{token}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/1/cards/{id}": {
+      "get": {
+        "tags": ["Cards"],
+        "summary": "Get a Card",
+        "description": "Get a card by its ID",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "key",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{key}"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{token}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["Cards"],
+        "summary": "Update a Card",
+        "description": "Update a card. Query parameters may also be replaced with a JSON request body instead.",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "key",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{key}"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{token}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Cards"],
+        "summary": "Delete a Card",
+        "description": "Delete a Card",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "key",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{key}"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{token}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/1/cards/{id}/actions/comments": {
+      "post": {
+        "tags": ["Cards"],
+        "summary": "Add a new comment to a Card",
+        "description": "Add a new comment to a card",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "text",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "The comment",
+            "example": "{{text}}"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the Card",
+            "example": "{{id}}"
+          },
+          {
+            "name": "key",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{key}"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{token}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/1/cards/{id}/idLabels": {
+      "post": {
+        "tags": ["Cards"],
+        "summary": "Add a Label to a Card",
+        "description": "Add a label to a card",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the Card",
+            "example": "{{id}}"
+          },
+          {
+            "name": "key",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{key}"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{token}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/1/cards/{id}/idLabels/{idLabel}": {
+      "delete": {
+        "tags": ["Cards"],
+        "summary": "Remove a Label from a Card",
+        "description": "Remove a label from a card",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the Card",
+            "example": "{{id}}"
+          },
+          {
+            "name": "idLabel",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the label to remove",
+            "example": "{{idLabel}}"
+          },
+          {
+            "name": "key",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{key}"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{token}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/1/cards/{idCard}/customField/{idCustomField}/item": {
+      "put": {
+        "tags": ["Cards"],
+        "summary": "Update Custom Field item on Card",
+        "description": "Setting, updating, and removing the value for a Custom Field on a card. For more details on updating custom fields check out the [Getting Started With Custom Fields](/cloud/trello/guides/rest-api/getting-started-with-custom-fields/)",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string",
+                "example": "\"\""
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "idCard",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "ID of the card that the Custom Field value should be set/updated for",
+            "example": "{{idCard}}"
+          },
+          {
+            "name": "idCustomField",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "ID of the Custom Field on the card.",
+            "example": "{{idCustomField}}"
+          },
+          {
+            "name": "key",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{key}"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{token}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/1/cards/{id}/customFieldItems": {
+      "get": {
+        "tags": ["Cards"],
+        "summary": "Get Custom Field Items for a Card",
+        "description": "Get the custom field items for a card.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the Card",
+            "example": "{{id}}"
+          },
+          {
+            "name": "key",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{key}"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{token}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/1/lists/{id}": {
+      "get": {
+        "tags": ["Lists"],
+        "summary": "Get a List",
+        "description": "Get information about a List",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "key",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{key}"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{token}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["Lists"],
+        "summary": "Update a List",
+        "description": "Update the properties of a List",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "key",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{key}"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{token}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/1/lists": {
+      "post": {
+        "tags": ["Lists"],
+        "summary": "Create a new List",
+        "description": "Create a new List on a Board",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Name for the list",
+            "example": "{{name}}"
+          },
+          {
+            "name": "idBoard",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "The long ID of the board the list should be created on",
+            "example": "{{idBoard}}"
+          },
+          {
+            "name": "key",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{key}"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{token}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/1/lists/{id}/cards": {
+      "get": {
+        "tags": ["Lists"],
+        "summary": "Get Cards in a List",
+        "description": "List the cards in a list",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the list",
+            "example": "{{id}}"
+          },
+          {
+            "name": "key",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{key}"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{token}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/1/lists/{id}/idBoard": {
+      "put": {
+        "tags": ["Lists"],
+        "summary": "Move List to Board",
+        "description": "Move a List to a different Board",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "value",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "The ID of the board to move the list to",
+            "example": "{{value}}"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the list",
+            "example": "{{id}}"
+          },
+          {
+            "name": "key",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{key}"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{token}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/1/lists/{id}/{field}": {
+      "put": {
+        "tags": ["Lists"],
+        "summary": "Update a field on a List",
+        "description": "Rename a list",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the list",
+            "example": "{{id}}"
+          },
+          {
+            "name": "field",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The field on the List to be updated",
+            "example": "{{field}}"
+          },
+          {
+            "name": "key",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{key}"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{token}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/1/lists/{id}/actions": {
+      "get": {
+        "tags": ["Lists"],
+        "summary": "Get Actions for a List",
+        "description": "Get the Actions on a List",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the list",
+            "example": "{{id}}"
+          },
+          {
+            "name": "key",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{key}"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{token}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/1/lists/{id}/board": {
+      "get": {
+        "tags": ["Lists"],
+        "summary": "Get the Board a List is on",
+        "description": "Get the board a list is on",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the list",
+            "example": "{{id}}"
+          },
+          {
+            "name": "key",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{key}"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{token}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    }
+  }
+}

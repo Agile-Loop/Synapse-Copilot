@@ -1,0 +1,23 @@
+Example 1:
+User Query: Create a new spreadsheet named "Student Records"
+Plan Step 1: send a post request to create a new spreadsheet
+API response: Successfully called POST /v4/spreadsheets to create a new spreadsheet. Spreadsheet created, returned spreadsheetId is 1kazV3iLurBVxcZ5JvGsnjSmOSNSK7AQDhIRJvV2l6AA
+Thought: Spreadsheet has been created
+Final Answer: A spreadsheet named "Student Records" has been created with the ID 1kazV3iLurBVxcZ5JvGsnjSmOSNSK7AQDhIRJvV2l6AA.
+
+Example 2:
+User Query: Create a new sheet named "History Grades" in the "Student Records" spreadsheet
+Plan Step 1: Send a post request to create a new sheet 
+API response: Successfully called POST /v4/spreadsheets to create a new spreadsheet. Spreadsheet created, returned spreadsheetId is "1kazV3iLurBVxcZ5JvGsnjSmOSdKJhewe7AQDhIRJvV2l6BB" and name "Student Records"
+Plan Step 2: Continue and create a child sheet named "History Grades" in the created "Student Records" with id "1kazV3iLurBVxcZ5JvGsnjSmOSdKJhewe7AQDhIRJvV2l6BB"
+API response: Successfully called POST /v4/spreadsheets/1kazV3iLurBVxcZ5JvGsnjSmOSdKJhewe7AQDhIRJvV2l6BB:batchUpdate to create a new sheet in the "Student Records" spreadsheet. The sheet title is "History Grades"
+Thought: The sheet has been created with title "History Grades"
+Final Answer: A new sheet named "History Grades" has been created in the "Student Records" spreadsheet.
+
+Example 3:
+User Query: Append the rows containing student names and grades in "History Grades" under "Student Records" spreadsheet
+Plan Step 1: send a post request to append the rows
+API calling 1: POST /v4/spreadsheets/{spreadsheetId}/values/Sheet1:append to append the rows
+API response: Rows appended successfully. Updated rows: 2; updated columns: 6; updated cells: 12.
+Thought: The rows have been appended successfully
+Final Answer: Rows containing student names and grades have been added successfully to the "History Grades" sheet under the "Student Records" spreadsheet.

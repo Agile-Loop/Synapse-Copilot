@@ -1,0 +1,1488 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Options title",
+    "description": "Description from options",
+    "version": "6.0.7-beta",
+    "termsOfService": "http://tos.myweb.com"
+  },
+  "servers": [
+    {
+      "url": "https://api.trello.com"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      },
+      "apikeyAuth": {
+        "type": "http",
+        "scheme": "apikey"
+      }
+    }
+  },
+  "tags": [],
+  "paths": {
+    "/1/boards/": {
+      "post": {
+        "summary": "Create a Board",
+        "description": "Create a new board.",
+        "operationId": "createBoard",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "board1"
+            }
+          },
+          {
+            "name": "key",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{key}"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{token}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/1/boards/{id}": {
+      "get": {
+        "summary": "Get a Board",
+        "description": "Request a single board.",
+        "parameters": [
+          {
+            "name": "key",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{key}"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{token}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "put": {
+        "tags": ["Boards"],
+        "summary": "Update a Board",
+        "description": "Update an existing board by id",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "{name}"
+                  }
+                }
+              },
+              "examples": {
+                "Update Board": {
+                  "value": {
+                    "name": "{name}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "key",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{key}"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{token}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Boards"],
+        "summary": "Delete a Board",
+        "description": "Delete a board.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "key",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{key}"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{token}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/1/boards/{id}/labels": {
+      "get": {
+        "tags": ["Boards"],
+        "summary": "Get Labels on a Board",
+        "description": "Get all of the Labels on a Board.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "key",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{key}"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{token}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "post": {
+        "tags": ["Boards"],
+        "summary": "Create a Label on a Board",
+        "description": "Create a new Label on a Board.",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "The name of the label to be created. 1 to 16384 characters long.",
+            "example": "{{name}}"
+          },
+          {
+            "name": "color",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Sets the color of the new label. Valid values are a label color or `null`.",
+            "example": "{{color}}"
+          },
+          {
+            "name": "key",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{key}"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{token}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/1/boards/{id}/memberships": {
+      "get": {
+        "tags": ["Boards"],
+        "summary": "Get Memberships of a Board",
+        "description": "Get information about the memberships users have to the board.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "key",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{key}"
+            }
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "{token}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/1/boards/{id}/{field}": {
+      "get": {
+        "tags": ["Boards"],
+        "summary": "Get a field on a Board",
+        "description": "Get a single, specific field on a board",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the board.",
+            "example": "{{id}}"
+          },
+          {
+            "name": "field",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The field you'd like to receive. Valid values: closed, dateLastActivity, dateLastView, desc, descData, idMemberCreator, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed, url.",
+            "example": "{{field}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/1/boards/{boardId}/actions": {
+      "get": {
+        "tags": ["Boards"],
+        "summary": "Get Actions of a Board",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "boardId",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "example": "{{boardId}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/1/boards/{id}/cards/{idCard}": {
+      "get": {
+        "tags": ["Boards"],
+        "summary": "Get a Card on a Board",
+        "description": "Get a single Card on a Board.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the board",
+            "example": "{{id}}"
+          },
+          {
+            "name": "idCard",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The id the card to retrieve.",
+            "example": "{{idCard}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/1/boards/{boardId}/boardStars": {
+      "get": {
+        "tags": ["Boards"],
+        "summary": "Get boardStars on a Board",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+
+          {
+            "name": "boardId",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "example": "{{boardId}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/1/boards/{id}/checklists": {
+      "get": {
+        "tags": ["Boards"],
+        "summary": "Get Checklists on a Board",
+        "description": "Get all of the checklists on a Board.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the board",
+            "example": "{{id}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/1/boards/{id}/cards": {
+      "get": {
+        "tags": ["Boards"],
+        "summary": "Get Cards on a Board",
+        "description": "Get all of the open Cards on a Board.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "example": "{{id}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/1/boards/{id}/cards/{filter}": {
+      "get": {
+        "tags": ["Boards"],
+        "summary": "Get filtered Cards on a Board",
+        "description": "Get the Cards on a Board that match a given filter.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "ID of the Board",
+            "example": "{{id}}"
+          },
+          {
+            "name": "filter",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "Valid Values: all, closed, none, open, visible.",
+            "example": "{{filter}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/1/boards/{id}/customFields": {
+      "get": {
+        "tags": ["Boards"],
+        "summary": "Get Custom Fields for Board",
+        "description": "Get the Custom Field Definitions that exist on a board.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the board",
+            "example": "{{id}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/1/boards/{id}/lists": {
+      "get": {
+        "tags": ["Boards"],
+        "summary": "Get Lists on a Board",
+        "description": "Get the Lists on a Board",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "post": {
+        "tags": ["Boards"],
+        "summary": "Create a List on a Board",
+        "description": "Create a new List on a Board.",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "The name of the list to be created. 1 to 16384 characters long.",
+            "example": "{{name}}"
+          },
+
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/1/boards/{id}/lists/{filter}": {
+      "get": {
+        "tags": ["Boards"],
+        "summary": "Get filtered Lists on a Board",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the board",
+            "example": "{{id}}"
+          },
+          {
+            "name": "filter",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "One of `all`, `closed`, `none`, `open`",
+            "example": "{{filter}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/1/boards/{id}/members": {
+      "get": {
+        "tags": ["Boards"],
+        "summary": "Get the Members of a Board",
+        "description": "Get the Members for a board",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "put": {
+        "tags": ["Boards"],
+        "summary": "Invite Member to Board via email",
+        "description": "Invite a Member to a Board via their email address.",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string",
+                "example": "\"\""
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "The email address of a user to add as a member of the board.",
+            "example": "{{email}}"
+          },
+
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/1/boards/{id}/members/{idMember}": {
+      "put": {
+        "tags": ["Boards"],
+        "summary": "Add a Member to a Board",
+        "description": "Add a member to the board.",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "One of: admin, normal, observer. Determines the type of member this user will be on the board.",
+            "example": "{{type}}"
+          },
+
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "idMember",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Boards"],
+        "summary": "Remove Member from Board",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "idMember",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/1/boards/{id}/memberships/{idMembership}": {
+      "put": {
+        "tags": ["Boards"],
+        "summary": "Update Membership of Member on a Board",
+        "description": "Update an existing board by id",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "One of: admin, normal, observer. Determines the type of member that this membership will be to this board.",
+            "example": "{{type}}"
+          },
+
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The id of the board to update",
+            "example": "{{id}}"
+          },
+          {
+            "name": "idMembership",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The id of a membership that should be added to this board.",
+            "example": "{{idMembership}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/1/boards/{id}/myPrefs/emailPosition": {
+      "put": {
+        "tags": ["Boards"],
+        "summary": "Update emailPosition Pref on a Board",
+        "description": "Update emailPosition Pref on a Board",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "value",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Valid values: bottom, top. Determines the position of the email address.",
+            "example": "{{value}}"
+          },
+
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The id of the board to update",
+            "example": "{{id}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/1/boards/{id}/myPrefs/idEmailList": {
+      "put": {
+        "tags": ["Boards"],
+        "summary": "Update idEmailList Pref on a Board",
+        "description": "Change the default list that email-to-board cards are created in.",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "value",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "The id of an email list.",
+            "example": "{{value}}"
+          },
+
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The id of the board to update",
+            "example": "{{id}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/1/boards/{id}/myPrefs/showListGuide": {
+      "put": {
+        "tags": ["Boards"],
+        "summary": "Update showListGuide Pref on a Board",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "value",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Determines whether to show the list guide.",
+            "example": "{{value}}"
+          },
+
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The id of the board to update",
+            "example": "{{id}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/1/boards/{id}/myPrefs/showSidebar": {
+      "put": {
+        "tags": ["Boards"],
+        "summary": "Update showSidebar Pref on a Board",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "value",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Determines whether to show the side bar.",
+            "example": "{{value}}"
+          },
+
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The id of the board to update",
+            "example": "{{id}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/1/boards/{id}/myPrefs/showSidebarActivity": {
+      "put": {
+        "tags": ["Boards"],
+        "summary": "Update showSidebarActivity Pref on a Board",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "value",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Determines whether to show sidebar activity.",
+            "example": "{{value}}"
+          },
+
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The id of the board to update",
+            "example": "{{id}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/1/boards/{id}/myPrefs/showSidebarBoardActions": {
+      "put": {
+        "tags": ["Boards"],
+        "summary": "Update showSidebarBoardActions Pref on a Board",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "value",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Determines whether to show the sidebar board actions.",
+            "example": "{{value}}"
+          },
+
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The id of the board to update",
+            "example": "{{id}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/1/boards/{id}/myPrefs/showSidebarMembers": {
+      "put": {
+        "tags": ["Boards"],
+        "summary": "Update showSidebarMembers Pref on a Board",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "value",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Determines whether to show members of the board in the sidebar.",
+            "example": "{{value}}"
+          },
+
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The id of the board to update",
+            "example": "{{id}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/1/boards/{id}/calendarKey/generate": {
+      "post": {
+        "tags": ["Boards"],
+        "summary": "Create a calendarKey for a Board",
+        "description": "Create a new board.",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The id of the board to update",
+            "example": "{{id}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/1/boards/{id}/emailKey/generate": {
+      "post": {
+        "tags": ["Boards"],
+        "summary": "Create a emailKey for a Board",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The id of the board to update",
+            "example": "{{id}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/1/boards/{id}/idTags": {
+      "post": {
+        "tags": ["Boards"],
+        "summary": "Create a Tag for a Board",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "value",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "The id of a tag from the organization to which this board belongs.",
+            "example": "{{value}}"
+          },
+
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The id of the board to update",
+            "example": "{{id}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/1/boards/{id}/markedAsViewed": {
+      "post": {
+        "tags": ["Boards"],
+        "summary": "Mark Board as viewed",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The id of the board to update",
+            "example": "{{id}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/1/boards/{id}/boardPlugins": {
+      "get": {
+        "tags": ["Boards"],
+        "summary": "Get Enabled Power-Ups on Board",
+        "description": "Get the enabled Power-Ups on a board",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "post": {
+        "tags": ["Boards"],
+        "summary": "Enable a Power-Up on a Board",
+        "description": "Enable a Power-Up on a Board",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/1/boards/{id}/boardPlugins/{idPlugin}": {
+      "delete": {
+        "tags": ["Boards"],
+        "summary": "Disable a Power-Up on a Board",
+        "description": "Disable a Power-Up on a board",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the board",
+            "example": "{{id}}"
+          },
+          {
+            "name": "idPlugin",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the Power-Up to disable",
+            "example": "{{idPlugin}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/1/boards/{id}/plugins": {
+      "get": {
+        "tags": ["Boards"],
+        "summary": "Get Power-Ups on a Board",
+        "description": "List the Power-Ups on a board",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the board",
+            "example": "{{id}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    }
+  }
+}

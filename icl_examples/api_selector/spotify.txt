@@ -1,0 +1,17 @@
+Example 1:
+Background: No background
+User query: what is the id of album Kind of Blue.
+API calling 1: GET /search to search for the album "Kind of Blue"
+API response: Kind of Blue's album_id is 1weenld61qoidwYuZ1GESA
+
+Example 2:
+Background: No background
+User query: get the newest album of Lana Del Rey (id 00FQb4jTyendYWaN8pK0wa).
+API calling 1: GET /artists/00FQb4jTyendYWaN8pK0wa/albums to get the newest album of Lana Del Rey (id 00FQb4jTyendYWaN8pK0wa)
+API response: The newest album of Lana Del Rey is Did you know that there's a tunnel under Ocean Blvd (id 5HOHne1wzItQlIYmLXLYfZ), ...
+
+Example 3:
+Background: The ids and names of the tracks of the album 1JnjcAIKQ9TSJFVFierTB8 are Yellow (3AJwUDP919kvQ9QcozQPxg), Viva La Vida (1mea3bSkSGXuIRvnydlB5b)
+User query: append the first song of the newest album 1JnjcAIKQ9TSJFVFierTB8 of Coldplay (id 4gzpq5DPGxSnKTe4SA8HAU) to my player queue.
+API calling 1: POST /me/player/queue to add Yellow (3AJwUDP919kvQ9QcozQPxg) to the player queue
+API response: Yellow is added to the player queue

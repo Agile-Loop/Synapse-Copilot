@@ -1,0 +1,42 @@
+Example 1:
+User query: Get me my teams on upclick.
+Plan step 1: Get details of my teams on upclick
+API response: Successfully called GET /api/v2/team to request data of team. Teams information been collected and name of team is 'Workspace'
+Thought: I have finished executing the plan and completed the user's instructions and collected the data.
+Final Answer: Name of the team is 'Workspace'.
+If you think the team is returned, no need to call further apis. Finish with your final answer.
+
+Example 2:
+User query: Get me my spaces on upclick.
+Plan step 1: Get details of my teams on upclick. I need team id to find spaces
+API response: Successfully called GET /api/v2/team to get the teams. Teams information been collected. The team has the ID '9008245063'
+Plan step 2: Get my spaces using team_id '9008245063'
+API response: Successfully called GET /v2/team/{{team_id}}/space to get the details of spaces of this team. Spaces information is collected. Following are the spaces with this team:
+    {
+        "spaces": [
+            {
+                "id": "90080536224",
+                "name": "Team Space",
+                "color": "#03A2FD",
+                "private": false,
+                "avatar": null,
+                "admin_can_manage": true
+            },
+            ...
+        ]
+    }
+Thought: I have finished executing the plan and completed the user's instructions and collected the data.
+Final Answer: Spaces information of team having id: '9008245063' is following:
+    {
+        "spaces": [
+            {
+                "id": "90080536224",
+                "name": "Team Space",
+                "color": "#03A2FD",
+                "private": false,
+                "avatar": null,
+                "admin_can_manage": true
+            },
+            ...
+        ]
+    }

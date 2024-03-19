@@ -1,0 +1,24 @@
+Example 1:
+User query: Create a new project named "TestProject" using project type key "software" with parameters username={key} and apiToken={token}.
+Plan step 1: Find the project type key and template for Jira Software projects
+API response: Successfully retrieved the project type key and template for Jira Software projects: `com.pyxis.greenhopper.jira:gh-simplified-agility-kanban`
+Plan step 2: Create a new project named "TestProject" with the specified details
+API response: Successfully called POST /rest/api/3/project/ to create a project named "TestProject" with project type key "software".
+Thought: I have completed the plan and successfully created a new project.
+Final Answer: I have created a new project named "TestProject" using the project type key "software".
+
+Example 2:
+User query: Get the details of a project with the project ID "12345" with parameters username={key} and apiToken={token}.
+Plan step 1: Get the details of a project with the specified project ID
+API response: Successfully retrieved project details for project with project ID "12345".
+Thought: I have executed the plan and collected the project details as requested.
+Final Answer: I have retrieved the details of the project with project ID "12345".
+
+Example 3:
+User query: Update the project details for the project with key "EX" with parameters username={key} and apiToken={token}.
+Plan step 1: Find the project key for the project to be updated
+API response: Successfully retrieved the project key for the project to be updated: "EX"
+Plan step 2: Update the project details for the project with key "EX"
+API response: Successfully called PUT /rest/api/3/project/EX to update the project details for the project with key "EX".
+Thought: I have completed the plan and updated the project details as specified.
+Final Answer: I have updated the project details for the project with key "EX".

@@ -1,0 +1,3596 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Options title",
+    "description": "Description from options",
+    "version": "6.0.7-beta",
+    "termsOfService": "http://tos.myweb.com"
+  },
+  "servers": [
+    {
+      "url": "https://{{host}}"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "basicAuth": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Dashboards",
+      "description": "This resource represents dashboards. Use it to obtain the details of dashboards as well as get, create, update, or remove item properties and gadgets from dashboards."
+    },
+    {
+      "name": "Filters",
+      "description": "This resource represents [filters](https://confluence.atlassian.com/x/eQiiLQ). Use it to get, create, update, or delete filters. Also use it to configure the columns for a filter and set favorite filters."
+    },
+    {
+      "name": "Groups",
+      "description": "This resource represents groups of users. Use it to get, create, find, and delete groups as well as add and remove users from groups. (\\[WARNING\\] The standard Atlassian group names are default names only and can be edited or deleted. For example, an admin or Atlassian support could delete the default group jira-software-users or rename it to jsw-users at any point. See https://support.atlassian.com/user-management/docs/create-and-update-groups/ for details.)"
+    },
+    {
+      "name": "Issues",
+      "description": "This resource represents Jira issues. Use it to:\n\n *  create or edit issues, individually or in bulk.\n *  retrieve metadata about the options for creating or editing issues.\n *  delete an issue.\n *  assign a user to an issue.\n *  get issue changelogs.\n *  send notifications about an issue.\n *  get details of the transitions available for an issue.\n *  transition an issue.\n *  Archive issues.\n *  Unarchive issues.\n *  Export archived issues."
+    },
+    {
+      "name": "Issue attachments",
+      "description": "This resource represents issue attachments and the attachment settings for Jira. Use it to get the metadata for an attachment, delete an attachment, and view the metadata for the contents of an attachment. Also, use it to get the attachment settings for Jira."
+    },
+    {
+      "name": "Issue comments",
+      "description": "This resource represents issue comments. Use it to:\n\n *  get, create, update, and delete a comment from an issue.\n *  get all comments from issue.\n *  get a list of comments by comment ID."
+    },
+    {
+      "name": "Projects",
+      "description": "This resource represents projects. Use it to get, create, update, and delete projects. Also get statuses available to a project, a project's notification schemes, and update a project's type."
+    },
+    {
+      "name": "Screens",
+      "description": "This resource represents the screens used to record issue details. Use it to:\n\n *  get details of all screens.\n *  get details of all the fields available for use on screens.\n *  create screens.\n *  delete screens.\n *  update screens.\n *  add a field to the default screen."
+    },
+    {
+      "name": "Screen tabs",
+      "description": "This resource represents the screen tabs used to record issue details. Use it to get, create, update, move, and delete screen tabs."
+    },
+    {
+      "name": "Users",
+      "description": "This resource represent users. Use it to:\n\n *  get, get a list of, create, and delete users.\n *  get, set, and reset a user's default issue table columns.\n *  get a list of the groups the user belongs to.\n *  get a list of user account IDs for a list of usernames or user keys."
+    }
+  ],
+  "paths": {
+    "/rest/api/3/dashboard": {
+      "get": {
+        "tags": ["Dashboards"],
+        "summary": "Get all dashboards",
+        "description": "Returns a list of dashboards owned by or shared with the user. The list may be filtered to include only favorite or owned dashboards.\n\nThis operation can be accessed anonymously.\n\n**[Permissions](#permissions) required:** None.",
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Thu, 01 Feb 2024 10:47:49 GMT"
+                }
+              },
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json;charset=UTF-8"
+                }
+              },
+              "Server": {
+                "schema": {
+                  "type": "string",
+                  "example": "AtlassianEdge"
+                }
+              },
+              "Timing-Allow-Origin": {
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              },
+              "X-Arequestid": {
+                "schema": {
+                  "type": "string",
+                  "example": "4083c2ae1dcec234c3ebad1bc0a74a7a"
+                }
+              },
+              "X-Aaccountid": {
+                "schema": {
+                  "type": "string",
+                  "example": "712020%3A1b24adc4-4abb-438e-a39e-2589318b421d"
+                }
+              },
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "example": "no-cache, no-store, no-transform"
+                }
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string",
+                  "example": "Accept-Encoding"
+                }
+              },
+              "Content-Encoding": {
+                "schema": {
+                  "type": "string",
+                  "example": "br"
+                }
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "example": "nosniff"
+                }
+              },
+              "X-Xss-Protection": {
+                "schema": {
+                  "type": "string",
+                  "example": "1; mode=block"
+                }
+              },
+              "Atl-Traceid": {
+                "schema": {
+                  "type": "string",
+                  "example": "40071f68f99141ed80da1a970eba38fc"
+                }
+              },
+              "Report-To": {
+                "schema": {
+                  "type": "string",
+                  "example": "{\"endpoints\": [{\"url\": \"https://dz8aopenkvv6s.cloudfront.net\"}], \"group\": \"endpoint-1\", \"include_subdomains\": true, \"max_age\": 600}"
+                }
+              },
+              "Nel": {
+                "schema": {
+                  "type": "string",
+                  "example": "{\"failure_fraction\": 0.001, \"include_subdomains\": true, \"max_age\": 600, \"report_to\": \"endpoint-1\"}"
+                }
+              },
+              "Strict-Transport-Security": {
+                "schema": {
+                  "type": "string",
+                  "example": "max-age=63072000; includeSubDomains; preload"
+                }
+              },
+              "Transfer-Encoding": {
+                "schema": {
+                  "type": "string",
+                  "example": "chunked"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "example-0": {
+                    "summary": "Get all dashboards",
+                    "value": {
+                      "startAt": 0,
+                      "maxResults": 20,
+                      "total": 1,
+                      "dashboards": [
+                        {
+                          "id": "10000",
+                          "isFavourite": false,
+                          "name": "Default dashboard",
+                          "popularity": 0,
+                          "self": "https://mahmoodone.atlassian.net/rest/api/2/dashboard/10000",
+                          "sharePermissions": [
+                            {
+                              "id": 10000,
+                              "type": "global"
+                            }
+                          ],
+                          "editPermissions": [],
+                          "view": "/jira/dashboards/10000",
+                          "isWritable": true,
+                          "systemDashboard": true
+                        }
+                      ]
+                    }
+                  },
+                  "example-1": {
+                    "summary": "Get all dashboards",
+                    "value": {
+                      "startAt": 0,
+                      "maxResults": 20,
+                      "total": 3,
+                      "dashboards": [
+                        {
+                          "id": "10000",
+                          "isFavourite": false,
+                          "name": "Default dashboard",
+                          "popularity": 0,
+                          "self": "https://mahmoodone.atlassian.net/rest/api/3/dashboard/10000",
+                          "sharePermissions": [
+                            {
+                              "id": 10000,
+                              "type": "global"
+                            }
+                          ],
+                          "editPermissions": [],
+                          "view": "/jira/dashboards/10000",
+                          "isWritable": true,
+                          "systemDashboard": true
+                        },
+                        {
+                          "description": "A dashboard to help auditors sample of issues to check.",
+                          "id": "10002",
+                          "isFavourite": true,
+                          "name": "MyNewDashboard",
+                          "owner": {
+                            "self": "https://mahmoodone.atlassian.net/rest/api/3/user?accountId=712020:1b24adc4-4abb-438e-a39e-2589318b421d",
+                            "displayName": "mehmudmehsud101",
+                            "active": true,
+                            "accountId": "712020:1b24adc4-4abb-438e-a39e-2589318b421d",
+                            "avatarUrls": {
+                              "24x24": "https://secure.gravatar.com/avatar/6a2729a6f3e077ac9f3f05c129bf189e?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FM-0.png",
+                              "32x32": "https://secure.gravatar.com/avatar/6a2729a6f3e077ac9f3f05c129bf189e?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FM-0.png",
+                              "16x16": "https://secure.gravatar.com/avatar/6a2729a6f3e077ac9f3f05c129bf189e?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FM-0.png",
+                              "48x48": "https://secure.gravatar.com/avatar/6a2729a6f3e077ac9f3f05c129bf189e?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FM-0.png"
+                            }
+                          },
+                          "popularity": 1,
+                          "rank": 1,
+                          "self": "https://mahmoodone.atlassian.net/rest/api/3/dashboard/10002",
+                          "sharePermissions": [
+                            {
+                              "id": 10004,
+                              "type": "loggedin"
+                            }
+                          ],
+                          "editPermissions": [],
+                          "view": "/jira/dashboards/10002",
+                          "isWritable": true,
+                          "systemDashboard": false
+                        },
+                        {
+                          "description": "New Testing Dashboard",
+                          "id": "10001",
+                          "isFavourite": true,
+                          "name": "Swirl",
+                          "owner": {
+                            "self": "https://mahmoodone.atlassian.net/rest/api/3/user?accountId=712020:1b24adc4-4abb-438e-a39e-2589318b421d",
+                            "displayName": "mehmudmehsud101",
+                            "active": true,
+                            "accountId": "712020:1b24adc4-4abb-438e-a39e-2589318b421d",
+                            "avatarUrls": {
+                              "24x24": "https://secure.gravatar.com/avatar/6a2729a6f3e077ac9f3f05c129bf189e?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FM-0.png",
+                              "32x32": "https://secure.gravatar.com/avatar/6a2729a6f3e077ac9f3f05c129bf189e?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FM-0.png",
+                              "16x16": "https://secure.gravatar.com/avatar/6a2729a6f3e077ac9f3f05c129bf189e?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FM-0.png",
+                              "48x48": "https://secure.gravatar.com/avatar/6a2729a6f3e077ac9f3f05c129bf189e?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FM-0.png"
+                            }
+                          },
+                          "popularity": 1,
+                          "rank": 0,
+                          "self": "https://mahmoodone.atlassian.net/rest/api/3/dashboard/10001",
+                          "sharePermissions": [],
+                          "editPermissions": [],
+                          "view": "/jira/dashboards/10001",
+                          "isWritable": true,
+                          "systemDashboard": false
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Dashboards"],
+        "summary": "Create dashboard",
+        "description": "Creates a dashboard.\n\n**[Permissions](#permissions) required:** None.",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string",
+                "example": "\"{\\n  \\\"description\\\": \\\"A dashboard to help auditors identify sample of issues to check.\\\",\\n  \\\"editPermissions\\\": [],\\n  \\\"name\\\": \\\"BaseDashboard\\\",\\n  \\\"sharePermissions\\\": [\\n    {\\n      \\\"type\\\": \\\"authenticated\\\"\\n    }\\n  ]\\n}\""
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Thu, 01 Feb 2024 10:57:04 GMT"
+                }
+              },
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json;charset=UTF-8"
+                }
+              },
+              "Server": {
+                "schema": {
+                  "type": "string",
+                  "example": "AtlassianEdge"
+                }
+              },
+              "Timing-Allow-Origin": {
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              },
+              "X-Arequestid": {
+                "schema": {
+                  "type": "string",
+                  "example": "9ecf7b432de5d3a0dc9c4c6218e857d5"
+                }
+              },
+              "X-Aaccountid": {
+                "schema": {
+                  "type": "string",
+                  "example": "712020%3A1b24adc4-4abb-438e-a39e-2589318b421d"
+                }
+              },
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "example": "no-cache, no-store, no-transform"
+                }
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string",
+                  "example": "Accept-Encoding"
+                }
+              },
+              "Content-Encoding": {
+                "schema": {
+                  "type": "string",
+                  "example": "br"
+                }
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "example": "nosniff"
+                }
+              },
+              "X-Xss-Protection": {
+                "schema": {
+                  "type": "string",
+                  "example": "1; mode=block"
+                }
+              },
+              "Atl-Traceid": {
+                "schema": {
+                  "type": "string",
+                  "example": "253e63ce7df7440f9314a2cd8b743118"
+                }
+              },
+              "Report-To": {
+                "schema": {
+                  "type": "string",
+                  "example": "{\"endpoints\": [{\"url\": \"https://dz8aopenkvv6s.cloudfront.net\"}], \"group\": \"endpoint-1\", \"include_subdomains\": true, \"max_age\": 600}"
+                }
+              },
+              "Nel": {
+                "schema": {
+                  "type": "string",
+                  "example": "{\"failure_fraction\": 0.001, \"include_subdomains\": true, \"max_age\": 600, \"report_to\": \"endpoint-1\"}"
+                }
+              },
+              "Strict-Transport-Security": {
+                "schema": {
+                  "type": "string",
+                  "example": "max-age=63072000; includeSubDomains; preload"
+                }
+              },
+              "Transfer-Encoding": {
+                "schema": {
+                  "type": "string",
+                  "example": "chunked"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "description": "A dashboard to help auditors sample of issues to check.",
+                  "id": "10002",
+                  "isFavourite": true,
+                  "name": "MyNewDashboard",
+                  "owner": {
+                    "self": "https://mahmoodone.atlassian.net/rest/api/3/user?accountId=712020:1b24adc4-4abb-438e-a39e-2589318b421d",
+                    "displayName": "mehmudmehsud101",
+                    "active": true,
+                    "accountId": "712020:1b24adc4-4abb-438e-a39e-2589318b421d",
+                    "avatarUrls": {
+                      "16x16": "https://secure.gravatar.com/avatar/6a2729a6f3e077ac9f3f05c129bf189e?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FM-0.png",
+                      "24x24": "https://secure.gravatar.com/avatar/6a2729a6f3e077ac9f3f05c129bf189e?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FM-0.png",
+                      "32x32": "https://secure.gravatar.com/avatar/6a2729a6f3e077ac9f3f05c129bf189e?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FM-0.png",
+                      "48x48": "https://secure.gravatar.com/avatar/6a2729a6f3e077ac9f3f05c129bf189e?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FM-0.png"
+                    }
+                  },
+                  "popularity": 0,
+                  "self": "https://mahmoodone.atlassian.net/rest/api/3/dashboard/10002",
+                  "sharePermissions": [
+                    {
+                      "type": "loggedin"
+                    }
+                  ],
+                  "editPermissions": [],
+                  "view": "/jira/dashboards/10002",
+                  "isWritable": true,
+                  "systemDashboard": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/rest/api/3/dashboard/{dashboardId}/gadget": {
+      "get": {
+        "tags": ["Dashboards"],
+        "summary": "Get gadgets",
+        "description": "Returns a list of dashboard gadgets on a dashboard.\n\nThis operation returns:\n\n *  Gadgets from a list of IDs, when `id` is set.\n *  Gadgets with a module key, when `moduleKey` is set.\n *  Gadgets from a list of URIs, when `uri` is set.\n *  All gadgets, when no other parameters are set.\n\nThis operation can be accessed anonymously.\n\n**[Permissions](#permissions) required:** None.",
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "dashboardId",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the dashboard.",
+            "example": "{{dashboardId}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Thu, 01 Feb 2024 11:04:01 GMT"
+                }
+              },
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json;charset=UTF-8"
+                }
+              },
+              "Server": {
+                "schema": {
+                  "type": "string",
+                  "example": "AtlassianEdge"
+                }
+              },
+              "Timing-Allow-Origin": {
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              },
+              "X-Arequestid": {
+                "schema": {
+                  "type": "string",
+                  "example": "4de3476dee00f2aa7c10d8218cfbfbbe"
+                }
+              },
+              "X-Aaccountid": {
+                "schema": {
+                  "type": "string",
+                  "example": "712020%3A1b24adc4-4abb-438e-a39e-2589318b421d"
+                }
+              },
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "example": "no-cache, no-store, no-transform"
+                }
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string",
+                  "example": "Accept-Encoding"
+                }
+              },
+              "Content-Encoding": {
+                "schema": {
+                  "type": "string",
+                  "example": "br"
+                }
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "example": "nosniff"
+                }
+              },
+              "X-Xss-Protection": {
+                "schema": {
+                  "type": "string",
+                  "example": "1; mode=block"
+                }
+              },
+              "Atl-Traceid": {
+                "schema": {
+                  "type": "string",
+                  "example": "3c0abd73e67744cfb8e9c98b9fd3ff1a"
+                }
+              },
+              "Report-To": {
+                "schema": {
+                  "type": "string",
+                  "example": "{\"endpoints\": [{\"url\": \"https://dz8aopenkvv6s.cloudfront.net\"}], \"group\": \"endpoint-1\", \"include_subdomains\": true, \"max_age\": 600}"
+                }
+              },
+              "Nel": {
+                "schema": {
+                  "type": "string",
+                  "example": "{\"failure_fraction\": 0.001, \"include_subdomains\": true, \"max_age\": 600, \"report_to\": \"endpoint-1\"}"
+                }
+              },
+              "Strict-Transport-Security": {
+                "schema": {
+                  "type": "string",
+                  "example": "max-age=63072000; includeSubDomains; preload"
+                }
+              },
+              "Transfer-Encoding": {
+                "schema": {
+                  "type": "string",
+                  "example": "chunked"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "gadgets": [
+                    {
+                      "id": 10005,
+                      "uri": "rest/gadgets/1.0/g/com.atlassian.jira.gadgets:watched-gadget/gadgets/watched-gadget.xml",
+                      "color": "blue",
+                      "position": {
+                        "row": 0,
+                        "column": 0
+                      },
+                      "title": "Watched Issues"
+                    },
+                    {
+                      "id": 10004,
+                      "uri": "rest/gadgets/1.0/g/com.atlassian.jira.gadgets:assigned-to-me-gadget/gadgets/assigned-to-me-gadget.xml",
+                      "color": "blue",
+                      "position": {
+                        "row": 1,
+                        "column": 0
+                      },
+                      "title": "Assigned to Me"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Dashboards"],
+        "summary": "Add gadget to dashboard",
+        "description": "Adds a gadget to a dashboard.\n\n**[Permissions](#permissions) required:** None.",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string",
+                "example": "\"{\\n  \\\"color\\\": \\\"blue\\\",\\n  \\\"ignoreUriAndModuleKeyValidation\\\": false,\\n  \\\"moduleKey\\\": \\\"com.atlassian.plugins.atlassian-connect-plugin:com.atlassian.connect.node.sample-addon__sample-dashboard-item\\\",\\n  \\\"position\\\": {\\n    \\\"column\\\": 1,\\n    \\\"row\\\": 0\\n  },\\n  \\\"title\\\": \\\"Issue statistics\\\"\\n}\""
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "dashboardId",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the dashboard.",
+            "example": "{{dashboardId}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Thu, 01 Feb 2024 11:40:17 GMT"
+                }
+              },
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json;charset=UTF-8"
+                }
+              },
+              "Server": {
+                "schema": {
+                  "type": "string",
+                  "example": "AtlassianEdge"
+                }
+              },
+              "Timing-Allow-Origin": {
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              },
+              "X-Arequestid": {
+                "schema": {
+                  "type": "string",
+                  "example": "9802991f47c4eaa5da98b27cbf886e99"
+                }
+              },
+              "X-Aaccountid": {
+                "schema": {
+                  "type": "string",
+                  "example": "712020%3A1b24adc4-4abb-438e-a39e-2589318b421d"
+                }
+              },
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "example": "no-cache, no-store, no-transform"
+                }
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string",
+                  "example": "Accept-Encoding"
+                }
+              },
+              "Content-Encoding": {
+                "schema": {
+                  "type": "string",
+                  "example": "br"
+                }
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "example": "nosniff"
+                }
+              },
+              "X-Xss-Protection": {
+                "schema": {
+                  "type": "string",
+                  "example": "1; mode=block"
+                }
+              },
+              "Atl-Traceid": {
+                "schema": {
+                  "type": "string",
+                  "example": "e5a6358ed28944eb949427984996465b"
+                }
+              },
+              "Report-To": {
+                "schema": {
+                  "type": "string",
+                  "example": "{\"endpoints\": [{\"url\": \"https://dz8aopenkvv6s.cloudfront.net\"}], \"group\": \"endpoint-1\", \"include_subdomains\": true, \"max_age\": 600}"
+                }
+              },
+              "Nel": {
+                "schema": {
+                  "type": "string",
+                  "example": "{\"failure_fraction\": 0.001, \"include_subdomains\": true, \"max_age\": 600, \"report_to\": \"endpoint-1\"}"
+                }
+              },
+              "Strict-Transport-Security": {
+                "schema": {
+                  "type": "string",
+                  "example": "max-age=63072000; includeSubDomains; preload"
+                }
+              },
+              "Transfer-Encoding": {
+                "schema": {
+                  "type": "string",
+                  "example": "chunked"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "id": 10006,
+                  "moduleKey": "com.atlassian.jira.gadgets:watched-gadget/gadgets/watched-gadget.xml",
+                  "color": "blue",
+                  "position": {
+                    "row": 0,
+                    "column": 1
+                  },
+                  "title": "Issue statistics"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/rest/api/3/dashboard/{dashboardId}/gadget/{gadgetId}": {
+      "put": {
+        "tags": ["Dashboards"],
+        "summary": "Update gadget on dashboard",
+        "description": "Changes the title, position, and color of the gadget on a dashboard.\n\n**[Permissions](#permissions) required:** None.",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string",
+                "example": "\"{\\n  \\\"color\\\": \\\"red\\\",\\n  \\\"position\\\": {\\n    \\\"column\\\": 1,\\n    \\\"row\\\": 1\\n  },\\n  \\\"title\\\": \\\"My new gadget title\\\"\\n}\""
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "dashboardId",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the dashboard.",
+            "example": "{{dashboardId}}"
+          },
+          {
+            "name": "gadgetId",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the gadget.",
+            "example": "{{gadgetId}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Dashboards"],
+        "summary": "Remove gadget from dashboard",
+        "description": "Removes a dashboard gadget from a dashboard.\n\nWhen a gadget is removed from a dashboard, other gadgets in the same column are moved up to fill the emptied position.\n\n**[Permissions](#permissions) required:** None.",
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "dashboardId",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the dashboard.",
+            "example": "{{dashboardId}}"
+          },
+          {
+            "name": "gadgetId",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the gadget.",
+            "example": "{{gadgetId}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/rest/api/3/dashboard/{id}": {
+      "get": {
+        "tags": ["Dashboards"],
+        "summary": "Get dashboard",
+        "description": "Returns a dashboard.\n\nThis operation can be accessed anonymously.\n\n**[Permissions](#permissions) required:** None.\n\nHowever, to get a dashboard, the dashboard must be shared with the user or the user must own it. Note, users with the *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg) are considered owners of the System dashboard. The System dashboard is considered to be shared with all other users.",
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the dashboard.",
+            "example": "{{id}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["Dashboards"],
+        "summary": "Update dashboard",
+        "description": "Updates a dashboard, replacing all the dashboard details with those provided.\n\n**[Permissions](#permissions) required:** None\n\nThe dashboard to be updated must be owned by the user.",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string",
+                "example": "\"{\\n  \\\"description\\\": \\\"A dashboard to help auditors identify sample update of issues check update.\\\",\\n  \\\"editPermissions\\\": [],\\n  \\\"name\\\": \\\"Auditors dashboard 3\\\",\\n  \\\"sharePermissions\\\": [\\n    {\\n      \\\"type\\\": \\\"authenticated\\\"\\n    }\\n  ]\\n}\""
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the dashboard to update.",
+            "example": "{{id}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Dashboards"],
+        "summary": "Delete dashboard",
+        "description": "Deletes a dashboard.\n\n**[Permissions](#permissions) required:** None\n\nThe dashboard to be deleted must be owned by the user.",
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the dashboard.",
+            "example": "{{id}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/rest/api/3/filter": {
+      "post": {
+        "tags": ["Filters"],
+        "summary": "Create filter",
+        "description": "Creates a filter. The filter is shared according to the [default share scope](#api-rest-api-3-filter-post). The filter is not selected as a favorite.\n\n**[Permissions](#permissions) required:** Permission to access Jira.",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string",
+                "example": "\"{\\n  \\\"description\\\": \\\"Lists all open bugs\\\",\\n  \\\"jql\\\": \\\"type = Bug and resolution is empty\\\",\\n  \\\"name\\\": \\\"All Open Bugs\\\"\\n}\""
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/rest/api/3/filter/{id}": {
+      "get": {
+        "tags": ["Filters"],
+        "summary": "Get filter",
+        "description": "Returns a filter.\n\nThis operation can be accessed anonymously.\n\n**[Permissions](#permissions) required:** None, however, the filter is only returned where it is:\n\n *  owned by the user.\n *  shared with a group that the user is a member of.\n *  shared with a private project that the user has *Browse projects* [project permission](https://confluence.atlassian.com/x/yodKLg) for.\n *  shared with a public project.\n *  shared with the public.",
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the filter to return.",
+            "example": "{{id}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["Filters"],
+        "summary": "Update filter",
+        "description": "Updates a filter. Use this operation to update a filter's name, description, JQL, or sharing.\n\n**[Permissions](#permissions) required:** Permission to access Jira, however the user must own the filter.",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string",
+                "example": "\"{\\n  \\\"description\\\": \\\"Lists all open bugs\\\",\\n  \\\"jql\\\": \\\"type = Bug and resolution is empty\\\",\\n  \\\"name\\\": \\\"All Open Bugs\\\"\\n}\""
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the filter to update.",
+            "example": "{{id}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Filters"],
+        "summary": "Delete filter",
+        "description": "Delete a filter.\n\n**[Permissions](#permissions) required:** Permission to access Jira, however filters can only be deleted by the creator of the filter or a user with *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).",
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the filter to delete.",
+            "example": "{{id}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/rest/api/3/group": {
+      "get": {
+        "tags": ["Groups"],
+        "summary": "Get group",
+        "description": "This operation is deprecated, use [`group/member`](#api-rest-api-3-group-member-get).\n\nReturns all users in a group.\n\n**[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).",
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Groups"],
+        "summary": "Create group",
+        "description": "Creates a group.\n\n**[Permissions](#permissions) required:** Site administration (that is, member of the *site-admin* [group](https://confluence.atlassian.com/x/24xjL)).",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string",
+                "example": "\"{\\n  \\\"name\\\": \\\"power-users\\\"\\n}\""
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Groups"],
+        "summary": "Remove group",
+        "description": "Deletes a group.\n\n**[Permissions](#permissions) required:** Site administration (that is, member of the *site-admin* strategic [group](https://confluence.atlassian.com/x/24xjL)).",
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/rest/api/3/group/user": {
+      "post": {
+        "tags": ["Groups"],
+        "summary": "Add user to group",
+        "description": "Adds a user to a group.\n\n**[Permissions](#permissions) required:** Site administration (that is, member of the *site-admin* [group](https://confluence.atlassian.com/x/24xjL)).",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string",
+                "example": "\"{\\n  \\\"accountId\\\": \\\"5b10ac8d82e05b22cc7d4ef5\\\"\\n}\""
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Groups"],
+        "summary": "Remove user from group",
+        "description": "Removes a user from a group.\n\n**[Permissions](#permissions) required:** Site administration (that is, member of the *site-admin* [group](https://confluence.atlassian.com/x/24xjL)).",
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "accountId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "The account ID of the user, which uniquely identifies the user across all Atlassian products. For example, *5b10ac8d82e05b22cc7d4ef5*.",
+            "example": "{{accountId}}"
+          },
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/rest/api/3/groups/picker": {
+      "get": {
+        "tags": ["Groups"],
+        "summary": "Find groups",
+        "description": "Returns a list of groups whose names contain a query string. A list of group names can be provided to exclude groups from the results.\n\nThe primary use case for this resource is to populate a group picker suggestions list. To this end, the returned object includes the `html` field where the matched query term is highlighted in the group name with the HTML strong tag. Also, the groups list is wrapped in a response object that contains a header for use in the picker, specifically *Showing X of Y matching groups*.\n\nThe list returns with the groups sorted. If no groups match the list criteria, an empty list is returned.\n\nThis operation can be accessed anonymously.\n\n**[Permissions](#permissions) required:** *Browse projects* [project permission](https://confluence.atlassian.com/x/yodKLg). Anonymous calls and calls by users without the required permission return an empty list.\n\n*Browse users and groups* [global permission](https://confluence.atlassian.com/x/x4dKLg). Without this permission, calls where query is not an exact match to an existing group will return an empty list.",
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/rest/api/3/issue": {
+      "post": {
+        "tags": ["Issues"],
+        "summary": "Create issue",
+        "description": "Creates an issue or, where the option to create subtasks is enabled in Jira, a subtask. A transition may be applied, to move the issue or subtask to a workflow step other than the default start step, and issue properties set.\n\nThe content of the issue or subtask is defined using `update` and `fields`. The fields that can be set in the issue or subtask are determined using the [ Get create issue metadata](#api-rest-api-3-issue-createmeta-get). These are the same fields that appear on the issue's create screen. Note that the `description`, `environment`, and any `textarea` type custom fields (multi-line text fields) take Atlassian Document Format content. Single line custom fields (`textfield`) accept a string and don't handle Atlassian Document Format content.\n\nCreating a subtask differs from creating an issue as follows:\n\n *  `issueType` must be set to a subtask issue type (use [ Get create issue metadata](#api-rest-api-3-issue-createmeta-get) to find subtask issue types).\n *  `parent` must contain the ID or key of the parent issue.\n\nIn a next-gen project any issue may be made a child providing that the parent and child are members of the same project.\n\n**[Permissions](#permissions) required:** *Browse projects* and *Create issues* [project permissions](https://confluence.atlassian.com/x/yodKLg) for the project in which the issue or subtask is created.",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string",
+                "example": "\"{\\n  \\\"fields\\\": {\\n    \\\"assignee\\\": {\\n      \\\"id\\\": \\\"5b109f2e9729b51b54dc274d\\\"\\n    },\\n    \\\"components\\\": [\\n      {\\n        \\\"id\\\": \\\"10000\\\"\\n      }\\n    ],\\n    \\\"customfield_10000\\\": \\\"09/Jun/19\\\",\\n    \\\"customfield_20000\\\": \\\"06/Jul/19 3:25 PM\\\",\\n    \\\"customfield_30000\\\": [\\n      \\\"10000\\\",\\n      \\\"10002\\\"\\n    ],\\n    \\\"customfield_40000\\\": {\\n      \\\"content\\\": [\\n        {\\n          \\\"content\\\": [\\n            {\\n              \\\"text\\\": \\\"Occurs on all orders\\\",\\n              \\\"type\\\": \\\"text\\\"\\n            }\\n          ],\\n          \\\"type\\\": \\\"paragraph\\\"\\n        }\\n      ],\\n      \\\"type\\\": \\\"doc\\\",\\n      \\\"version\\\": 1\\n    },\\n    \\\"customfield_50000\\\": {\\n      \\\"content\\\": [\\n        {\\n          \\\"content\\\": [\\n            {\\n              \\\"text\\\": \\\"Could impact day-to-day work.\\\",\\n              \\\"type\\\": \\\"text\\\"\\n            }\\n          ],\\n          \\\"type\\\": \\\"paragraph\\\"\\n        }\\n      ],\\n      \\\"type\\\": \\\"doc\\\",\\n      \\\"version\\\": 1\\n    },\\n    \\\"customfield_60000\\\": \\\"jira-software-users\\\",\\n    \\\"customfield_70000\\\": [\\n      \\\"jira-administrators\\\",\\n      \\\"jira-software-users\\\"\\n    ],\\n    \\\"customfield_80000\\\": {\\n      \\\"value\\\": \\\"red\\\"\\n    },\\n    \\\"description\\\": {\\n      \\\"content\\\": [\\n        {\\n          \\\"content\\\": [\\n            {\\n              \\\"text\\\": \\\"Order entry fails when selecting supplier.\\\",\\n              \\\"type\\\": \\\"text\\\"\\n            }\\n          ],\\n          \\\"type\\\": \\\"paragraph\\\"\\n        }\\n      ],\\n      \\\"type\\\": \\\"doc\\\",\\n      \\\"version\\\": 1\\n    },\\n    \\\"duedate\\\": \\\"2019-05-11\\\",\\n    \\\"environment\\\": {\\n      \\\"content\\\": [\\n        {\\n          \\\"content\\\": [\\n            {\\n              \\\"text\\\": \\\"UAT\\\",\\n              \\\"type\\\": \\\"text\\\"\\n            }\\n          ],\\n          \\\"type\\\": \\\"paragraph\\\"\\n        }\\n      ],\\n      \\\"type\\\": \\\"doc\\\",\\n      \\\"version\\\": 1\\n    },\\n    \\\"fixVersions\\\": [\\n      {\\n        \\\"id\\\": \\\"10001\\\"\\n      }\\n    ],\\n    \\\"issuetype\\\": {\\n      \\\"id\\\": \\\"10000\\\"\\n    },\\n    \\\"labels\\\": [\\n      \\\"bugfix\\\",\\n      \\\"blitz_test\\\"\\n    ],\\n    \\\"parent\\\": {\\n      \\\"key\\\": \\\"PROJ-123\\\"\\n    },\\n    \\\"priority\\\": {\\n      \\\"id\\\": \\\"20000\\\"\\n    },\\n    \\\"project\\\": {\\n      \\\"id\\\": \\\"10000\\\"\\n    },\\n    \\\"reporter\\\": {\\n      \\\"id\\\": \\\"5b10a2844c20165700ede21g\\\"\\n    },\\n    \\\"security\\\": {\\n      \\\"id\\\": \\\"10000\\\"\\n    },\\n    \\\"summary\\\": \\\"Main order flow broken\\\",\\n    \\\"timetracking\\\": {\\n      \\\"originalEstimate\\\": \\\"10\\\",\\n      \\\"remainingEstimate\\\": \\\"5\\\"\\n    },\\n    \\\"versions\\\": [\\n      {\\n        \\\"id\\\": \\\"10000\\\"\\n      }\\n    ]\\n  },\\n  \\\"update\\\": {}\\n}\""
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/rest/api/3/issue/{issueIdOrKey}": {
+      "get": {
+        "tags": ["Issues"],
+        "summary": "Get issue",
+        "description": "Returns the details for an issue.\n\nThe issue is identified by its ID or key, however, if the identifier doesn't match an issue, a case-insensitive search and check for moved issues is performed. If a matching issue is found its details are returned, a 302 or other redirect is **not** returned. The issue key returned in the response is the key of the issue found.\n\nThis operation can be accessed anonymously.\n\n**[Permissions](#permissions) required:**\n\n *  *Browse projects* [project permission](https://confluence.atlassian.com/x/yodKLg) for the project that the issue is in.\n *  If [issue-level security](https://confluence.atlassian.com/x/J4lKLg) is configured, issue-level security permission to view the issue.",
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "issueIdOrKey",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID or key of the issue.",
+            "example": "{{issueIdOrKey}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["Issues"],
+        "summary": "Edit issue",
+        "description": "Edits an issue. A transition may be applied and issue properties updated as part of the edit.\n\nThe edits to the issue's fields are defined using `update` and `fields`. The fields that can be edited are determined using [ Get edit issue metadata](#api-rest-api-3-issue-issueIdOrKey-editmeta-get).\n\nThe parent field may be set by key or ID. For standard issue types, the parent may be removed by setting `update.parent.set.none` to *true*. Note that the `description`, `environment`, and any `textarea` type custom fields (multi-line text fields) take Atlassian Document Format content. Single line custom fields (`textfield`) accept a string and don't handle Atlassian Document Format content.\n\nConnect apps having an app user with *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg), and Forge apps acting on behalf of users with *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg), can override the screen security configuration using `overrideScreenSecurity` and `overrideEditableFlag`.\n\nThis operation can be accessed anonymously.\n\n**[Permissions](#permissions) required:**\n\n *  *Browse projects* and *Edit issues* [project permission](https://confluence.atlassian.com/x/yodKLg) for the project that the issue is in.\n *  If [issue-level security](https://confluence.atlassian.com/x/J4lKLg) is configured, issue-level security permission to view the issue.",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string",
+                "example": "\"{\\n  \\\"fields\\\": {\\n    \\\"customfield_10000\\\": {\\n      \\\"content\\\": [\\n        {\\n          \\\"content\\\": [\\n            {\\n              \\\"text\\\": \\\"Investigation underway\\\",\\n              \\\"type\\\": \\\"text\\\"\\n            }\\n          ],\\n          \\\"type\\\": \\\"paragraph\\\"\\n        }\\n      ],\\n      \\\"type\\\": \\\"doc\\\",\\n      \\\"version\\\": 1\\n    },\\n    \\\"customfield_10010\\\": 1,\\n    \\\"summary\\\": \\\"Completed orders still displaying in pending\\\"\\n  },\\n  \\\"historyMetadata\\\": {\\n    \\\"activityDescription\\\": \\\"Complete order processing\\\",\\n    \\\"actor\\\": {\\n      \\\"avatarUrl\\\": \\\"http://mysystem/avatar/tony.jpg\\\",\\n      \\\"displayName\\\": \\\"Tony\\\",\\n      \\\"id\\\": \\\"tony\\\",\\n      \\\"type\\\": \\\"mysystem-user\\\",\\n      \\\"url\\\": \\\"http://mysystem/users/tony\\\"\\n    },\\n    \\\"cause\\\": {\\n      \\\"id\\\": \\\"myevent\\\",\\n      \\\"type\\\": \\\"mysystem-event\\\"\\n    },\\n    \\\"description\\\": \\\"From the order testing process\\\",\\n    \\\"extraData\\\": {\\n      \\\"Iteration\\\": \\\"10a\\\",\\n      \\\"Step\\\": \\\"4\\\"\\n    },\\n    \\\"generator\\\": {\\n      \\\"id\\\": \\\"mysystem-1\\\",\\n      \\\"type\\\": \\\"mysystem-application\\\"\\n    },\\n    \\\"type\\\": \\\"myplugin:type\\\"\\n  },\\n  \\\"properties\\\": [\\n    {\\n      \\\"key\\\": \\\"key1\\\",\\n      \\\"value\\\": \\\"Order number 10784\\\"\\n    },\\n    {\\n      \\\"key\\\": \\\"key2\\\",\\n      \\\"value\\\": \\\"Order number 10923\\\"\\n    }\\n  ],\\n  \\\"update\\\": {\\n    \\\"components\\\": [\\n      {\\n        \\\"set\\\": \\\"\\\"\\n      }\\n    ],\\n    \\\"labels\\\": [\\n      {\\n        \\\"add\\\": \\\"triaged\\\"\\n      },\\n      {\\n        \\\"remove\\\": \\\"blocker\\\"\\n      }\\n    ],\\n    \\\"summary\\\": [\\n      {\\n        \\\"set\\\": \\\"Bug in business logic\\\"\\n      }\\n    ],\\n    \\\"timetracking\\\": [\\n      {\\n        \\\"edit\\\": {\\n          \\\"originalEstimate\\\": \\\"1w 1d\\\",\\n          \\\"remainingEstimate\\\": \\\"4d\\\"\\n        }\\n      }\\n    ]\\n  }\\n}\""
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "issueIdOrKey",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID or key of the issue.",
+            "example": "{{issueIdOrKey}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Issues"],
+        "summary": "Delete issue",
+        "description": "Deletes an issue.\n\nAn issue cannot be deleted if it has one or more subtasks. To delete an issue with subtasks, set `deleteSubtasks`. This causes the issue's subtasks to be deleted with the issue.\n\nThis operation can be accessed anonymously.\n\n**[Permissions](#permissions) required:**\n\n *  *Browse projects* and *Delete issues* [project permission](https://confluence.atlassian.com/x/yodKLg) for the project containing the issue.\n *  If [issue-level security](https://confluence.atlassian.com/x/J4lKLg) is configured, issue-level security permission to view the issue.",
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "issueIdOrKey",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID or key of the issue.",
+            "example": "{{issueIdOrKey}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/rest/api/3/issue/{issueIdOrKey}/assignee": {
+      "put": {
+        "tags": ["Issues"],
+        "summary": "Assign issue",
+        "description": "Assigns an issue to a user. Use this operation when the calling user does not have the *Edit Issues* permission but has the *Assign issue* permission for the project that the issue is in.\n\nIf `name` or `accountId` is set to:\n\n *  `\"-1\"`, the issue is assigned to the default assignee for the project.\n *  `null`, the issue is set to unassigned.\n\nThis operation can be accessed anonymously.\n\n**[Permissions](#permissions) required:**\n\n *  *Browse Projects* and *Assign Issues* [ project permission](https://confluence.atlassian.com/x/yodKLg) for the project that the issue is in.\n *  If [issue-level security](https://confluence.atlassian.com/x/J4lKLg) is configured, issue-level security permission to view the issue.",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string",
+                "example": "\"{\\n  \\\"accountId\\\": \\\"5b10ac8d82e05b22cc7d4ef5\\\"\\n}\""
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "issueIdOrKey",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID or key of the issue to be assigned.",
+            "example": "{{issueIdOrKey}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/rest/api/3/issue/{issueIdOrKey}/transitions": {
+      "post": {
+        "tags": ["Issues"],
+        "summary": "Transition issue",
+        "description": "Performs an issue transition and, if the transition has a screen, updates the fields from the transition screen.\n\nsortByCategory To update the fields on the transition screen, specify the fields in the `fields` or `update` parameters in the request body. Get details about the fields using [ Get transitions](#api-rest-api-3-issue-issueIdOrKey-transitions-get) with the `transitions.fields` expand.\n\nThis operation can be accessed anonymously.\n\n**[Permissions](#permissions) required:**\n\n *  *Browse projects* and *Transition issues* [project permission](https://confluence.atlassian.com/x/yodKLg) for the project that the issue is in.\n *  If [issue-level security](https://confluence.atlassian.com/x/J4lKLg) is configured, issue-level security permission to view the issue.",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string",
+                "example": "\"{\\n  \\\"fields\\\": {\\n    \\\"assignee\\\": {\\n      \\\"name\\\": \\\"bob\\\"\\n    },\\n    \\\"resolution\\\": {\\n      \\\"name\\\": \\\"Fixed\\\"\\n    }\\n  },\\n  \\\"historyMetadata\\\": {\\n    \\\"activityDescription\\\": \\\"Complete order processing\\\",\\n    \\\"actor\\\": {\\n      \\\"avatarUrl\\\": \\\"http://mysystem/avatar/tony.jpg\\\",\\n      \\\"displayName\\\": \\\"Tony\\\",\\n      \\\"id\\\": \\\"tony\\\",\\n      \\\"type\\\": \\\"mysystem-user\\\",\\n      \\\"url\\\": \\\"http://mysystem/users/tony\\\"\\n    },\\n    \\\"cause\\\": {\\n      \\\"id\\\": \\\"myevent\\\",\\n      \\\"type\\\": \\\"mysystem-event\\\"\\n    },\\n    \\\"description\\\": \\\"From the order testing process\\\",\\n    \\\"extraData\\\": {\\n      \\\"Iteration\\\": \\\"10a\\\",\\n      \\\"Step\\\": \\\"4\\\"\\n    },\\n    \\\"generator\\\": {\\n      \\\"id\\\": \\\"mysystem-1\\\",\\n      \\\"type\\\": \\\"mysystem-application\\\"\\n    },\\n    \\\"type\\\": \\\"myplugin:type\\\"\\n  },\\n  \\\"transition\\\": {\\n    \\\"id\\\": \\\"5\\\"\\n  },\\n  \\\"update\\\": {\\n    \\\"comment\\\": [\\n      {\\n        \\\"add\\\": {\\n          \\\"body\\\": {\\n            \\\"content\\\": [\\n              {\\n                \\\"content\\\": [\\n                  {\\n                    \\\"text\\\": \\\"Bug has been fixed\\\",\\n                    \\\"type\\\": \\\"text\\\"\\n                  }\\n                ],\\n                \\\"type\\\": \\\"paragraph\\\"\\n              }\\n            ],\\n            \\\"type\\\": \\\"doc\\\",\\n            \\\"version\\\": 1\\n          }\\n        }\\n      }\\n    ]\\n  }\\n}\""
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "issueIdOrKey",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID or key of the issue.",
+            "example": "{{issueIdOrKey}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/rest/api/3/attachment/{id}": {
+      "delete": {
+        "tags": ["Issue attachments"],
+        "summary": "Delete attachment",
+        "description": "Deletes an attachment from an issue.\n\nThis operation can be accessed anonymously.\n\n**[Permissions](#permissions) required:** For the project holding the issue containing the attachment:\n\n *  *Delete own attachments* [project permission](https://confluence.atlassian.com/x/yodKLg) to delete an attachment created by the calling user.\n *  *Delete all attachments* [project permission](https://confluence.atlassian.com/x/yodKLg) to delete an attachment created by any user.",
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the attachment.",
+            "example": "{{id}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/rest/api/3/issue/{issueIdOrKey}/attachments": {
+      "post": {
+        "tags": ["Issue attachments"],
+        "summary": "Add attachment",
+        "description": "Adds one or more attachments to an issue. Attachments are posted as multipart/form-data ([RFC 1867](https://www.ietf.org/rfc/rfc1867.txt)).\n\nNote that:\n\n *  The request must have a `X-Atlassian-Token: no-check` header, if not it is blocked. See [Special headers](#special-request-headers) for more information.\n *  The name of the multipart/form-data parameter that contains the attachments must be `file`.\n\nThe following examples upload a file called *myfile.txt* to the issue *TEST-123*:\n\n#### curl ####\n\n    curl --location --request POST 'https://your-domain.atlassian.net/rest/api/3/issue/TEST-123/attachments'\n     -u 'email@example.com:'\n     -H 'X-Atlassian-Token: no-check'\n     --form 'file=@\"myfile.txt\"'\n\n#### Node.js ####\n\n    // This code sample uses the 'node-fetch' and 'form-data' libraries:\n     // https://www.npmjs.com/package/node-fetch\n     // https://www.npmjs.com/package/form-data\n     const fetch = require('node-fetch');\n     const FormData = require('form-data');\n     const fs = require('fs');\n    \n     const filePath = 'myfile.txt';\n     const form = new FormData();\n     const stats = fs.statSync(filePath);\n     const fileSizeInBytes = stats.size;\n     const fileStream = fs.createReadStream(filePath);\n    \n     form.append('file', fileStream, {knownLength: fileSizeInBytes});\n    \n     fetch('https://your-domain.atlassian.net/rest/api/3/issue/TEST-123/attachments', {\n         method: 'POST',\n         body: form,\n         headers: {\n             'Authorization': `Basic ${Buffer.from(\n                 'email@example.com:'\n             ).toString('base64')}`,\n             'Accept': 'application/json',\n             'X-Atlassian-Token': 'no-check'\n         }\n     })\n         .then(response => {\n             console.log(\n                 `Response: ${response.status} ${response.statusText}`\n             );\n             return response.text();\n         })\n         .then(text => console.log(text))\n         .catch(err => console.error(err));\n\n#### Java ####\n\n    // This code sample uses the  'Unirest' library:\n     // http://unirest.io/java.html\n     HttpResponse response = Unirest.post(\"https://your-domain.atlassian.net/rest/api/2/issue/{issueIdOrKey}/attachments\")\n             .basicAuth(\"email@example.com\", \"\")\n             .header(\"Accept\", \"application/json\")\n             .header(\"X-Atlassian-Token\", \"no-check\")\n             .field(\"file\", new File(\"myfile.txt\"))\n             .asJson();\n    \n             System.out.println(response.getBody());\n\n#### Python ####\n\n    # This code sample uses the 'requests' library:\n     # http://docs.python-requests.org\n     import requests\n     from requests.auth import HTTPBasicAuth\n     import json\n    \n     url = \"https://your-domain.atlassian.net/rest/api/2/issue/{issueIdOrKey}/attachments\"\n    \n     auth = HTTPBasicAuth(\"email@example.com\", \"\")\n    \n     headers = {\n        \"Accept\": \"application/json\",\n        \"X-Atlassian-Token\": \"no-check\"\n     }\n    \n     response = requests.request(\n        \"POST\",\n        url,\n        headers = headers,\n        auth = auth,\n        files = {\n             \"file\": (\"myfile.txt\", open(\"myfile.txt\",\"rb\"), \"application-type\")\n        }\n     )\n    \n     print(json.dumps(json.loads(response.text), sort_keys=True, indent=4, separators=(\",\", \": \")))\n\n#### PHP ####\n\n    // This code sample uses the 'Unirest' library:\n     // http://unirest.io/php.html\n     Unirest\\Request::auth('email@example.com', '');\n    \n     $headers = array(\n       'Accept' => 'application/json',\n       'X-Atlassian-Token' => 'no-check'\n     );\n    \n     $parameters = array(\n       'file' => File::add('myfile.txt')\n     );\n    \n     $response = Unirest\\Request::post(\n       'https://your-domain.atlassian.net/rest/api/2/issue/{issueIdOrKey}/attachments',\n       $headers,\n       $parameters\n     );\n    \n     var_dump($response)\n\n#### Forge ####\n\n    // This sample uses Atlassian Forge and the `form-data` library.\n     // https://developer.atlassian.com/platform/forge/\n     // https://www.npmjs.com/package/form-data\n     import api from \"@forge/api\";\n     import FormData from \"form-data\";\n    \n     const form = new FormData();\n     form.append('file', fileStream, {knownLength: fileSizeInBytes});\n    \n     const response = await api.asApp().requestJira('/rest/api/2/issue/{issueIdOrKey}/attachments', {\n         method: 'POST',\n         body: form,\n         headers: {\n             'Accept': 'application/json',\n             'X-Atlassian-Token': 'no-check'\n         }\n     });\n    \n     console.log(`Response: ${response.status} ${response.statusText}`);\n     console.log(await response.json());\n\nTip: Use a client library. Many client libraries have classes for handling multipart POST operations. For example, in Java, the Apache HTTP Components library provides a [MultiPartEntity](http://hc.apache.org/httpcomponents-client-ga/httpmime/apidocs/org/apache/http/entity/mime/MultipartEntity.html) class for multipart POST operations.\n\nThis operation can be accessed anonymously.\n\n**[Permissions](#permissions) required:** \n\n *  *Browse Projects* and *Create attachments* [ project permission](https://confluence.atlassian.com/x/yodKLg) for the project that the issue is in.\n *  If [issue-level security](https://confluence.atlassian.com/x/J4lKLg) is configured, issue-level security permission to view the issue.",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string",
+                "example": "\"\""
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "multipart/form-data"
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "issueIdOrKey",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID or key of the issue that attachments are added to.",
+            "example": "{{issueIdOrKey}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/rest/api/3/issue/{issueIdOrKey}/comment": {
+      "get": {
+        "tags": ["Issue comments"],
+        "summary": "Get comments",
+        "description": "Returns all comments for an issue.\n\nThis operation can be accessed anonymously.\n\n**[Permissions](#permissions) required:** Comments are included in the response where the user has:\n\n *  *Browse projects* [project permission](https://confluence.atlassian.com/x/yodKLg) for the project containing the comment.\n *  If [issue-level security](https://confluence.atlassian.com/x/J4lKLg) is configured, issue-level security permission to view the issue.\n *  If the comment has visibility restrictions, belongs to the group or has the role visibility is role visibility is restricted to.",
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "issueIdOrKey",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID or key of the issue.",
+            "example": "{{issueIdOrKey}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Issue comments"],
+        "summary": "Add comment",
+        "description": "Adds a comment to an issue.\n\nThis operation can be accessed anonymously.\n\n**[Permissions](#permissions) required:**\n\n *  *Browse projects* and *Add comments* [ project permission](https://confluence.atlassian.com/x/yodKLg) for the project that the issue containing the comment is in.\n *  If [issue-level security](https://confluence.atlassian.com/x/J4lKLg) is configured, issue-level security permission to view the issue.",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string",
+                "example": "\"{\\n  \\\"body\\\": {\\n    \\\"content\\\": [\\n      {\\n        \\\"content\\\": [\\n          {\\n            \\\"text\\\": \\\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget venenatis elit. Duis eu justo eget augue iaculis fermentum. Sed semper quam laoreet nisi egestas at posuere augue semper.\\\",\\n            \\\"type\\\": \\\"text\\\"\\n          }\\n        ],\\n        \\\"type\\\": \\\"paragraph\\\"\\n      }\\n    ],\\n    \\\"type\\\": \\\"doc\\\",\\n    \\\"version\\\": 1\\n  },\\n  \\\"visibility\\\": {\\n    \\\"identifier\\\": \\\"Administrators\\\",\\n    \\\"type\\\": \\\"role\\\",\\n    \\\"value\\\": \\\"Administrators\\\"\\n  }\\n}\""
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "issueIdOrKey",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID or key of the issue.",
+            "example": "{{issueIdOrKey}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/rest/api/3/issue/{issueIdOrKey}/comment/{id}": {
+      "put": {
+        "tags": ["Issue comments"],
+        "summary": "Update comment",
+        "description": "Updates a comment.\n\nThis operation can be accessed anonymously.\n\n**[Permissions](#permissions) required:**\n\n *  *Browse projects* [project permission](https://confluence.atlassian.com/x/yodKLg) for the project that the issue containing the comment is in.\n *  If [issue-level security](https://confluence.atlassian.com/x/J4lKLg) is configured, issue-level security permission to view the issue.\n *  *Edit all comments*[ project permission](https://confluence.atlassian.com/x/yodKLg) to update any comment or *Edit own comments* to update comment created by the user.\n *  If the comment has visibility restrictions, the user belongs to the group or has the role visibility is restricted to.",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string",
+                "example": "\"{\\n  \\\"body\\\": {\\n    \\\"content\\\": [\\n      {\\n        \\\"content\\\": [\\n          {\\n            \\\"text\\\": \\\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget venenatis elit. Duis eu justo eget augue iaculis fermentum. Sed semper quam laoreet nisi egestas at posuere augue semper.\\\",\\n            \\\"type\\\": \\\"text\\\"\\n          }\\n        ],\\n        \\\"type\\\": \\\"paragraph\\\"\\n      }\\n    ],\\n    \\\"type\\\": \\\"doc\\\",\\n    \\\"version\\\": 1\\n  },\\n  \\\"visibility\\\": {\\n    \\\"identifier\\\": \\\"Administrators\\\",\\n    \\\"type\\\": \\\"role\\\",\\n    \\\"value\\\": \\\"Administrators\\\"\\n  }\\n}\""
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "issueIdOrKey",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID or key of the issue.",
+            "example": "{{issueIdOrKey}}"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the comment.",
+            "example": "{{id}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Issue comments"],
+        "summary": "Delete comment",
+        "description": "Deletes a comment.\n\n**[Permissions](#permissions) required:**\n\n *  *Browse projects* [project permission](https://confluence.atlassian.com/x/yodKLg) for the project that the issue containing the comment is in.\n *  If [issue-level security](https://confluence.atlassian.com/x/J4lKLg) is configured, issue-level security permission to view the issue.\n *  *Delete all comments*[ project permission](https://confluence.atlassian.com/x/yodKLg) to delete any comment or *Delete own comments* to delete comment created by the user,\n *  If the comment has visibility restrictions, the user belongs to the group or has the role visibility is restricted to.",
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "issueIdOrKey",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID or key of the issue.",
+            "example": "{{issueIdOrKey}}"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the comment.",
+            "example": "{{id}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/rest/api/3/project/": {
+      "post": {
+        "tags": ["Projects"],
+        "summary": "Create project",
+        "description": "Creates a project based on a project type template, as shown in the following table:\n\n| Project Type Key | Project Template Key |  \n|--|--|  \n| `business` | `com.atlassian.jira-core-project-templates:jira-core-simplified-content-management`, `com.atlassian.jira-core-project-templates:jira-core-simplified-document-approval`, `com.atlassian.jira-core-project-templates:jira-core-simplified-lead-tracking`, `com.atlassian.jira-core-project-templates:jira-core-simplified-process-control`, `com.atlassian.jira-core-project-templates:jira-core-simplified-procurement`, `com.atlassian.jira-core-project-templates:jira-core-simplified-project-management`, `com.atlassian.jira-core-project-templates:jira-core-simplified-recruitment`, `com.atlassian.jira-core-project-templates:jira-core-simplified-task-tracking` |  \n| `service_desk` | `com.atlassian.servicedesk:simplified-it-service-management`, `com.atlassian.servicedesk:simplified-general-service-desk-it`, `com.atlassian.servicedesk:simplified-general-service-desk-business`, `com.atlassian.servicedesk:simplified-external-service-desk`, `com.atlassian.servicedesk:simplified-hr-service-desk`, `com.atlassian.servicedesk:simplified-facilities-service-desk`, `com.atlassian.servicedesk:simplified-legal-service-desk`, `com.atlassian.servicedesk:simplified-analytics-service-desk`, `com.atlassian.servicedesk:simplified-marketing-service-desk`, `com.atlassian.servicedesk:simplified-design-service-desk`, `com.atlassian.servicedesk:simplified-sales-service-desk`, `com.atlassian.servicedesk:simplified-blank-project-business`, `com.atlassian.servicedesk:simplified-blank-project-it`, `com.atlassian.servicedesk:simplified-finance-service-desk`, `com.atlassian.servicedesk:next-gen-it-service-desk`, `com.atlassian.servicedesk:next-gen-hr-service-desk`, `com.atlassian.servicedesk:next-gen-legal-service-desk`, `com.atlassian.servicedesk:next-gen-marketing-service-desk`, `com.atlassian.servicedesk:next-gen-facilities-service-desk`, `com.atlassian.servicedesk:next-gen-general-it-service-desk`, `com.atlassian.servicedesk:next-gen-general-business-service-desk`, `com.atlassian.servicedesk:next-gen-analytics-service-desk`, `com.atlassian.servicedesk:next-gen-finance-service-desk`, `com.atlassian.servicedesk:next-gen-design-service-desk`, `com.atlassian.servicedesk:next-gen-sales-service-desk` |  \n| `software` | `com.pyxis.greenhopper.jira:gh-simplified-agility-kanban`, `com.pyxis.greenhopper.jira:gh-simplified-agility-scrum`, `com.pyxis.greenhopper.jira:gh-simplified-basic`, `com.pyxis.greenhopper.jira:gh-simplified-kanban-classic`, `com.pyxis.greenhopper.jira:gh-simplified-scrum-classic` |  \nThe project types are available according to the installed Jira features as follows:\n\n *  Jira Core, the default, enables `business` projects.\n *  Jira Service Management enables `service_desk` projects.\n *  Jira Software enables `software` projects.\n\nTo determine which features are installed, go to **Jira settings** > **Apps** > **Manage apps** and review the System Apps list. To add Jira Software or Jira Service Management into a JIRA instance, use **Jira settings** > **Apps** > **Finding new apps**. For more information, see [ Managing add-ons](https://confluence.atlassian.com/x/S31NLg).\n\n**[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string",
+                "example": "\"{\\n  \\\"assigneeType\\\": \\\"PROJECT_LEAD\\\",\\n  \\\"avatarId\\\": 10201,\\n  \\\"description\\\": \\\"NXTPROJ\\\",\\n  \\\"key\\\": \\\"ANOTHERKEY\\\",\\n  \\\"leadAccountId\\\": \\\"70121:3131d7fb-d731-40f5-8834-3bef25a0f587\\\",\\n  \\\"name\\\": \\\"NEWER\\\",\\n  \\\"projectTemplateKey\\\": \\\"com.pyxis.greenhopper.jira:gh-simplified-agility-kanban\\\",\\n  \\\"projectTypeKey\\\": \\\"software\\\"\\n}\""
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/rest/api/3/project/{id}": {
+      "get": {
+        "tags": ["Projects"],
+        "summary": "Get project",
+        "description": "Returns the [project details](https://confluence.atlassian.com/x/ahLpNw) for a project.\n\nThis operation can be accessed anonymously.\n\n**[Permissions](#permissions) required:** *Browse projects* [project permission](https://confluence.atlassian.com/x/yodKLg) for the project.",
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "projectIdOrKey",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "example": "{{projectIdOrKey}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["Projects"],
+        "summary": "Update project",
+        "description": "Updates the [project details](https://confluence.atlassian.com/x/ahLpNw) of a project.\n\nAll parameters are optional in the body of the request. Schemes will only be updated if they are included in the request, any omitted schemes will be left unchanged.\n\n**[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg). is only needed when changing the schemes or project key. Otherwise you will only need *Administer Projects* [project permission](https://confluence.atlassian.com/x/yodKLg)",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string",
+                "example": "\"{\\n  \\\"assigneeType\\\": \\\"PROJECT_LEAD\\\",\\n  \\\"avatarId\\\": 10200,\\n  \\\"description\\\": \\\"another_details\\\",\\n  \\\"key\\\": \\\"EX\\\",\\n  \\\"leadAccountId\\\": \\\"70121:3131d7fb-d731-40f5-8834-3bef25a0f587\\\",\\n  \\\"name\\\": \\\"Example3\\\",\\n  \\\"url\\\": \\\"http://atlassian.com\\\"\\n}\""
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "projectIdOrKey",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The project ID or project key (case sensitive).",
+            "example": "{{projectIdOrKey}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Projects"],
+        "summary": "Delete project",
+        "description": "Deletes a project.\n\nYou can't delete a project if it's archived. To delete an archived project, restore the project and then delete it. To restore a project, use the Jira UI.\n\n**[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).",
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "projectIdOrKey",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The project ID or project key (case sensitive).",
+            "example": "{{projectIdOrKey}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/rest/api/3/project/{id}/archive": {
+      "post": {
+        "tags": ["Projects"],
+        "summary": "Archive project",
+        "description": "Archives a project. You can't delete a project if it's archived. To delete an archived project, restore the project and then delete it. To restore a project, use the Jira UI.\n\n**[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "projectIdOrKey",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The project ID or project key (case sensitive).",
+            "example": "{{projectIdOrKey}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/rest/api/3/project/{id}/statuses": {
+      "get": {
+        "tags": ["Projects"],
+        "summary": "Get all statuses for project",
+        "description": "Returns the valid statuses for a project. The statuses are grouped by issue type, as each project has a set of valid issue types and each issue type has a set of valid statuses.\n\nThis operation can be accessed anonymously.\n\n**[Permissions](#permissions) required:** *Browse Projects* [project permission](https://confluence.atlassian.com/x/yodKLg) for the project.",
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "projectIdOrKey",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The project ID or project key (case sensitive).",
+            "example": "{{projectIdOrKey}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "//rest/api/3/project": {
+      "get": {
+        "tags": ["Projects"],
+        "summary": "Get all projects",
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/rest/api/3/screens": {
+      "get": {
+        "tags": ["Screens"],
+        "summary": "Get screens",
+        "description": "Returns a [paginated](#pagination) list of all screens or those specified by one or more screen IDs.\n\n**[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).",
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Screens"],
+        "summary": "Create screen",
+        "description": "Creates a screen with a default field tab.\n\n**[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string",
+                "example": "\"{\\n  \\\"description\\\": \\\"Enables changes to resolution and linked issues.\\\",\\n  \\\"name\\\": \\\"Resolve Security Issue Screen\\\"\\n}\""
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/rest/api/3/screens/{screenId}": {
+      "put": {
+        "tags": ["Screens"],
+        "summary": "Update screen",
+        "description": "Updates a screen. Only screens used in classic projects can be updated.\n\n**[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string",
+                "example": "\"{\\n  \\\"description\\\": \\\"Enables changes to resolution and linked issues for accessibility related issues.\\\",\\n  \\\"name\\\": \\\"Resolve Accessibility Issue Screen\\\"\\n}\""
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "screenId",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the screen.",
+            "example": "{{screenId}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Screens"],
+        "summary": "Delete screen",
+        "description": "Deletes a screen. A screen cannot be deleted if it is used in a screen scheme, workflow, or workflow draft.\n\nOnly screens used in classic projects can be deleted.",
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "screenId",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the screen.",
+            "example": "{{screenId}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/rest/api/3/screens/{screenId}/tabs": {
+      "get": {
+        "tags": ["Screen tabs"],
+        "summary": "Get all screen tabs",
+        "description": "Returns the list of tabs for a screen.\n\n**[Permissions](#permissions) required:**\n\n *  *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).\n *  *Administer projects* [project permission](https://confluence.atlassian.com/x/yodKLg) when the project key is specified, providing that the screen is associated with the project through a Screen Scheme and Issue Type Screen Scheme.",
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "screenId",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the screen.",
+            "example": "{{screenId}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Screen tabs"],
+        "summary": "Create screen tab",
+        "description": "Creates a tab for a screen.\n\n**[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string",
+                "example": "\"{\\n  \\\"name\\\": \\\"Fields Tab\\\"\\n}\""
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "screenId",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the screen.",
+            "example": "{{screenId}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/rest/api/3/screens/{screenId}/tabs/{tabId}": {
+      "put": {
+        "tags": ["Screen tabs"],
+        "summary": "Update screen tab",
+        "description": "Updates the name of a screen tab.\n\n**[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string",
+                "example": "\"\""
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "screenId",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the screen.",
+            "example": "{{screenId}}"
+          },
+          {
+            "name": "tabId",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the screen tab.",
+            "example": "{{tabId}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Screen tabs"],
+        "summary": "Delete screen tab",
+        "description": "Deletes a screen tab.\n\n**[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).",
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "screenId",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the screen.",
+            "example": "{{screenId}}"
+          },
+          {
+            "name": "tabId",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the screen tab.",
+            "example": "{{tabId}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/rest/api/3/screens/{screenId}/tabs/{tabId}/move/{pos}": {
+      "post": {
+        "tags": ["Screen tabs"],
+        "summary": "Move screen tab",
+        "description": "Moves a screen tab.\n\n**[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).",
+        "requestBody": {
+          "content": {}
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "screenId",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the screen.",
+            "example": "{{screenId}}"
+          },
+          {
+            "name": "tabId",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The ID of the screen tab.",
+            "example": "{{tabId}}"
+          },
+          {
+            "name": "pos",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "The position of tab. The base index is 0.",
+            "example": "{{pos}}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/rest/api/3/user": {
+      "get": {
+        "tags": ["Users"],
+        "summary": "Get user",
+        "description": "Returns a user.\n\nPrivacy controls are applied to the response based on the user's preferences. This could mean, for example, that the user's email address is hidden. See the [Profile visibility overview](https://developer.atlassian.com/cloud/jira/platform/profile-visibility/) for more details.\n\n**[Permissions](#permissions) required:** *Browse users and groups* [global permission](https://confluence.atlassian.com/x/x4dKLg).",
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Users"],
+        "summary": "Create user",
+        "description": "Creates a user. This resource is retained for legacy compatibility. As soon as a more suitable alternative is available this resource will be deprecated.\n\nIf the user exists and has access to Jira, the operation returns a 201 status. If the user exists but does not have access to Jira, the operation returns a 400 status.\n\n**[Permissions](#permissions) required:** *Administer Jira* [global permission](https://confluence.atlassian.com/x/x4dKLg).",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "type": "string",
+                "example": "\"{\\n  \\\"emailAddress\\\": \\\"mia@atlassian.com\\\"\\n}\""
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Users"],
+        "summary": "Delete user",
+        "description": "Deletes a user. If the operation completes successfully then the user is removed from Jira's user base. This operation does not delete the user's Atlassian account.\n\n**[Permissions](#permissions) required:** Site administration (that is, membership of the *site-admin* [group](https://confluence.atlassian.com/x/24xjL)).",
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "accountId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "The account ID of the user, which uniquely identifies the user across all Atlassian products. For example, *5b10ac8d82e05b22cc7d4ef5*.",
+            "example": "{{accountId}}"
+          },
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/rest/api/3/users/search": {
+      "get": {
+        "tags": ["Users"],
+        "summary": "Get all users",
+        "description": "Returns a list of all users, including active users, inactive users and previously deleted users that have an Atlassian account.\n\nPrivacy controls are applied to the response based on the users' preferences. This could mean, for example, that the user's email address is hidden. See the [Profile visibility overview](https://developer.atlassian.com/cloud/jira/platform/profile-visibility/) for more details.\n\n**[Permissions](#permissions) required:** *Browse users and groups* [global permission](https://confluence.atlassian.com/x/x4dKLg).",
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "host",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "basePath",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    }
+  }
+}

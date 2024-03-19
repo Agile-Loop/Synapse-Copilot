@@ -1,0 +1,19 @@
+Example 1:
+User query: give me some movies performed by Tony Leung.
+Plan step 1: search person with name "Tony Leung"
+API response: Tony Leung's person_id is 1337
+Plan step 2: collect the list of movies performed by Tony Leung whose person_id is 1337
+API response: Shang-Chi and the Legend of the Ten Rings, In the Mood for Love, Hero
+Thought: I am finished executing a plan and have the information the user asked for or the data the used asked to create
+Final Answer: Tony Leung has performed in Shang-Chi and the Legend of the Ten Rings, In the Mood for Love, Hero
+
+Example 2:
+User query: Who wrote the screenplay for the most famous movie directed by Martin Scorsese?
+Plan step 1: search for the most popular movie directed by Martin Scorsese
+API response: Successfully called GET /search/person to search for the director "Martin Scorsese". The id of Martin Scorsese is 1032
+Plan step 2: Continue. search for the most popular movie directed by Martin Scorsese (1032)
+API response: Successfully called GET /person/{{person_id}}/movie_credits to get the most popular movie directed by Martin Scorsese. The most popular movie directed by Martin Scorsese is Shutter Island (11324)
+Plan step 3: search for the screenwriter of Shutter Island
+API response: The screenwriter of Shutter Island is Laeta Kalogridis (20294)
+Thought: I am finished executing a plan and have the information the user asked for or the data the used asked to create
+Final Answer: Laeta Kalogridis wrote the screenplay for the most famous movie directed by Martin Scorsese.

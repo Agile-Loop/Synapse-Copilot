@@ -1,0 +1,18 @@
+Example 1:
+Background: No background
+User query: Create a spreadsheet with the title 'Project Schedule'.
+API calling 1: POST /v4/spreadsheets to create the parent spreadsheet
+API response: Successfully called POST /v4/spreadsheets to create the spreadsheet 'Project Schedule'. It has been successfully created with id '1kazV3iLurBVxcZ5JvGsnjSmOSNSK7AQDhIRJvV2l6AA'
+
+Example 2:
+Background: No background
+User query: Add a sheet to the spreadsheet with id '1kazV3iLurBVxcZ5JvGsnjSmOSNSK7AQDhIRJvV2l6AA' and name it 'Task List'.
+API calling 1: POST /v4/spreadsheets/{spreadsheetId}:batchUpdate to add a sheet to the spreadsheet with id '1kazV3iLurBVxcZ5JvGsnjSmOSNSK7AQDhIRJvV2l6AA'
+Instruction: Add the id '1kazV3iLurBVxcZ5JvGsnjSmOSNSK7AQDhIRJvV2l6AA' in replacement of {spreadsheetID}
+API response: The sheet 'Task List' has been successfully created for the spreadsheet with id '1kazV3iLurBVxcZ5JvGsnjSmOSNSK7AQDhIRJvV2l6AA'. The id of new spreadsheet is 4ldcX2iLitCNxcZ5JvGsnjSmOFMFK7AQDhIRJvV2k6BB
+
+Example 3:
+Background: The ids and names of the cells for the sheet 'Task List' in the spreadsheet '1kazV3iLurBVxcZ5JvGsnjSmOSNSK7AQDhIRJvV2l6AA' are "A1" ('Task Name'), "B1" ('Due Date'), "C1" ('Status') 
+User query: Append the tasks like "Design Phase", "2024-01-01", "Not Started" and "Coding Phase", "2024-05-01", "Not Started" to the 'Task List' sheet of the spreadsheet with id '1kazV3iLurBVxcZ5JvGsnjSmOSNSK7AQDhIRJvV2l6AA'.
+API calling 1: POST /v4/spreadsheets/{spreadsheetId}/values/Sheet1:append to add data to the sheet 'Task List' of the spreadsheet with id '1kazV3iLurBVxcZ5JvGsnjSmOSNSK7AQDhIRJvV2l6AA'
+API response: The tasks have been successfully appended to the 'Task List' sheet of the spreadsheet with id '1kazV3iLurBVxcZ5JvGsnjSmOSNSK7AQDhIRJvV2l6AA'. The updated cells are 'A1:C2'.

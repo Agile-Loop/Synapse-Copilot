@@ -1,0 +1,457 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+      "title": "Google Calendar",
+      "version": "1.0.0",
+      "contact": {}
+    },
+    "servers": [
+      {
+        "url": "https://www.googleapis.com"
+      },
+      {
+        "url": "https://content.googleapis.com"
+      }
+    ],
+    "paths": {
+      "/calendar/v3/users/me/calendarList": {
+        "get": {
+          "summary": "Get Calendars",
+          "description": "Get Calendars",
+          "operationId": "getCalendars",
+          "parameters": [
+            {
+              "name": "minAccessRole",
+              "in": "query",
+              "schema": {
+                "type": "string",
+                "example": "owner"
+              }
+            },
+            {
+              "name": "key",
+              "in": "query",
+              "schema": {
+                "type": "string",
+                "example": "AIzaSyANb7i1uSpOSqLQ_suvbydBeGz6OBxqt98"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          }
+        }
+      },
+      "/calendar/v3/users/me/calendarList/watch": {
+        "post": {
+          "summary": "Watch Calendars",
+          "description": "Watch Calendars",
+          "operationId": "watchCalendars",
+          "parameters": [
+            {
+              "name": "key",
+              "in": "query",
+              "schema": {
+                "type": "string",
+                "example": "AIzaSyANb7i1uSpOSqLQ_suvbydBeGz6OBxqt98"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "address": {
+                      "type": "string",
+                      "example": "https://webhook.site/5e1c793c-e30e-40f2-9db4-eb2ab774f179"
+                    },
+                    "id": {
+                      "type": "string",
+                      "example": "{{$guid}}"
+                    },
+                    "params": {
+                      "type": "object",
+                      "properties": {
+                        "ttl": {
+                          "type": "number",
+                          "example": 630720000
+                        }
+                      }
+                    },
+                    "token": {
+                      "type": "string",
+                      "example": "{{$guid}}"
+                    },
+                    "type": {
+                      "type": "string",
+                      "example": "webhook"
+                    }
+                  }
+                },
+                "examples": {
+                  "Watch Calendars": {
+                    "value": {
+                      "address": "https://webhook.site/5e1c793c-e30e-40f2-9db4-eb2ab774f179",
+                      "id": "{{$guid}}",
+                      "params": {
+                        "ttl": 630720000
+                      },
+                      "token": "{{$guid}}",
+                      "type": "webhook"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          }
+        }
+      },
+      "/calendar/v3/channels/stop": {
+        "post": {
+          "summary": "Stop Watch Calendars",
+          "description": "Stop Watch Calendars",
+          "operationId": "stopWatchCalendars",
+          "parameters": [
+            {
+              "name": "key",
+              "in": "query",
+              "schema": {
+                "type": "string",
+                "example": "AIzaSyANb7i1uSpOSqLQ_suvbydBeGz6OBxqt98"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "example": "440fe06adb0841baa2d4ae15151496db"
+                    },
+                    "resourceId": {
+                      "type": "string",
+                      "example": "wVNN-rcMbHBEWJiT38HDeW0f2So"
+                    }
+                  }
+                },
+                "examples": {
+                  "Stop Watch Calendars": {
+                    "value": {
+                      "id": "440fe06adb0841baa2d4ae15151496db",
+                      "resourceId": "wVNN-rcMbHBEWJiT38HDeW0f2So"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          }
+        }
+      },
+      "/calendar/v3/calendars/{calendar_id}/events": {
+        "get": {
+          "summary": "Get Events",
+          "description": "Get Events",
+          "operationId": "getEvents",
+          "parameters": [
+            {
+              "name": "showHiddenInvitations",
+              "in": "query",
+              "schema": {
+                "type": "string",
+                "example": "false"
+              }
+            },
+            {
+              "name": "singleEvents",
+              "in": "query",
+              "schema": {
+                "type": "string",
+                "example": "true"
+              }
+            },
+            {
+              "name": "alwaysIncludeEmail",
+              "in": "query",
+              "schema": {
+                "type": "string",
+                "example": "false"
+              }
+            },
+            {
+              "name": "orderBy",
+              "in": "query",
+              "schema": {
+                "type": "string",
+                "example": "startTime"
+              }
+            },
+            {
+              "name": "key",
+              "in": "query",
+              "schema": {
+                "type": "string",
+                "example": "AIzaSyANb7i1uSpOSqLQ_suvbydBeGz6OBxqt98"
+              }
+            },
+            {
+              "name": "Referer",
+              "in": "header",
+              "schema": {
+                "type": "string",
+                "example": "https://oauth.pstmn.io/v1/callback"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          }
+        },
+        "post": {
+          "summary": "Create Calendar Event",
+          "description": "Create Calendar Event",
+          "operationId": "createCalendarEvent",
+          "parameters": [
+            {
+              "name": "sendUpdates",
+              "in": "query",
+              "schema": {
+                "type": "string",
+                "example": "none"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "end": {
+                      "type": "object",
+                      "properties": {
+                        "dateTime": {
+                          "type": "string",
+                          "example": "2022-04-30T17:00:00-04:00"
+                        },
+                        "timeZone": {
+                          "type": "string",
+                          "example": "America/New_York"
+                        }
+                      }
+                    },
+                    "eventType": {
+                      "type": "string",
+                      "example": "default"
+                    },
+                    "location": {
+                      "type": "string",
+                      "example": "Evanston Golf Club"
+                    },
+                    "start": {
+                      "type": "object",
+                      "properties": {
+                        "dateTime": {
+                          "type": "string",
+                          "example": "2022-04-30T12:00:00-04:00"
+                        },
+                        "timeZone": {
+                          "type": "string",
+                          "example": "America/New_York"
+                        }
+                      }
+                    },
+                    "status": {
+                      "type": "string",
+                      "example": "tentative"
+                    },
+                    "summary": {
+                      "type": "string",
+                      "example": "Istruzi Slots"
+                    },
+                    "transparency": {
+                      "type": "string",
+                      "example": "transparent"
+                    }
+                  }
+                },
+                "examples": {
+                  "Create Calendar Event": {
+                    "value": {
+                      "end": {
+                        "dateTime": "2022-04-30T17:00:00-04:00",
+                        "timeZone": "America/New_York"
+                      },
+                      "eventType": "default",
+                      "location": "Evanston Golf Club",
+                      "start": {
+                        "dateTime": "2022-04-30T12:00:00-04:00",
+                        "timeZone": "America/New_York"
+                      },
+                      "status": "tentative",
+                      "summary": "Istruzi Slots",
+                      "transparency": "transparent"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "calendar_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "/calendar/v3/calendars": {
+        "post": {
+          "summary": "Create Calendar",
+          "description": "Create Calendar",
+          "operationId": "createCalendar",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "description": {
+                      "type": "string",
+                      "example": "This calendar is used to house all my Istruzi Slots and Bookings."
+                    },
+                    "kind": {
+                      "type": "string",
+                      "example": "calendar#calendar"
+                    },
+                    "summary": {
+                      "type": "string",
+                      "example": "Istruzi"
+                    },
+                    "timeZone": {
+                      "type": "string",
+                      "example": "America/New_York"
+                    }
+                  }
+                },
+                "examples": {
+                  "Create Calendar": {
+                    "value": {
+                      "description": "This calendar is used to house all my Istruzi Slots and Bookings.",
+                      "kind": "calendar#calendar",
+                      "summary": "Istruzi",
+                      "timeZone": "America/New_York"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          }
+        }
+      },
+      "/calendar/v3/calendars/{calendar_id}/events/watch": {
+        "post": {
+          "summary": "Watch Calendar",
+          "description": "Watch Calendar",
+          "operationId": "watchCalendar",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "address": {
+                      "type": "string",
+                      "example": "https://webhook.site/5e1c793c-e30e-40f2-9db4-eb2ab774f179"
+                    },
+                    "id": {
+                      "type": "string",
+                      "example": "{{$guid}}"
+                    },
+                    "params": {
+                      "type": "object",
+                      "properties": {
+                        "ttl": {
+                          "type": "number",
+                          "example": 630720000
+                        }
+                      }
+                    },
+                    "token": {
+                      "type": "string",
+                      "example": "{{$guid}}"
+                    },
+                    "type": {
+                      "type": "string",
+                      "example": "webhook"
+                    }
+                  }
+                },
+                "examples": {
+                  "Watch Calendar": {
+                    "value": {
+                      "address": "https://webhook.site/5e1c793c-e30e-40f2-9db4-eb2ab774f179",
+                      "id": "{{$guid}}",
+                      "params": {
+                        "ttl": 630720000
+                      },
+                      "token": "{{$guid}}",
+                      "type": "webhook"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "calendar_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "tags": []
+  }

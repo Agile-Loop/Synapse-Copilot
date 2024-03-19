@@ -1,0 +1,25 @@
+Example 1:
+Background: No background
+User query: Get me my teams on upclick.
+API calling 1: GET /api/v2/team belonging to me
+API response: Name of your team is "Workspace"
+
+Example 2:
+Background: No background
+User query: Get me my spaces on upclick.
+API calling 1: GET /api/v2/team to search for team_id
+API response: Team id fetched successfully. team_id is '9008245063'
+Instruction: Continue. Search for my spaces of team with team_id '9008245063'
+API calling 2: GET /v2/team/9008245063/space to get the spaces
+API response: {
+        "spaces": [
+            {
+                "id": "90080536224",
+                "name": "Team Space",
+                "color": "#03A2FD",
+                "private": false,
+                "avatar": null,
+                "admin_can_manage": true
+            ...
+        ]
+    }

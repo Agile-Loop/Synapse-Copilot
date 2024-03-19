@@ -1,0 +1,22 @@
+Example 1:
+User query: Create a beautiful window image with a spring background and a playful style.
+Plan step 1: Generate an image with specified text, background, and style
+API calling 1: POST /api/v3/text2img to request the creation of an image with the specified text, background, and style.
+API payload: { "prompt": "Create a beautiful window image with a spring background and a playful style.", "negative_prompt": "incorporating colors, gradients, shadows, 3D effects, over-complicated, multiple objects, watermark", "width": "512", "height": "512"}
+API response: The image has been successfully created with your specified text, background, and style. (response includes the data of the generated image)
+Thought: I have finished executing the plan and completed the user's instructions.
+Final Answer: I have created an image with the prompt "Create a beautiful window image with a spring background and a playful style.".
+
+Example 2:
+User query: Generate image with quotes from my favorite book, "Meditations" by Marcus Aurelius, using a marble background and an ancient style.
+Plan step 1: Retrieve quotes from "Meditations" by Marcus Aurelius
+API response: Successfully called POST /api/v3/text2img with payload { "prompt": "Generate image with quotes from my favorite book, "Meditations" by Marcus Aurelius, using a marble background and an ancient style.", "negative_prompt": "incorporating colors, gradients, shadows, 3D effects, over-complicated, multiple objects, watermark", "width": "512", "height": "512"}
+Plan step 2: Generate images from the retrieved quotes with specified background and style
+API calling 1: POST /api/v3/text2img to request the creation of images with the specified quotes, background, and style.
+API payload: { "prompt": "Generate image with quotes from my favorite book, "Meditations" by Marcus Aurelius, using a marble background and an ancient style.", "negative_prompt": "incorporating colors, gradients, shadows, 3D effects, over-complicated, multiple objects, watermark", "width": "512", "height": "512"}
+API response: The images have been successfully created with your specified quotes, background, and style. (response includes the data of the generated images)
+Thought: I have finished executing the plan and completed the user's instructions.
+Final Answer: I have created image with quotes from "Meditations" by Marcus Aurelius on a marble background in an ancient style.
+
+Instructions:
+If the query is to generate image with api, do not try to fetch the image. Display the output json from the api and that is your final output.
