@@ -1,0 +1,759 @@
+openapi: 3.0.0
+info:
+  title: Options title
+  description: Description from options
+  version: 6.0.7-beta
+  termsOfService: http://tos.myweb.com
+servers:
+  - url: https://platform.agileloop.ai
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+tags:
+  - name: Chat
+  - name: Lab1
+paths:
+  /api/chat/summarize:
+    get:
+      tags:
+        - Chat
+      summary: Summarize
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: query
+          in: query
+          schema:
+            type: string
+          example: What is current weather in Islamabad ?
+      responses:
+        '200':
+          description: OK
+          headers:
+            Date:
+              schema:
+                type: string
+                example: Wed, 28 Feb 2024 11:05:59 GMT
+            Server:
+              schema:
+                type: string
+                example: Apache/2.4.47 (Win64) OpenSSL/1.1.1l mod_fcgid/2.3.10-dev
+            X-Powered-By:
+              schema:
+                type: string
+                example: PHP/8.1.5
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, private
+            X-RateLimit-Limit:
+              schema:
+                type: integer
+                example: '5'
+            X-RateLimit-Remaining:
+              schema:
+                type: integer
+                example: '4'
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: '*'
+            Content-Encoding:
+              schema:
+                type: string
+                example: gzip
+            Vary:
+              schema:
+                type: string
+                example: Accept-Encoding,Authorization
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5, max=100
+            Connection:
+              schema:
+                type: string
+                example: Keep-Alive
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                success: true
+                message: ''
+                data:
+                  output_string: >-
+                    Currently, in Islamabad, Pakistan, the weather is partly
+                    cloudy with a high of 24°C and winds coming from the
+                    west-northwest at 10 to 15 km/h [1]. The hourly weather
+                    forecast shows a gradual decrease in temperature throughout
+                    the afternoon, with no precipitation expected [2]. For the
+                    most up-to-date information on the current weather
+                    conditions in Islamabad, including radar updates and hourly
+                    forecasts, you can check the AccuWeather website [3]. If you
+                    need a more extended forecast, you can refer to the 14-day
+                    weather forecast provided on Time and Date [4].
+                    Additionally, for a detailed 10-day forecast with
+                    information on highs, lows, and chances of precipitation,
+                    you can visit the weather.com website [5].
+
+
+                    References:
+
+                    [1]:
+                    https://weather.com/en-PK/weather/tenday/l/Islamabad+Islamabad+Capital+Territory?canonicalCityId=0d5ed3bbc3987ada5e00f6f71f4ea0cc37c42e6b77e962c63c64c8565a442703
+
+                    [2]:
+                    https://www.accuweather.com/en/pk/islamabad/258278/weather-forecast/258278
+
+                    [3]:
+                    https://www.accuweather.com/en/pk/islamabad/258278/current-weather/258278
+
+                    [4]:
+                    https://www.timeanddate.com/weather/pakistan/islamabad/ext
+
+                    [5]:
+                    https://weather.com/weather/tenday/l/Islamabad+Islamabad+Capital+Territory+Pakistan?canonicalCityId=0d5ed3bbc3987ada5e00f6f71f4ea0cc37c42e6b77e962c63c64c8565a442703
+                  results:
+                    - kind: customsearch#result
+                      title: >-
+                        Islamabad, Islamabad, Pakistan Weather Forecast |
+                        AccuWeather
+                      htmlTitle: >-
+                        <b>Islamabad</b>, <b>Islamabad</b>, <b>Pakistan Weather
+                        Forecast</b> | AccuWeather
+                      link: >-
+                        https://www.accuweather.com/en/pk/islamabad/258278/weather-forecast/258278
+                      displayLink: www.accuweather.com
+                      snippet: "Hourly Weather · 1 PM 70°. rain drop 0% · 2 PM 72°. rain drop 0% · 3 PM 74°. rain drop 0% · 4 PM 72°. rain drop 0% · 5 PM 70°. rain drop 0% · 6 PM 65°. rain\_..."
+                      htmlSnippet: >-
+                        <b>Hourly Weather</b> &middot; 1 PM 70°. rain drop 0%
+                        &middot; 2 PM 72°. rain drop 0% &middot; 3 PM 74°. rain
+                        drop 0% &middot; 4 PM 72°. rain drop 0% &middot; 5 PM
+                        70°. rain drop 0% &middot; 6 PM 65°. rain&nbsp;...
+                      cacheId: _Cb01Je5b5YJ
+                      formattedUrl: >-
+                        https://www.accuweather.com/en/pk/islamabad/258278/weather.../258278
+                      htmlFormattedUrl: >-
+                        https://www.accu<b>weather</b>.com/en/pk/<b>islamabad</b>/258278/<b>weather</b>.../258278
+                      pagemap:
+                        cse_thumbnail:
+                          - src: >-
+                              https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTuL3Cl1PGFBllvcwU4b4wHJPPefT6kVDqeEeO7j9LjXQpxbXqUOc2DOh1U
+                            width: '225'
+                            height: '225'
+                        postaladdress:
+                          - addresslocality: Abbottabad
+                            addressregion: Khyber Pakhtunkhwa
+                          - addresslocality: Rawalpindi
+                            addressregion: Punjab
+                          - addresslocality: Wah
+                            addressregion: Punjab
+                        metatags:
+                          - og:image: >-
+                              https://www.accuweather.com/images/logos/aw-logo-og-meta.png
+                            twitter:app:url:iphone: https://apps.apple.com/US/app/id300048137?mt=8
+                            twitter:app:id:googleplay: com.accuweather.android
+                            twitter:card: summary
+                            twitter:app:url:ipad: https://apps.apple.com/US/app/id300048137?mt=8
+                            twitter:app:name:googleplay: AccuWeather Winter weather alerts & forecast radar
+                            twitter:app:id:iphone: U7D6TVQ9TT.com.yourcompany.TestWithCustomTabs
+                            og:description: >-
+                              Islamabad, Islamabad, Pakistan Weather Forecast,
+                              with current conditions, wind, air quality, and
+                              what to expect for the next 3 days.
+                            twitter:creator: https://twitter.com/accuweather
+                            og:image:secure_url: >-
+                              https://www.accuweather.com/images/logos/aw-logo-og-meta.png
+                            twitter:image: >-
+                              https://www.accuweather.com/images/logos/aw-logo-og-meta.png
+                            twitter:text:title: >-
+                              Islamabad, Islamabad, Pakistan Weather Forecast |
+                              AccuWeather
+                            twitter:site: https://twitter.com/accuweather
+                            fb:profile_id: AccuWeather
+                            og:type: website
+                            twitter:title: >-
+                              Islamabad, Islamabad, Pakistan Weather Forecast |
+                              AccuWeather
+                            twitter:site:id: https://twitter.com/accuweather
+                            og:image:url: >-
+                              https://www.accuweather.com/images/logos/aw-logo-og-meta.png
+                            og:title: >-
+                              Islamabad, Islamabad, Pakistan Weather Forecast |
+                              AccuWeather
+                            twitter:app:id:ipad: U7D6TVQ9TT.com.yourcompany.TestWithCustomTabs
+                            fb:pages: '71781612888'
+                            site_name: AccuWeather
+                            referrer: origin
+                            fb:app_id: '132437483467956'
+                            twitter:app:url:googleplay: >-
+                              https://play.google.com/store/apps/details?id=com.accuweather.android
+                            twitter:creator:id: https://twitter.com/accuweather
+                            twitter:app:name:ipad: 'AccuWeather: Weather Tracker'
+                            viewport: width=device-width, initial-scale=1.0
+                            twitter:description: >-
+                              Islamabad, Islamabad, Pakistan Weather Forecast,
+                              with current conditions, wind, air quality, and
+                              what to expect for the next 3 days.
+                            og:url: >-
+                              https://www.accuweather.com/en/pk/islamabad/258278/weather-forecast/258278
+                            twitter:app:name:iphone: 'AccuWeather: Weather Tracker'
+                        cse_image:
+                          - src: >-
+                              https://www.accuweather.com/images/logos/aw-logo-og-meta.png
+                    - kind: customsearch#result
+                      title: >-
+                        10-day weather forecast for Islamabad, Islamabad Capital
+                        Territory ...
+                      htmlTitle: >-
+                        10-day <b>weather forecast</b> for <b>Islamabad</b>,
+                        <b>Islamabad</b> Capital Territory ...
+                      link: >-
+                        https://weather.com/en-PK/weather/tenday/l/Islamabad+Islamabad+Capital+Territory?canonicalCityId=0d5ed3bbc3987ada5e00f6f71f4ea0cc37c42e6b77e962c63c64c8565a442703
+                      displayLink: weather.com
+                      snippet: >-
+                        Wed 28 | Day ... Partly cloudy. High 24°C. Winds WNW at
+                        10 to 15 km/h.
+                      htmlSnippet: >-
+                        Wed 28 | Day ... Partly <b>cloudy</b>. High 24°C. Winds
+                        WNW at 10 to 15 km/h.
+                      formattedUrl: >-
+                        https://weather.com/en.../weather/.../Islamabad+Islamabad+Capital+Territor...
+                      htmlFormattedUrl: >-
+                        https://<b>weather</b>.com/en.../<b>weather</b>/.../<b>Islamabad</b>+<b>Islamabad</b>+Capital+Territor...
+                      pagemap:
+                        cse_thumbnail:
+                          - src: >-
+                              https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQBGDEb7y6CRPBkxG3a7KwLE9CqhutCDp8WC8MBma6e1XEmhQ7X3AKnVUI
+                            width: '240'
+                            height: '180'
+                        metatags:
+                          - msapplication-tilecolor: '#ffffff'
+                            og:image: https://s.w-x.co/240x180_twc_default.png
+                            theme-color: '#ffffff'
+                            og:type: article
+                            og:site_name: The Weather Channel
+                            og:image:url: https://s.w-x.co/240x180_twc_default.png
+                            og:title: >-
+                              10-day weather forecast for Islamabad, Islamabad
+                              Capital Territory - The Weather Channel |
+                              weather.com
+                            msapplication-tileimage: /daily/assets/ms-icon-144x144.d353af.png
+                            og:description: >-
+                              Be prepared with the most accurate 10-day forecast
+                              for Islamabad, Islamabad Capital Territory with
+                              highs, lows, chance of precipitation from The
+                              Weather Channel and Weather.com
+                            og:image:secure_url: https://s.w-x.co/240x180_twc_default.png
+                            referrer: origin
+                            viewport: >-
+                              width=device-width, initial-scale=1,
+                              viewport-fit=cover
+                            og:locale: en_PK
+                            og:url: >-
+                              https://weather.com/en-PK/weather/tenday/l/Islamabad+Islamabad+Capital+Territory?canonicalCityId=0d5ed3bbc3987ada5e00f6f71f4ea0cc37c42e6b77e962c63c64c8565a442703
+                        cse_image:
+                          - src: https://s.w-x.co/240x180_twc_default.png
+                    - kind: customsearch#result
+                      title: >-
+                        Islamabad, Islamabad, Pakistan Current Weather |
+                        AccuWeather
+                      htmlTitle: >-
+                        <b>Islamabad</b>, <b>Islamabad</b>, <b>Pakistan Current
+                        Weather</b> | AccuWeather
+                      link: >-
+                        https://www.accuweather.com/en/pk/islamabad/258278/current-weather/258278
+                      displayLink: www.accuweather.com
+                      snippet: >-
+                        Current weather in Islamabad, Islamabad, Pakistan. Check
+                        current conditions in Islamabad, Islamabad, Pakistan
+                        with radar, hourly, and more.
+                      htmlSnippet: >-
+                        <b>Current weather in Islamabad</b>, Islamabad,
+                        Pakistan. Check <b>current conditions in Islamabad</b>,
+                        Islamabad, Pakistan with radar, hourly, and more.
+                      cacheId: 9rt3oIDKp4wJ
+                      formattedUrl: >-
+                        https://www.accuweather.com/en/pk/islamabad/.../current-weather/258278
+                      htmlFormattedUrl: >-
+                        https://www.accu<b>weather</b>.com/en/pk/<b>islamabad</b>/.../<b>current</b>-<b>weather</b>/258278
+                      pagemap:
+                        cse_thumbnail:
+                          - src: >-
+                              https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTuL3Cl1PGFBllvcwU4b4wHJPPefT6kVDqeEeO7j9LjXQpxbXqUOc2DOh1U
+                            width: '225'
+                            height: '225'
+                        postaladdress:
+                          - addresslocality: Abbottabad
+                            addressregion: Khyber Pakhtunkhwa
+                          - addresslocality: Rawalpindi
+                            addressregion: Punjab
+                          - addresslocality: Wah
+                            addressregion: Punjab
+                        metatags:
+                          - og:image: >-
+                              https://www.accuweather.com/images/logos/aw-logo-og-meta.png
+                            twitter:app:url:iphone: https://apps.apple.com/US/app/id300048137?mt=8
+                            twitter:app:id:googleplay: com.accuweather.android
+                            twitter:card: summary
+                            twitter:app:url:ipad: https://apps.apple.com/US/app/id300048137?mt=8
+                            twitter:app:name:googleplay: AccuWeather Winter weather alerts & forecast radar
+                            twitter:app:id:iphone: U7D6TVQ9TT.com.yourcompany.TestWithCustomTabs
+                            og:description: >-
+                              Current weather in Islamabad, Islamabad, Pakistan.
+                              Check current conditions in Islamabad, Islamabad,
+                              Pakistan with radar, hourly, and more.
+                            twitter:creator: https://twitter.com/accuweather
+                            og:image:secure_url: >-
+                              https://www.accuweather.com/images/logos/aw-logo-og-meta.png
+                            twitter:image: >-
+                              https://www.accuweather.com/images/logos/aw-logo-og-meta.png
+                            twitter:text:title: >-
+                              Islamabad, Islamabad, Pakistan Current Weather |
+                              AccuWeather
+                            twitter:site: https://twitter.com/accuweather
+                            fb:profile_id: AccuWeather
+                            og:type: website
+                            twitter:title: >-
+                              Islamabad, Islamabad, Pakistan Current Weather |
+                              AccuWeather
+                            twitter:site:id: https://twitter.com/accuweather
+                            og:image:url: >-
+                              https://www.accuweather.com/images/logos/aw-logo-og-meta.png
+                            og:title: >-
+                              Islamabad, Islamabad, Pakistan Current Weather |
+                              AccuWeather
+                            twitter:app:id:ipad: U7D6TVQ9TT.com.yourcompany.TestWithCustomTabs
+                            fb:pages: '71781612888'
+                            site_name: AccuWeather
+                            referrer: origin
+                            fb:app_id: '132437483467956'
+                            twitter:app:url:googleplay: >-
+                              https://play.google.com/store/apps/details?id=com.accuweather.android
+                            twitter:creator:id: https://twitter.com/accuweather
+                            twitter:app:name:ipad: 'AccuWeather: Weather Tracker'
+                            viewport: width=device-width, initial-scale=1.0
+                            twitter:description: >-
+                              Current weather in Islamabad, Islamabad, Pakistan.
+                              Check current conditions in Islamabad, Islamabad,
+                              Pakistan with radar, hourly, and more.
+                            og:url: >-
+                              https://www.accuweather.com/en/pk/islamabad/258278/current-weather/258278
+                            twitter:app:name:iphone: 'AccuWeather: Weather Tracker'
+                        cse_image:
+                          - src: >-
+                              https://www.accuweather.com/images/logos/aw-logo-og-meta.png
+                    - kind: customsearch#result
+                      title: Islamabad, Pakistan 14 day weather forecast
+                      htmlTitle: >-
+                        <b>Islamabad</b>, <b>Pakistan</b> 14 day <b>weather
+                        forecast</b>
+                      link: >-
+                        https://www.timeanddate.com/weather/pakistan/islamabad/ext
+                      displayLink: www.timeanddate.com
+                      snippet: "2 Week Extended Forecast in Islamabad, Pakistan. Scroll right to see more. Conditions, Comfort, Precipitation, Sun. Day, Temperature, Weather\_..."
+                      htmlSnippet: >-
+                        2 Week Extended <b>Forecast in Islamabad</b>,
+                        <b>Pakistan</b>. Scroll right to see more.
+                        <b>Conditions</b>, Comfort, Precipitation, Sun. Day,
+                        <b>Temperature</b>, <b>Weather</b>&nbsp;...
+                      cacheId: dPPSwZR24ysJ
+                      formattedUrl: >-
+                        https://www.timeanddate.com/weather/pakistan/islamabad/ext
+                      htmlFormattedUrl: >-
+                        https://www.timeanddate.com/<b>weather</b>/pakistan/<b>islamabad</b>/ext
+                      pagemap:
+                        cse_thumbnail:
+                          - src: >-
+                              https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQwquz5bQMKNDDvN_CWA_OHHag5a6vRSA9BGcmTWpQneRY_69gOBnsWiqyI
+                            width: '306'
+                            height: '165'
+                        metatags:
+                          - og:image: >-
+                              https://www.timeanddate.com/scripts/cityog.php?title=14-Day%20Weather%20Forecast%20for&tint=0x007b7a&city=Islamabad&country=Pakistan&image=islamabad1
+                            og:image:width: '1366'
+                            og:type: website
+                            viewport: width=device-width,initial-scale=1.0
+                            og:image:height: '768'
+                        cse_image:
+                          - src: >-
+                              https://www.timeanddate.com/scripts/cityog.php?title=14-Day%20Weather%20Forecast%20for&tint=0x007b7a&city=Islamabad&country=Pakistan&image=islamabad1
+                    - kind: customsearch#result
+                      title: >-
+                        10-Day Weather Forecast for Islamabad, Islamabad Capital
+                        Territory ...
+                      htmlTitle: >-
+                        10-Day <b>Weather Forecast</b> for <b>Islamabad</b>,
+                        <b>Islamabad</b> Capital Territory ...
+                      link: >-
+                        https://weather.com/weather/tenday/l/Islamabad+Islamabad+Capital+Territory+Pakistan?canonicalCityId=0d5ed3bbc3987ada5e00f6f71f4ea0cc37c42e6b77e962c63c64c8565a442703
+                      displayLink: weather.com
+                      snippet: "Be prepared with the most accurate 10-day forecast for Islamabad, Islamabad Capital Territory, Pakistan with highs, lows, chance of precipitation from The\_..."
+                      htmlSnippet: >-
+                        Be prepared with the most accurate 10-day
+                        <b>forecast</b> for <b>Islamabad</b>, <b>Islamabad</b>
+                        Capital Territory, <b>Pakistan</b> with highs, lows,
+                        chance of precipitation from The&nbsp;...
+                      formattedUrl: >-
+                        https://weather.com/weather/.../Islamabad+Islamabad+Capital+Territory+Pa...
+                      htmlFormattedUrl: >-
+                        https://<b>weather</b>.com/<b>weather</b>/.../<b>Islamabad</b>+<b>Islamabad</b>+Capital+Territory+Pa...
+                      pagemap:
+                        cse_thumbnail:
+                          - src: >-
+                              https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQBGDEb7y6CRPBkxG3a7KwLE9CqhutCDp8WC8MBma6e1XEmhQ7X3AKnVUI
+                            width: '240'
+                            height: '180'
+                        metatags:
+                          - msapplication-tilecolor: '#ffffff'
+                            apple-itunes-app: app-id=295646461
+                            og:image: https://s.w-x.co/240x180_twc_default.png
+                            theme-color: '#ffffff'
+                            og:type: article
+                            og:site_name: The Weather Channel
+                            og:image:url: https://s.w-x.co/240x180_twc_default.png
+                            og:title: >-
+                              10-Day Weather Forecast for Islamabad, Islamabad
+                              Capital Territory, Pakistan - The Weather Channel
+                              | weather.com
+                            msapplication-tileimage: /daily/assets/ms-icon-144x144.d353af.png
+                            og:description: >-
+                              Be prepared with the most accurate 10-day forecast
+                              for Islamabad, Islamabad Capital Territory,
+                              Pakistan with highs, lows, chance of precipitation
+                              from The Weather Channel and Weather.com
+                            og:image:secure_url: https://s.w-x.co/240x180_twc_default.png
+                            referrer: origin
+                            viewport: >-
+                              width=device-width, initial-scale=1,
+                              viewport-fit=cover
+                            og:locale: en_US
+                            og:url: >-
+                              https://weather.com/weather/tenday/l/Islamabad+Islamabad+Capital+Territory+Pakistan?canonicalCityId=0d5ed3bbc3987ada5e00f6f71f4ea0cc37c42e6b77e962c63c64c8565a442703
+                        cse_image:
+                          - src: https://s.w-x.co/240x180_twc_default.png
+        '400':
+          description: Bad Request
+          headers:
+            Date:
+              schema:
+                type: string
+                example: Wed, 28 Feb 2024 11:04:07 GMT
+            Server:
+              schema:
+                type: string
+                example: Apache/2.4.47 (Win64) OpenSSL/1.1.1l mod_fcgid/2.3.10-dev
+            X-Powered-By:
+              schema:
+                type: string
+                example: PHP/8.1.5
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, private
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: '*'
+            Content-Encoding:
+              schema:
+                type: string
+                example: gzip
+            Vary:
+              schema:
+                type: string
+                example: Accept-Encoding
+            Connection:
+              schema:
+                type: string
+                example: close
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                success: false
+                message: No authorization token provided
+                data: {}
+        '401':
+          description: Unauthorized
+          headers:
+            Date:
+              schema:
+                type: string
+                example: Wed, 28 Feb 2024 11:04:51 GMT
+            Server:
+              schema:
+                type: string
+                example: Apache/2.4.47 (Win64) OpenSSL/1.1.1l mod_fcgid/2.3.10-dev
+            X-Powered-By:
+              schema:
+                type: string
+                example: PHP/8.1.5
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, private
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: '*'
+            Content-Encoding:
+              schema:
+                type: string
+                example: gzip
+            Vary:
+              schema:
+                type: string
+                example: Accept-Encoding,Authorization
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5, max=100
+            Connection:
+              schema:
+                type: string
+                example: Keep-Alive
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                success: false
+                message: Invalid token
+                data: {}
+  /api/chat/location-agent:
+    get:
+      tags:
+        - Chat
+      summary: Location Agent
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: query
+          in: query
+          schema:
+            type: string
+          example: Where is Faisal mosque in islamabad ?
+      responses:
+        '200':
+          description: OK
+          headers:
+            Date:
+              schema:
+                type: string
+                example: Wed, 28 Feb 2024 11:22:55 GMT
+            Server:
+              schema:
+                type: string
+                example: Apache/2.4.47 (Win64) OpenSSL/1.1.1l mod_fcgid/2.3.10-dev
+            X-Powered-By:
+              schema:
+                type: string
+                example: PHP/8.1.5
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, private
+            X-RateLimit-Limit:
+              schema:
+                type: integer
+                example: '5'
+            X-RateLimit-Remaining:
+              schema:
+                type: integer
+                example: '4'
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: '*'
+            Content-Encoding:
+              schema:
+                type: string
+                example: gzip
+            Vary:
+              schema:
+                type: string
+                example: Accept-Encoding,Authorization
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5, max=100
+            Connection:
+              schema:
+                type: string
+                example: Keep-Alive
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                success: true
+                message: ''
+                data:
+                  result: Faisal Mosque in Islamabad
+  /api/lab1/lab1-action:
+    get:
+      tags:
+        - Lab1
+      summary: Lab1 Action
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: query
+          in: query
+          schema:
+            type: string
+          example: what is the weather in london ?
+      responses:
+        '200':
+          description: OK
+          headers:
+            Date:
+              schema:
+                type: string
+                example: Fri, 01 Mar 2024 12:01:57 GMT
+            Server:
+              schema:
+                type: string
+                example: Apache/2.4.47 (Win64) OpenSSL/1.1.1l mod_fcgid/2.3.10-dev
+            X-Powered-By:
+              schema:
+                type: string
+                example: PHP/8.1.5
+            Cache-Control:
+              schema:
+                type: string
+                example: no-cache, private
+            X-RateLimit-Limit:
+              schema:
+                type: integer
+                example: '5'
+            X-RateLimit-Remaining:
+              schema:
+                type: integer
+                example: '3'
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: '*'
+            Content-Encoding:
+              schema:
+                type: string
+                example: gzip
+            Vary:
+              schema:
+                type: string
+                example: Accept-Encoding,Authorization
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=5, max=100
+            Connection:
+              schema:
+                type: string
+                example: Keep-Alive
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                success: true
+                message: ''
+                data:
+                  states:
+                    - title: Google
+                      headings: []
+                      interactable_elements:
+                        tag_name: TEXTAREA
+                        label: Search
+                        bounding_box:
+                          x: 396
+                          'y': 258
+                          width: 443
+                          height: 27
+                    - title: Google
+                      headings: []
+                      interactable_elements:
+                        tag_name: TEXTAREA
+                        label: Search
+                        bounding_box:
+                          x: 396
+                          'y': 258
+                          width: 443
+                          height: 27
+                  actions:
+                    - instruction: type
+                      target:
+                        tag_name: TEXTAREA
+                        label: Search
+                        bounding_box:
+                          x: 396
+                          'y': 258
+                          width: 443
+                          height: 27
+                      content: weather in London
+                    - instruction: type
+                      target:
+                        tag_name: TEXTAREA
+                        label: Search
+                        bounding_box:
+                          x: 396
+                          'y': 258
+                          width: 443
+                          height: 27
+                      content: weather in London
+                  action:
+                    instruction: type
+                    target:
+                      tag_name: TEXTAREA
+                      label: Search
+                      bounding_box:
+                        x: 396
+                        'y': 258
+                        width: 443
+                        height: 27
+                    content: weather in London

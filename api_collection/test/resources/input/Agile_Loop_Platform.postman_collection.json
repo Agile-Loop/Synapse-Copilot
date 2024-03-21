@@ -1,0 +1,542 @@
+{
+	"info": {
+		"_postman_id": "e547135f-e6ea-48da-ab65-887c13717697",
+		"name": "Agile Loop Platform",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30806310"
+	},
+	"item": [
+		{
+			"name": "Chat",
+			"item": [
+				{
+					"name": "Summarize",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{live_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://platform.agileloop.ai/api/chat/summarize?query=What is current weather in Islamabad ?",
+							"protocol": "https",
+							"host": [
+								"platform",
+								"agileloop",
+								"ai"
+							],
+							"path": [
+								"api",
+								"chat",
+								"summarize"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "What is current weather in Islamabad ?"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "No Token Error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local_url}}/chat/summarize?query=What is current weather in Islamabad ?",
+									"host": [
+										"{{local_url}}"
+									],
+									"path": [
+										"chat",
+										"summarize"
+									],
+									"query": [
+										{
+											"key": "query",
+											"value": "What is current weather in Islamabad ?"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 28 Feb 2024 11:04:07 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.47 (Win64) OpenSSL/1.1.1l mod_fcgid/2.3.10-dev"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.5"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"No authorization token provided\",\n    \"data\": {}\n}"
+						},
+						{
+							"name": "Invalid Token Error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local_url}}/chat/summarize?query=What is current weather in Islamabad ?",
+									"host": [
+										"{{local_url}}"
+									],
+									"path": [
+										"chat",
+										"summarize"
+									],
+									"query": [
+										{
+											"key": "query",
+											"value": "What is current weather in Islamabad ?"
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 28 Feb 2024 11:04:51 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.47 (Win64) OpenSSL/1.1.1l mod_fcgid/2.3.10-dev"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.5"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding,Authorization"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"Invalid token\",\n    \"data\": {}\n}"
+						},
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local_url}}/chat/summarize?query=What is current weather in Islamabad ?",
+									"host": [
+										"{{local_url}}"
+									],
+									"path": [
+										"chat",
+										"summarize"
+									],
+									"query": [
+										{
+											"key": "query",
+											"value": "What is current weather in Islamabad ?"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 28 Feb 2024 11:05:59 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.47 (Win64) OpenSSL/1.1.1l mod_fcgid/2.3.10-dev"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.5"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "5"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "4"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding,Authorization"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"\",\n    \"data\": {\n        \"output_string\": \"Currently, in Islamabad, Pakistan, the weather is partly cloudy with a high of 24°C and winds coming from the west-northwest at 10 to 15 km/h [1]. The hourly weather forecast shows a gradual decrease in temperature throughout the afternoon, with no precipitation expected [2]. For the most up-to-date information on the current weather conditions in Islamabad, including radar updates and hourly forecasts, you can check the AccuWeather website [3]. If you need a more extended forecast, you can refer to the 14-day weather forecast provided on Time and Date [4]. Additionally, for a detailed 10-day forecast with information on highs, lows, and chances of precipitation, you can visit the weather.com website [5].\\n\\nReferences:\\n[1]: https://weather.com/en-PK/weather/tenday/l/Islamabad+Islamabad+Capital+Territory?canonicalCityId=0d5ed3bbc3987ada5e00f6f71f4ea0cc37c42e6b77e962c63c64c8565a442703\\n[2]: https://www.accuweather.com/en/pk/islamabad/258278/weather-forecast/258278\\n[3]: https://www.accuweather.com/en/pk/islamabad/258278/current-weather/258278\\n[4]: https://www.timeanddate.com/weather/pakistan/islamabad/ext\\n[5]: https://weather.com/weather/tenday/l/Islamabad+Islamabad+Capital+Territory+Pakistan?canonicalCityId=0d5ed3bbc3987ada5e00f6f71f4ea0cc37c42e6b77e962c63c64c8565a442703\",\n        \"results\": [\n            {\n                \"kind\": \"customsearch#result\",\n                \"title\": \"Islamabad, Islamabad, Pakistan Weather Forecast | AccuWeather\",\n                \"htmlTitle\": \"<b>Islamabad</b>, <b>Islamabad</b>, <b>Pakistan Weather Forecast</b> | AccuWeather\",\n                \"link\": \"https://www.accuweather.com/en/pk/islamabad/258278/weather-forecast/258278\",\n                \"displayLink\": \"www.accuweather.com\",\n                \"snippet\": \"Hourly Weather · 1 PM 70°. rain drop 0% · 2 PM 72°. rain drop 0% · 3 PM 74°. rain drop 0% · 4 PM 72°. rain drop 0% · 5 PM 70°. rain drop 0% · 6 PM 65°. rain ...\",\n                \"htmlSnippet\": \"<b>Hourly Weather</b> &middot; 1 PM 70°. rain drop 0% &middot; 2 PM 72°. rain drop 0% &middot; 3 PM 74°. rain drop 0% &middot; 4 PM 72°. rain drop 0% &middot; 5 PM 70°. rain drop 0% &middot; 6 PM 65°. rain&nbsp;...\",\n                \"cacheId\": \"_Cb01Je5b5YJ\",\n                \"formattedUrl\": \"https://www.accuweather.com/en/pk/islamabad/258278/weather.../258278\",\n                \"htmlFormattedUrl\": \"https://www.accu<b>weather</b>.com/en/pk/<b>islamabad</b>/258278/<b>weather</b>.../258278\",\n                \"pagemap\": {\n                    \"cse_thumbnail\": [\n                        {\n                            \"src\": \"https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTuL3Cl1PGFBllvcwU4b4wHJPPefT6kVDqeEeO7j9LjXQpxbXqUOc2DOh1U\",\n                            \"width\": \"225\",\n                            \"height\": \"225\"\n                        }\n                    ],\n                    \"postaladdress\": [\n                        {\n                            \"addresslocality\": \"Abbottabad\",\n                            \"addressregion\": \"Khyber Pakhtunkhwa\"\n                        },\n                        {\n                            \"addresslocality\": \"Rawalpindi\",\n                            \"addressregion\": \"Punjab\"\n                        },\n                        {\n                            \"addresslocality\": \"Wah\",\n                            \"addressregion\": \"Punjab\"\n                        }\n                    ],\n                    \"metatags\": [\n                        {\n                            \"og:image\": \"https://www.accuweather.com/images/logos/aw-logo-og-meta.png\",\n                            \"twitter:app:url:iphone\": \"https://apps.apple.com/US/app/id300048137?mt=8\",\n                            \"twitter:app:id:googleplay\": \"com.accuweather.android\",\n                            \"twitter:card\": \"summary\",\n                            \"twitter:app:url:ipad\": \"https://apps.apple.com/US/app/id300048137?mt=8\",\n                            \"twitter:app:name:googleplay\": \"AccuWeather Winter weather alerts & forecast radar\",\n                            \"twitter:app:id:iphone\": \"U7D6TVQ9TT.com.yourcompany.TestWithCustomTabs\",\n                            \"og:description\": \"Islamabad, Islamabad, Pakistan Weather Forecast, with current conditions, wind, air quality, and what to expect for the next 3 days.\",\n                            \"twitter:creator\": \"https://twitter.com/accuweather\",\n                            \"og:image:secure_url\": \"https://www.accuweather.com/images/logos/aw-logo-og-meta.png\",\n                            \"twitter:image\": \"https://www.accuweather.com/images/logos/aw-logo-og-meta.png\",\n                            \"twitter:text:title\": \"Islamabad, Islamabad, Pakistan Weather Forecast | AccuWeather\",\n                            \"twitter:site\": \"https://twitter.com/accuweather\",\n                            \"fb:profile_id\": \"AccuWeather\",\n                            \"og:type\": \"website\",\n                            \"twitter:title\": \"Islamabad, Islamabad, Pakistan Weather Forecast | AccuWeather\",\n                            \"twitter:site:id\": \"https://twitter.com/accuweather\",\n                            \"og:image:url\": \"https://www.accuweather.com/images/logos/aw-logo-og-meta.png\",\n                            \"og:title\": \"Islamabad, Islamabad, Pakistan Weather Forecast | AccuWeather\",\n                            \"twitter:app:id:ipad\": \"U7D6TVQ9TT.com.yourcompany.TestWithCustomTabs\",\n                            \"fb:pages\": \"71781612888\",\n                            \"site_name\": \"AccuWeather\",\n                            \"referrer\": \"origin\",\n                            \"fb:app_id\": \"132437483467956\",\n                            \"twitter:app:url:googleplay\": \"https://play.google.com/store/apps/details?id=com.accuweather.android\",\n                            \"twitter:creator:id\": \"https://twitter.com/accuweather\",\n                            \"twitter:app:name:ipad\": \"AccuWeather: Weather Tracker\",\n                            \"viewport\": \"width=device-width, initial-scale=1.0\",\n                            \"twitter:description\": \"Islamabad, Islamabad, Pakistan Weather Forecast, with current conditions, wind, air quality, and what to expect for the next 3 days.\",\n                            \"og:url\": \"https://www.accuweather.com/en/pk/islamabad/258278/weather-forecast/258278\",\n                            \"twitter:app:name:iphone\": \"AccuWeather: Weather Tracker\"\n                        }\n                    ],\n                    \"cse_image\": [\n                        {\n                            \"src\": \"https://www.accuweather.com/images/logos/aw-logo-og-meta.png\"\n                        }\n                    ]\n                }\n            },\n            {\n                \"kind\": \"customsearch#result\",\n                \"title\": \"10-day weather forecast for Islamabad, Islamabad Capital Territory ...\",\n                \"htmlTitle\": \"10-day <b>weather forecast</b> for <b>Islamabad</b>, <b>Islamabad</b> Capital Territory ...\",\n                \"link\": \"https://weather.com/en-PK/weather/tenday/l/Islamabad+Islamabad+Capital+Territory?canonicalCityId=0d5ed3bbc3987ada5e00f6f71f4ea0cc37c42e6b77e962c63c64c8565a442703\",\n                \"displayLink\": \"weather.com\",\n                \"snippet\": \"Wed 28 | Day ... Partly cloudy. High 24°C. Winds WNW at 10 to 15 km/h.\",\n                \"htmlSnippet\": \"Wed 28 | Day ... Partly <b>cloudy</b>. High 24°C. Winds WNW at 10 to 15 km/h.\",\n                \"formattedUrl\": \"https://weather.com/en.../weather/.../Islamabad+Islamabad+Capital+Territor...\",\n                \"htmlFormattedUrl\": \"https://<b>weather</b>.com/en.../<b>weather</b>/.../<b>Islamabad</b>+<b>Islamabad</b>+Capital+Territor...\",\n                \"pagemap\": {\n                    \"cse_thumbnail\": [\n                        {\n                            \"src\": \"https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQBGDEb7y6CRPBkxG3a7KwLE9CqhutCDp8WC8MBma6e1XEmhQ7X3AKnVUI\",\n                            \"width\": \"240\",\n                            \"height\": \"180\"\n                        }\n                    ],\n                    \"metatags\": [\n                        {\n                            \"msapplication-tilecolor\": \"#ffffff\",\n                            \"og:image\": \"https://s.w-x.co/240x180_twc_default.png\",\n                            \"theme-color\": \"#ffffff\",\n                            \"og:type\": \"article\",\n                            \"og:site_name\": \"The Weather Channel\",\n                            \"og:image:url\": \"https://s.w-x.co/240x180_twc_default.png\",\n                            \"og:title\": \"10-day weather forecast for Islamabad, Islamabad Capital Territory - The Weather Channel | weather.com\",\n                            \"msapplication-tileimage\": \"/daily/assets/ms-icon-144x144.d353af.png\",\n                            \"og:description\": \"Be prepared with the most accurate 10-day forecast for Islamabad, Islamabad Capital Territory with highs, lows, chance of precipitation from The Weather Channel and Weather.com\",\n                            \"og:image:secure_url\": \"https://s.w-x.co/240x180_twc_default.png\",\n                            \"referrer\": \"origin\",\n                            \"viewport\": \"width=device-width, initial-scale=1, viewport-fit=cover\",\n                            \"og:locale\": \"en_PK\",\n                            \"og:url\": \"https://weather.com/en-PK/weather/tenday/l/Islamabad+Islamabad+Capital+Territory?canonicalCityId=0d5ed3bbc3987ada5e00f6f71f4ea0cc37c42e6b77e962c63c64c8565a442703\"\n                        }\n                    ],\n                    \"cse_image\": [\n                        {\n                            \"src\": \"https://s.w-x.co/240x180_twc_default.png\"\n                        }\n                    ]\n                }\n            },\n            {\n                \"kind\": \"customsearch#result\",\n                \"title\": \"Islamabad, Islamabad, Pakistan Current Weather | AccuWeather\",\n                \"htmlTitle\": \"<b>Islamabad</b>, <b>Islamabad</b>, <b>Pakistan Current Weather</b> | AccuWeather\",\n                \"link\": \"https://www.accuweather.com/en/pk/islamabad/258278/current-weather/258278\",\n                \"displayLink\": \"www.accuweather.com\",\n                \"snippet\": \"Current weather in Islamabad, Islamabad, Pakistan. Check current conditions in Islamabad, Islamabad, Pakistan with radar, hourly, and more.\",\n                \"htmlSnippet\": \"<b>Current weather in Islamabad</b>, Islamabad, Pakistan. Check <b>current conditions in Islamabad</b>, Islamabad, Pakistan with radar, hourly, and more.\",\n                \"cacheId\": \"9rt3oIDKp4wJ\",\n                \"formattedUrl\": \"https://www.accuweather.com/en/pk/islamabad/.../current-weather/258278\",\n                \"htmlFormattedUrl\": \"https://www.accu<b>weather</b>.com/en/pk/<b>islamabad</b>/.../<b>current</b>-<b>weather</b>/258278\",\n                \"pagemap\": {\n                    \"cse_thumbnail\": [\n                        {\n                            \"src\": \"https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTuL3Cl1PGFBllvcwU4b4wHJPPefT6kVDqeEeO7j9LjXQpxbXqUOc2DOh1U\",\n                            \"width\": \"225\",\n                            \"height\": \"225\"\n                        }\n                    ],\n                    \"postaladdress\": [\n                        {\n                            \"addresslocality\": \"Abbottabad\",\n                            \"addressregion\": \"Khyber Pakhtunkhwa\"\n                        },\n                        {\n                            \"addresslocality\": \"Rawalpindi\",\n                            \"addressregion\": \"Punjab\"\n                        },\n                        {\n                            \"addresslocality\": \"Wah\",\n                            \"addressregion\": \"Punjab\"\n                        }\n                    ],\n                    \"metatags\": [\n                        {\n                            \"og:image\": \"https://www.accuweather.com/images/logos/aw-logo-og-meta.png\",\n                            \"twitter:app:url:iphone\": \"https://apps.apple.com/US/app/id300048137?mt=8\",\n                            \"twitter:app:id:googleplay\": \"com.accuweather.android\",\n                            \"twitter:card\": \"summary\",\n                            \"twitter:app:url:ipad\": \"https://apps.apple.com/US/app/id300048137?mt=8\",\n                            \"twitter:app:name:googleplay\": \"AccuWeather Winter weather alerts & forecast radar\",\n                            \"twitter:app:id:iphone\": \"U7D6TVQ9TT.com.yourcompany.TestWithCustomTabs\",\n                            \"og:description\": \"Current weather in Islamabad, Islamabad, Pakistan. Check current conditions in Islamabad, Islamabad, Pakistan with radar, hourly, and more.\",\n                            \"twitter:creator\": \"https://twitter.com/accuweather\",\n                            \"og:image:secure_url\": \"https://www.accuweather.com/images/logos/aw-logo-og-meta.png\",\n                            \"twitter:image\": \"https://www.accuweather.com/images/logos/aw-logo-og-meta.png\",\n                            \"twitter:text:title\": \"Islamabad, Islamabad, Pakistan Current Weather | AccuWeather\",\n                            \"twitter:site\": \"https://twitter.com/accuweather\",\n                            \"fb:profile_id\": \"AccuWeather\",\n                            \"og:type\": \"website\",\n                            \"twitter:title\": \"Islamabad, Islamabad, Pakistan Current Weather | AccuWeather\",\n                            \"twitter:site:id\": \"https://twitter.com/accuweather\",\n                            \"og:image:url\": \"https://www.accuweather.com/images/logos/aw-logo-og-meta.png\",\n                            \"og:title\": \"Islamabad, Islamabad, Pakistan Current Weather | AccuWeather\",\n                            \"twitter:app:id:ipad\": \"U7D6TVQ9TT.com.yourcompany.TestWithCustomTabs\",\n                            \"fb:pages\": \"71781612888\",\n                            \"site_name\": \"AccuWeather\",\n                            \"referrer\": \"origin\",\n                            \"fb:app_id\": \"132437483467956\",\n                            \"twitter:app:url:googleplay\": \"https://play.google.com/store/apps/details?id=com.accuweather.android\",\n                            \"twitter:creator:id\": \"https://twitter.com/accuweather\",\n                            \"twitter:app:name:ipad\": \"AccuWeather: Weather Tracker\",\n                            \"viewport\": \"width=device-width, initial-scale=1.0\",\n                            \"twitter:description\": \"Current weather in Islamabad, Islamabad, Pakistan. Check current conditions in Islamabad, Islamabad, Pakistan with radar, hourly, and more.\",\n                            \"og:url\": \"https://www.accuweather.com/en/pk/islamabad/258278/current-weather/258278\",\n                            \"twitter:app:name:iphone\": \"AccuWeather: Weather Tracker\"\n                        }\n                    ],\n                    \"cse_image\": [\n                        {\n                            \"src\": \"https://www.accuweather.com/images/logos/aw-logo-og-meta.png\"\n                        }\n                    ]\n                }\n            },\n            {\n                \"kind\": \"customsearch#result\",\n                \"title\": \"Islamabad, Pakistan 14 day weather forecast\",\n                \"htmlTitle\": \"<b>Islamabad</b>, <b>Pakistan</b> 14 day <b>weather forecast</b>\",\n                \"link\": \"https://www.timeanddate.com/weather/pakistan/islamabad/ext\",\n                \"displayLink\": \"www.timeanddate.com\",\n                \"snippet\": \"2 Week Extended Forecast in Islamabad, Pakistan. Scroll right to see more. Conditions, Comfort, Precipitation, Sun. Day, Temperature, Weather ...\",\n                \"htmlSnippet\": \"2 Week Extended <b>Forecast in Islamabad</b>, <b>Pakistan</b>. Scroll right to see more. <b>Conditions</b>, Comfort, Precipitation, Sun. Day, <b>Temperature</b>, <b>Weather</b>&nbsp;...\",\n                \"cacheId\": \"dPPSwZR24ysJ\",\n                \"formattedUrl\": \"https://www.timeanddate.com/weather/pakistan/islamabad/ext\",\n                \"htmlFormattedUrl\": \"https://www.timeanddate.com/<b>weather</b>/pakistan/<b>islamabad</b>/ext\",\n                \"pagemap\": {\n                    \"cse_thumbnail\": [\n                        {\n                            \"src\": \"https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQwquz5bQMKNDDvN_CWA_OHHag5a6vRSA9BGcmTWpQneRY_69gOBnsWiqyI\",\n                            \"width\": \"306\",\n                            \"height\": \"165\"\n                        }\n                    ],\n                    \"metatags\": [\n                        {\n                            \"og:image\": \"https://www.timeanddate.com/scripts/cityog.php?title=14-Day%20Weather%20Forecast%20for&tint=0x007b7a&city=Islamabad&country=Pakistan&image=islamabad1\",\n                            \"og:image:width\": \"1366\",\n                            \"og:type\": \"website\",\n                            \"viewport\": \"width=device-width,initial-scale=1.0\",\n                            \"og:image:height\": \"768\"\n                        }\n                    ],\n                    \"cse_image\": [\n                        {\n                            \"src\": \"https://www.timeanddate.com/scripts/cityog.php?title=14-Day%20Weather%20Forecast%20for&tint=0x007b7a&city=Islamabad&country=Pakistan&image=islamabad1\"\n                        }\n                    ]\n                }\n            },\n            {\n                \"kind\": \"customsearch#result\",\n                \"title\": \"10-Day Weather Forecast for Islamabad, Islamabad Capital Territory ...\",\n                \"htmlTitle\": \"10-Day <b>Weather Forecast</b> for <b>Islamabad</b>, <b>Islamabad</b> Capital Territory ...\",\n                \"link\": \"https://weather.com/weather/tenday/l/Islamabad+Islamabad+Capital+Territory+Pakistan?canonicalCityId=0d5ed3bbc3987ada5e00f6f71f4ea0cc37c42e6b77e962c63c64c8565a442703\",\n                \"displayLink\": \"weather.com\",\n                \"snippet\": \"Be prepared with the most accurate 10-day forecast for Islamabad, Islamabad Capital Territory, Pakistan with highs, lows, chance of precipitation from The ...\",\n                \"htmlSnippet\": \"Be prepared with the most accurate 10-day <b>forecast</b> for <b>Islamabad</b>, <b>Islamabad</b> Capital Territory, <b>Pakistan</b> with highs, lows, chance of precipitation from The&nbsp;...\",\n                \"formattedUrl\": \"https://weather.com/weather/.../Islamabad+Islamabad+Capital+Territory+Pa...\",\n                \"htmlFormattedUrl\": \"https://<b>weather</b>.com/<b>weather</b>/.../<b>Islamabad</b>+<b>Islamabad</b>+Capital+Territory+Pa...\",\n                \"pagemap\": {\n                    \"cse_thumbnail\": [\n                        {\n                            \"src\": \"https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQBGDEb7y6CRPBkxG3a7KwLE9CqhutCDp8WC8MBma6e1XEmhQ7X3AKnVUI\",\n                            \"width\": \"240\",\n                            \"height\": \"180\"\n                        }\n                    ],\n                    \"metatags\": [\n                        {\n                            \"msapplication-tilecolor\": \"#ffffff\",\n                            \"apple-itunes-app\": \"app-id=295646461\",\n                            \"og:image\": \"https://s.w-x.co/240x180_twc_default.png\",\n                            \"theme-color\": \"#ffffff\",\n                            \"og:type\": \"article\",\n                            \"og:site_name\": \"The Weather Channel\",\n                            \"og:image:url\": \"https://s.w-x.co/240x180_twc_default.png\",\n                            \"og:title\": \"10-Day Weather Forecast for Islamabad, Islamabad Capital Territory, Pakistan - The Weather Channel | weather.com\",\n                            \"msapplication-tileimage\": \"/daily/assets/ms-icon-144x144.d353af.png\",\n                            \"og:description\": \"Be prepared with the most accurate 10-day forecast for Islamabad, Islamabad Capital Territory, Pakistan with highs, lows, chance of precipitation from The Weather Channel and Weather.com\",\n                            \"og:image:secure_url\": \"https://s.w-x.co/240x180_twc_default.png\",\n                            \"referrer\": \"origin\",\n                            \"viewport\": \"width=device-width, initial-scale=1, viewport-fit=cover\",\n                            \"og:locale\": \"en_US\",\n                            \"og:url\": \"https://weather.com/weather/tenday/l/Islamabad+Islamabad+Capital+Territory+Pakistan?canonicalCityId=0d5ed3bbc3987ada5e00f6f71f4ea0cc37c42e6b77e962c63c64c8565a442703\"\n                        }\n                    ],\n                    \"cse_image\": [\n                        {\n                            \"src\": \"https://s.w-x.co/240x180_twc_default.png\"\n                        }\n                    ]\n                }\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Location Agent",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{live_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://platform.agileloop.ai/api/chat/location-agent?query=Where is Faisal mosque in islamabad ?",
+							"protocol": "https",
+							"host": [
+								"platform",
+								"agileloop",
+								"ai"
+							],
+							"path": [
+								"api",
+								"chat",
+								"location-agent"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "Where is Faisal mosque in islamabad ?"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local_url}}/chat/location-agent?query=Where is Faisal mosque in islamabad ?",
+									"host": [
+										"{{local_url}}"
+									],
+									"path": [
+										"chat",
+										"location-agent"
+									],
+									"query": [
+										{
+											"key": "query",
+											"value": "Where is Faisal mosque in islamabad ?"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 28 Feb 2024 11:22:55 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.47 (Win64) OpenSSL/1.1.1l mod_fcgid/2.3.10-dev"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.5"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "5"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "4"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding,Authorization"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"\",\n    \"data\": {\n        \"result\": \"Faisal Mosque in Islamabad\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Lab1",
+			"item": [
+				{
+					"name": "Lab1 Action",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{live_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://platform.agileloop.ai/api/lab1/lab1-action?query=what is the weather in london ?",
+							"protocol": "https",
+							"host": [
+								"platform",
+								"agileloop",
+								"ai"
+							],
+							"path": [
+								"api",
+								"lab1",
+								"lab1-action"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "what is the weather in london ?"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"start_page\": \"https://www.google.com\",\r\n    \"obs\": {\r\n        \"title\": \"Google\",\r\n        \"headings\": [],\r\n        \"interactable_elements\": [\r\n            {\r\n                \"tag_name\": \"A\",\r\n                \"label\": \"Gmail\",\r\n                \"bounding_box\": {\r\n                    \"x\": 1003,\r\n                    \"y\": 18,\r\n                    \"width\": 33,\r\n                    \"height\": 24\r\n                }\r\n            },\r\n            {\r\n                \"tag_name\": \"A\",\r\n                \"label\": \"Images\",\r\n                \"bounding_box\": {\r\n                    \"x\": 1052,\r\n                    \"y\": 18,\r\n                    \"width\": 42,\r\n                    \"height\": 24\r\n                }\r\n            },\r\n            {\r\n                \"tag_name\": \"A\",\r\n                \"label\": \"Google apps\",\r\n                \"bounding_box\": {\r\n                    \"x\": 1114,\r\n                    \"y\": 10,\r\n                    \"width\": 40,\r\n                    \"height\": 40\r\n                }\r\n            },\r\n            {\r\n                \"tag_name\": \"A\",\r\n                \"label\": \"Sign in\",\r\n                \"bounding_box\": {\r\n                    \"x\": 1166,\r\n                    \"y\": 12,\r\n                    \"width\": 96,\r\n                    \"height\": 36\r\n                }\r\n            },\r\n            {\r\n                \"tag_name\": \"TEXTAREA\",\r\n                \"label\": \"Search\",\r\n                \"bounding_box\": {\r\n                    \"x\": 396,\r\n                    \"y\": 258,\r\n                    \"width\": 443,\r\n                    \"height\": 27\r\n                }\r\n            },\r\n            {\r\n                \"tag_name\": \"DIV\",\r\n                \"label\": \"Search by voice\",\r\n                \"bounding_box\": {\r\n                    \"x\": 843,\r\n                    \"y\": 247,\r\n                    \"width\": 40,\r\n                    \"height\": 44\r\n                }\r\n            },\r\n            {\r\n                \"tag_name\": \"DIV\",\r\n                \"label\": \"Search by image\",\r\n                \"bounding_box\": {\r\n                    \"x\": 883,\r\n                    \"y\": 247,\r\n                    \"width\": 40,\r\n                    \"height\": 44\r\n                }\r\n            },\r\n            {\r\n                \"tag_name\": \"BUTTON\",\r\n                \"label\": \"Google Search\",\r\n                \"bounding_box\": {\r\n                    \"x\": 499,\r\n                    \"y\": 323,\r\n                    \"width\": 127,\r\n                    \"height\": 36\r\n                }\r\n            },\r\n            {\r\n                \"tag_name\": \"BUTTON\",\r\n                \"label\": \"I'm Feeling Lucky\",\r\n                \"bounding_box\": {\r\n                    \"x\": 638,\r\n                    \"y\": 323,\r\n                    \"width\": 142,\r\n                    \"height\": 36\r\n                }\r\n            },\r\n            {\r\n                \"tag_name\": \"A\",\r\n                \"label\": \"اردو\",\r\n                \"bounding_box\": {\r\n                    \"x\": 650,\r\n                    \"y\": 386,\r\n                    \"width\": 25,\r\n                    \"height\": 15\r\n                }\r\n            },\r\n            {\r\n                \"tag_name\": \"A\",\r\n                \"label\": \"پښتو\",\r\n                \"bounding_box\": {\r\n                    \"x\": 679,\r\n                    \"y\": 386,\r\n                    \"width\": 24,\r\n                    \"height\": 15\r\n                }\r\n            },\r\n            {\r\n                \"tag_name\": \"A\",\r\n                \"label\": \"سنڌي\",\r\n                \"bounding_box\": {\r\n                    \"x\": 707,\r\n                    \"y\": 386,\r\n                    \"width\": 28,\r\n                    \"height\": 15\r\n                }\r\n            },\r\n            {\r\n                \"tag_name\": \"A\",\r\n                \"label\": \"About\",\r\n                \"bounding_box\": {\r\n                    \"x\": 20,\r\n                    \"y\": 674,\r\n                    \"width\": 66,\r\n                    \"height\": 46\r\n                }\r\n            },\r\n            {\r\n                \"tag_name\": \"A\",\r\n                \"label\": \"Advertising\",\r\n                \"bounding_box\": {\r\n                    \"x\": 86,\r\n                    \"y\": 674,\r\n                    \"width\": 99,\r\n                    \"height\": 46\r\n                }\r\n            },\r\n            {\r\n                \"tag_name\": \"A\",\r\n                \"label\": \"Business\",\r\n                \"bounding_box\": {\r\n                    \"x\": 185,\r\n                    \"y\": 674,\r\n                    \"width\": 86,\r\n                    \"height\": 46\r\n                }\r\n            },\r\n            {\r\n                \"tag_name\": \"A\",\r\n                \"label\": \"How Search works\",\r\n                \"bounding_box\": {\r\n                    \"x\": 272,\r\n                    \"y\": 674,\r\n                    \"width\": 146,\r\n                    \"height\": 46\r\n                }\r\n            },\r\n            {\r\n                \"tag_name\": \"A\",\r\n                \"label\": \"Privacy\",\r\n                \"bounding_box\": {\r\n                    \"x\": 1035,\r\n                    \"y\": 674,\r\n                    \"width\": 75,\r\n                    \"height\": 46\r\n                }\r\n            },\r\n            {\r\n                \"tag_name\": \"A\",\r\n                \"label\": \"Terms\",\r\n                \"bounding_box\": {\r\n                    \"x\": 1111,\r\n                    \"y\": 674,\r\n                    \"width\": 68,\r\n                    \"height\": 46\r\n                }\r\n            },\r\n            {\r\n                \"tag_name\": \"DIV\",\r\n                \"label\": \"Settings\",\r\n                \"bounding_box\": {\r\n                    \"x\": 1179,\r\n                    \"y\": 674,\r\n                    \"width\": 80,\r\n                    \"height\": 46\r\n                }\r\n            }\r\n        ]\r\n    },\r\n    \"prompt\": \"what is the weather in london ?\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local_url}}/lab1/lab1-action",
+									"host": [
+										"{{local_url}}"
+									],
+									"path": [
+										"lab1",
+										"lab1-action"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 01 Mar 2024 12:01:57 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.47 (Win64) OpenSSL/1.1.1l mod_fcgid/2.3.10-dev"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.5"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "5"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "3"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding,Authorization"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"\",\n    \"data\": {\n        \"states\": [\n            {\n                \"title\": \"Google\",\n                \"headings\": [],\n                \"interactable_elements\": {\n                    \"tag_name\": \"TEXTAREA\",\n                    \"label\": \"Search\",\n                    \"bounding_box\": {\n                        \"x\": 396,\n                        \"y\": 258,\n                        \"width\": 443,\n                        \"height\": 27\n                    }\n                }\n            },\n            {\n                \"title\": \"Google\",\n                \"headings\": [],\n                \"interactable_elements\": {\n                    \"tag_name\": \"TEXTAREA\",\n                    \"label\": \"Search\",\n                    \"bounding_box\": {\n                        \"x\": 396,\n                        \"y\": 258,\n                        \"width\": 443,\n                        \"height\": 27\n                    }\n                }\n            }\n        ],\n        \"actions\": [\n            {\n                \"instruction\": \"type\",\n                \"target\": {\n                    \"tag_name\": \"TEXTAREA\",\n                    \"label\": \"Search\",\n                    \"bounding_box\": {\n                        \"x\": 396,\n                        \"y\": 258,\n                        \"width\": 443,\n                        \"height\": 27\n                    }\n                },\n                \"content\": \"weather in London\"\n            },\n            {\n                \"instruction\": \"type\",\n                \"target\": {\n                    \"tag_name\": \"TEXTAREA\",\n                    \"label\": \"Search\",\n                    \"bounding_box\": {\n                        \"x\": 396,\n                        \"y\": 258,\n                        \"width\": 443,\n                        \"height\": 27\n                    }\n                },\n                \"content\": \"weather in London\"\n            }\n        ],\n        \"action\": {\n            \"instruction\": \"type\",\n            \"target\": {\n                \"tag_name\": \"TEXTAREA\",\n                \"label\": \"Search\",\n                \"bounding_box\": {\n                    \"x\": 396,\n                    \"y\": 258,\n                    \"width\": 443,\n                    \"height\": 27\n                }\n            },\n            \"content\": \"weather in London\"\n        }\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

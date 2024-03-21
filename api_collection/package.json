@@ -1,0 +1,103 @@
+{
+  "name": "postman-to-openapi-unique",
+  "version": "3.0.1",
+  "description": "Convert postman collection to OpenAPI spec",
+  "main": "lib/index.js",
+  "types": "types/index.d.ts",
+  "bin": {
+    "p2o": "./bin/cli.js"
+  },
+  "scripts": {
+    "lint": "eslint **/*.js",
+    "lint:fix": "eslint **/*.js --fix",
+    "lint:ts": "tsc --build types",
+    "test:unit": "mocha",
+    "test:unit-no-only": "npm run test:unit -- --forbid-only",
+    "test": "nyc npm run test:unit-no-only",
+    "changelog:all": "conventional-changelog --config ./changelog.config.js -i CHANGELOG.md -s -r 0",
+    "changelog": "conventional-changelog --config ./changelog.config.js -i CHANGELOG.md -s",
+    "prepare": "husky install"
+  },
+  "files": [
+    "bin/*",
+    "lib/*",
+    "types/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joolfe/postman-to-openapi.git"
+  },
+  "keywords": [
+    "swagger",
+    "OpenAPI",
+    "postman",
+    "collection",
+    "convert",
+    "converter",
+    "transform",
+    "specification",
+    "yml"
+  ],
+  "author": "joolfe04@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joolfe/postman-to-openapi/issues"
+  },
+  "homepage": "https://github.com/joolfe/postman-to-openapi#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^17.3.0",
+    "@commitlint/config-conventional": "^17.3.0",
+    "eslint": "^8.30.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.6.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "execa": "^5.1.1",
+    "husky": "^7.0.4",
+    "mocha": "^10.2.0",
+    "nyc": "^15.1.0",
+    "typescript": "^4.9.4"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "engines": {
+    "node": ">=14 <20"
+  },
+  "nyc": {
+    "all": true,
+    "include": [
+      "lib/**/*.js",
+      "test/**/*.js",
+      "bin/**/*.js"
+    ],
+    "exclude": [],
+    "reporter": [
+      "lcovonly",
+      "html",
+      "text"
+    ],
+    "lines": 90,
+    "statements": 90,
+    "functions": 90,
+    "branches": 90,
+    "check-coverage": true
+  },
+  "dependencies": {
+    "commander": "^8.3.0",
+    "js-yaml": "^4.1.0",
+    "jsonc-parser": "3.2.0",
+    "lodash.camelcase": "^4.3.0",
+    "marked": "^4.2.5",
+    "mustache": "^4.2.0",
+    "postman-to-openapi": "^3.0.1"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }
+}
