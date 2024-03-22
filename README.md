@@ -176,9 +176,10 @@ def process_spec_file(file_path: str = None, token: str = None, key: str = None,
         return api_spec, headers
 ```
 
-1. Navigate to the `icl_examples` directory. In the `api_selector` and `planner` directories, add examples of API calls specific to your scenario, following the same format as the existing examples such as `Spotify`, as shown below. You need to be performing some prompt engineering to generate prompt examples for better results from the LLM.
+1. Navigate to the `icl_examples` directory. In the `api_selector` and `planner` directories, add examples of API calls specific to your scenario, following the same format as the existing examples such as `Spotify`, as shown below. You need to be performing some prompt engineering to generate prompt examples for better results from the LLM.
 
    Here are the examples for “Spotify” scenario:
+
 
    1. api_selector:
 
@@ -202,7 +203,7 @@ API calling 1: POST /me/player/queue to add Yellow (3AJwUDP919kvQ9QcozQPxg) to t
 API response: Yellow is added to the player queue
 ```
 
-    2. planner:
+   2. planner:
 
 ```markdown
 Example 1:
@@ -235,7 +236,17 @@ Tailor these examples to match your scenario's unique use case.
 Your icl_examples directory should look like the example image provided below:
 ![screenshot](sample_screenshots/1.png)
 
-1. Done! You are good to go.
+## **Step 4: Run the Project**
+
+Once all of the changes are in place, you are good to run the application. You should be in the `Synapse-Copilot` directory. You can run your project like this:
+```python
+cd Synapse-Copilot
+python run.py
+```
+
+
+
+Done! You are good to go.
 
 # Guide for the Possible Changes might need in specs file
 
@@ -252,6 +263,14 @@ There are few changes/adjustments which you might need to perform in the specs f
 
    And your application’s base url is: [https://api.trello.com](https://api.trello.com/), all the paths must start with the route after the base url like this: `/1/boards/` .
 
+# 🚨 Disclaimer
+
+While the scenarios available in the application strive for universality, some may require slight adjustments based on their API interactions. Ensure that your specification file is correctly formatted for the agent's consumption. You can refer to other applications' specification files as formatting examples. Additionally, specification files often require minor modifications, such as removing the base URL from the API documentation paths.
+
+# 🌟 Contributing
+
+We welcome contributions to Synapse Copilot with open arms! If you have any brilliant ideas, bug reports, or feature requests, please open an issue or submit a pull request. Together, we can make this project even more remarkable! 🎉
+
 ## 💡 Why Us?
 Choosing the right tools and frameworks is crucial for the success of your project. Here's why Synapse Copilot stands out as the premier choice for developers and organizations leveraging SAAS architectures:
 
@@ -263,14 +282,6 @@ Choosing the right tools and frameworks is crucial for the success of your proje
 
 🛠️ **Enhanced Control**
 - Empower Your Creativity: With Synapse Copilot, you gain more control over your projects through advanced Prompt Engineering. This feature allows you to tailor the functionality to your specific needs, offering unparalleled flexibility and efficiency. Unleash your creativity and push the boundaries of what's possible with our intuitive control mechanisms.
-
-# 🚨 Disclaimer
-
-While the scenarios available in the application strive for universality, some may require slight adjustments based on their API interactions. Ensure that your specification file is correctly formatted for the agent's consumption. You can refer to other applications' specification files as formatting examples. Additionally, specification files often require minor modifications, such as removing the base URL from the API documentation paths.
-
-# 🌟 Contributing
-
-We welcome contributions to Synapse Copilot with open arms! If you have any brilliant ideas, bug reports, or feature requests, please open an issue or submit a pull request. Together, we can make this project even more remarkable! 🎉
 
 # 📝 License
 
