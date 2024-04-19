@@ -244,6 +244,8 @@ cd Synapse-Copilot
 python run.py
 ```
 
+## **Step 5: Import Database File**
+Once all steps are done you have to upload your database file ```synapse-copilot.sql``` file in mysql or any alternative but we are providing support for mysql currently.
 
 
 Done! You are good to go.
