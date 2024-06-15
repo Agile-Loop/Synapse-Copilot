@@ -26,9 +26,9 @@ def main():
     # database connection details
     db_config = {
         'host': 'localhost',
-        'database': 'llamadb',
+        'database': 'synapse-copilot',
         'user': 'root',
-        'password': '123456',
+        'password': '',
     }
 
     # Connect to the MySQL server
@@ -73,7 +73,7 @@ def main():
                 ser_qu = f"SELECT * FROM credentials WHERE user_id = {user_id};"
                 cursor.execute(ser_qu)
                 res = cursor.fetchone()
-                res_t = res[1]
+                res_t = res[2]
                 print(f"your token {res_t}")
                 os.environ["GOOGLE_TOKEN"] = res_t
                 dic = {
@@ -121,8 +121,8 @@ def main():
                 ser_qu = f"SELECT * FROM jira_credentials WHERE user_id = {user_id};"
                 cursor.execute(ser_qu)
                 res = cursor.fetchone()
-                token = res[1]
-                host = res[2]
+                token = res[2]
+                host = res[3]
                 username = res[3]
 
                 print(f"Fetched Jira token: {token}")
@@ -177,8 +177,9 @@ def main():
                 ser_qu = f"SELECT * FROM trello_credentials WHERE user_id = {user_id};"
                 cursor.execute(ser_qu)
                 res = cursor.fetchone()
-                key = res[1]
-                token = res[2]
+                print(f"Fetched Trello credentials: {res}")
+                key = str(res[2])
+                token = str(res[3])
 
                 os.environ["TRELLO_API_KEY"] = key
                 os.environ["TRELLO_TOKEN"] = token
@@ -189,8 +190,8 @@ def main():
                     "user_token": token
                 }
                 print(dic)
-            except:
-                print("Key is not present in the database")
+            except Exception as e:
+                print(f"Key is not present in the database {e}")
                 return ""
         replace_api_credentials_in_json(
             ###to replace all the key and token variables in the specs file with real values

@@ -4,3 +4,4 @@ langchain==0.0.315
 colorama==0.4.6
 tiktoken==0.5.1
 openai==0.28.1
+mysql-connector-python
