@@ -13,7 +13,7 @@ Let's dive right in and get you up and running with your very own API scenario!
 ```python
 git clone https://github.com/Agile-Loop/Synapse-Copilot.git
 cd Synapse-Copilot
-pip install –r requiements.txt
+pip install –r requirements.txt
 ```
 
 ## **Step 2: Grab your Postman Collection or OpenAPI spec file**
