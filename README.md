@@ -52,6 +52,12 @@ This will install the `node_modules` in the api_collection directory. Now, you n
 p2o test\resources\input\your_postman_collection.postman_collection.json -f test\resources\output\your_spec_file_name.yml -o test\resources\input\options.json
 ```
 
+Note: If you encounter an error using the `p2o` command above, it could be because the path separator is interpreted differently (depending on your operating system). Try using forward slashes (`/`) instead of backslashes (`\`) in the file paths like in the command skeleton below.
+
+```markdown
+p2o test/resources/input/your_postman_collection.postman_collection.json -f test/resources/output/your_spec_file_name.yml -o test/resources/input/options.json
+```
+
 Navigate to output directory
 
 ```markdown
