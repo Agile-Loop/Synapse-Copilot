@@ -71,6 +71,9 @@ def get_matched_endpoint(api_spec: ReducedOpenAPISpec, plan: str):
         # return ['GET /api/v2/team/9008245063/space']
         # raise ValueError(f"Endpoint {plan_endpoint} not found in API spec.")
     
+    #Remove duplicates (fixes issue with Found x matching duplicate endpoints)
+    matched_endpoints = list(set(matched_endpoints))
+
     print("UTILS: MATCHED ENDPOINTS 57:")
     print(matched_endpoints)
     print("\n\n")
